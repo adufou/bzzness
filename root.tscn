@@ -22,18 +22,58 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="EggMeshInstance3D" type="MeshInstance3D" parent="Main/WorldNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, 4)
+[node name="EggNode3D" type="Node3D" parent="Main/WorldNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 12)
+
+[node name="EggMeshInstance3D" type="MeshInstance3D" parent="Main/WorldNode3D/EggNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = ExtResource("2_pyidc")
+skeleton = NodePath("../..")
 
-[node name="LarvaMeshInstance3D" type="MeshInstance3D" parent="Main/WorldNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 6)
+[node name="Label3D" type="Label3D" parent="Main/WorldNode3D/EggNode3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+pixel_size = 0.025
+text = "Egg"
+
+[node name="LarvaNode3D" type="Node3D" parent="Main/WorldNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="LarvaMeshInstance3D" type="MeshInstance3D" parent="Main/WorldNode3D/LarvaNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = ExtResource("3_jnlp7")
+skeleton = NodePath("../..")
 
-[node name="BeeMeshInstance3D2" type="MeshInstance3D" parent="Main/WorldNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 8)
+[node name="Label3D" type="Label3D" parent="Main/WorldNode3D/LarvaNode3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+pixel_size = 0.025
+text = "Larva"
+
+[node name="BeeNode3D" type="Node3D" parent="Main/WorldNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20)
+
+[node name="BeeMeshInstance3D2" type="MeshInstance3D" parent="Main/WorldNode3D/BeeNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = ExtResource("4_l8v81")
+skeleton = NodePath("../..")
 
-[node name="FlowerMeshInstance3D3" type="MeshInstance3D" parent="Main/WorldNode3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 10)
+[node name="Label3D" type="Label3D" parent="Main/WorldNode3D/BeeNode3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+pixel_size = 0.025
+text = "Bee"
+
+[node name="FlowerNode3D" type="Node3D" parent="Main/WorldNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 24)
+
+[node name="FlowerMeshInstance3D3" type="MeshInstance3D" parent="Main/WorldNode3D/FlowerNode3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = ExtResource("5_vyht1")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="Main/WorldNode3D/FlowerNode3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+pixel_size = 0.025
+text = "Flower"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
+transform = Transform3D(-0.979925, -0.172658, 0.0996839, 0, 0.5, 0.866025, -0.199368, 0.84864, -0.489962, 0, 0, 0)
+shadow_enabled = true
