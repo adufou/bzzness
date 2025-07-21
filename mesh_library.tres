@@ -1,0 +1,20 @@
+[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://c78lrm5cqyfqk"]
+
+[ext_resource type="CapsuleMesh" uid="uid://krgyvu3m4i5o" path="res://egg_capsule_mesh.tres" id="1_vhhwy"]
+[ext_resource type="PlaneMesh" uid="uid://dxkrqwrgeepwh" path="res://grass_plane_mesh.tres" id="2_ym0by"]
+
+[resource]
+item/0/name = "Egg"
+item/0/mesh = ExtResource("1_vhhwy")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/mesh_cast_shadow = 1
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/1/name = "Grass"
+item/1/mesh = ExtResource("2_ym0by")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/mesh_cast_shadow = 1
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1

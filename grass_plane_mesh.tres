@@ -1,0 +1,10 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://dxkrqwrgeepwh"]
+
+[ext_resource type="Texture2D" uid="uid://3k0i5n7wmbp0" path="res://grass.png" id="1_lmg6v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_602ei"]
+albedo_texture = ExtResource("1_lmg6v")
+
+[resource]
+material = SubResource("StandardMaterial3D_602ei")
+center_offset = Vector3(0, -1, 0)
