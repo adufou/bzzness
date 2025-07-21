@@ -1,0 +1,6 @@
+[gd_resource type="CapsuleMesh" load_steps=2 format=3 uid="uid://bhpafa65f0c0a"]
+
+[ext_resource type="Material" uid="uid://lr1yrniobh47" path="res://larva_standard_material_3d.tres" id="1_d1b55"]
+
+[resource]
+material = ExtResource("1_d1b55")
