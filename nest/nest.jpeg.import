@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vvi4wpr50bry"
-path.s3tc="res://.godot/imported/bee.png-a64c68cb0a8ad43d8e891abe1232395f.s3tc.ctex"
+uid="uid://d0ivhjromaceo"
+path.s3tc="res://.godot/imported/nest.jpeg-ef9d3f8f8bdd15ca9bfb1abc84cc6d40.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://bee.png"
-dest_files=["res://.godot/imported/bee.png-a64c68cb0a8ad43d8e891abe1232395f.s3tc.ctex"]
+source_file="res://nest/nest.jpeg"
+dest_files=["res://.godot/imported/nest.jpeg-ef9d3f8f8bdd15ca9bfb1abc84cc6d40.s3tc.ctex"]
 
 [params]
 

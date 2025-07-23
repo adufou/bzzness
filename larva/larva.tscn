@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7825rrkstoa7"]
+
+[ext_resource type="Script" uid="uid://1e2gtibnnpjq" path="res://larva/larva.gd" id="1_oevgx"]
+[ext_resource type="CapsuleMesh" uid="uid://bhpafa65f0c0a" path="res://larva/larva_capsule_mesh.tres" id="2_g230p"]
+
+[node name="LarvaNode3D" type="Node3D"]
+script = ExtResource("1_oevgx")
+
+[node name="LarvaMeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("2_g230p")
+skeleton = NodePath("../..")
+
+[node name="LarvaLabel3D" type="Label3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+pixel_size = 0.025
+text = "Larva"

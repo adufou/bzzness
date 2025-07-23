@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbatv826yq4i"
-path.s3tc="res://.godot/imported/larva.png-d95075fc087e3f306b41b6e930d7c22a.s3tc.ctex"
+uid="uid://vvi4wpr50bry"
+path.s3tc="res://.godot/imported/bee.png-0c8ef7b52813293bccc386cca33015cd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://larva.png"
-dest_files=["res://.godot/imported/larva.png-d95075fc087e3f306b41b6e930d7c22a.s3tc.ctex"]
+source_file="res://bee/bee.png"
+dest_files=["res://.godot/imported/bee.png-0c8ef7b52813293bccc386cca33015cd.s3tc.ctex"]
 
 [params]
 

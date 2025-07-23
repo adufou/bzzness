@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvbkrxg3m67r3"]
+
+[ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://bee/bee.gd" id="1_v5qog"]
+[ext_resource type="CapsuleMesh" uid="uid://w7gphvxhaaq0" path="res://bee/bee_capsule_mesh.tres" id="2_q8d8k"]
+
+[node name="BeeNode3D" type="Node3D"]
+script = ExtResource("1_v5qog")
+
+[node name="BeeMeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = ExtResource("2_q8d8k")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+pixel_size = 0.025
+text = "Bee"

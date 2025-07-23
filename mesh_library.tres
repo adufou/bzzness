@@ -1,20 +1,36 @@
-[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://c78lrm5cqyfqk"]
+[gd_resource type="MeshLibrary" load_steps=5 format=3 uid="uid://c78lrm5cqyfqk"]
 
-[ext_resource type="CapsuleMesh" uid="uid://krgyvu3m4i5o" path="res://egg_capsule_mesh.tres" id="1_vhhwy"]
-[ext_resource type="PlaneMesh" uid="uid://dxkrqwrgeepwh" path="res://grass_plane_mesh.tres" id="2_ym0by"]
+[ext_resource type="PlaneMesh" uid="uid://dxkrqwrgeepwh" path="res://grass/grass_plane_mesh.tres" id="1_j2dk8"]
+[ext_resource type="PlaneMesh" uid="uid://87giapn35ruy" path="res://hatchery/hatchery_plane_mesh.tres" id="2_j2dk8"]
+[ext_resource type="PlaneMesh" uid="uid://b5ogktjxw21kj" path="res://nest/nest_plane_mesh.tres" id="3_7g0jx"]
+[ext_resource type="PlaneMesh" uid="uid://b3arq73pet3g4" path="res://hive_cells/hive_cells_plane_mesh.tres" id="4_6xv2k"]
 
 [resource]
-item/0/name = "Egg"
-item/0/mesh = ExtResource("1_vhhwy")
+item/0/name = "Grass"
+item/0/mesh = ExtResource("1_j2dk8")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/mesh_cast_shadow = 1
 item/0/shapes = []
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/navigation_layers = 1
-item/1/name = "Grass"
-item/1/mesh = ExtResource("2_ym0by")
+item/1/name = "Hatchery"
+item/1/mesh = ExtResource("2_j2dk8")
 item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/mesh_cast_shadow = 1
 item/1/shapes = []
 item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/1/navigation_layers = 1
+item/2/name = "Nest"
+item/2/mesh = ExtResource("3_7g0jx")
+item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/mesh_cast_shadow = 1
+item/2/shapes = []
+item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/navigation_layers = 1
+item/3/name = "HiveCells"
+item/3/mesh = ExtResource("4_6xv2k")
+item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/mesh_cast_shadow = 1
+item/3/shapes = []
+item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/navigation_layers = 1

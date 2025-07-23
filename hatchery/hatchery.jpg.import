@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f5qmkt6phl6c"
-path.s3tc="res://.godot/imported/flower.png-45a67ae89eb9a8c6713d73e3851fff74.s3tc.ctex"
+uid="uid://vlj1a1h25e5i"
+path.s3tc="res://.godot/imported/hatchery.jpg-9b22f77adaacd3522cf3bbfce4538581.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://flower.png"
-dest_files=["res://.godot/imported/flower.png-45a67ae89eb9a8c6713d73e3851fff74.s3tc.ctex"]
+source_file="res://hatchery/hatchery.jpg"
+dest_files=["res://.godot/imported/hatchery.jpg-9b22f77adaacd3522cf3bbfce4538581.s3tc.ctex"]
 
 [params]
 
