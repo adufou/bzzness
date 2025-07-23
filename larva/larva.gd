@@ -25,8 +25,6 @@ func set_hatchery_spot(position: Vector3):
 func is_at_hatchery_spot() -> bool:
 	var distance_to_hatchery_spot: Vector3 = hatchery_spot - global_transform.origin
 	
-	print(distance_to_hatchery_spot)
-	
 	return distance_to_hatchery_spot.length() < 0.5
 
 func move_to_hatchery_spot(delta: float) -> void:

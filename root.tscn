@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjsjyxhy3uu4d"]
+[gd_scene load_steps=10 format=3 uid="uid://cjsjyxhy3uu4d"]
 
 [ext_resource type="Script" uid="uid://bwgd4ldaawl31" path="res://main.gd" id="1_huihk"]
 [ext_resource type="MeshLibrary" uid="uid://c78lrm5cqyfqk" path="res://mesh_library.tres" id="1_pq8q7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c02y8h4w6sij0" path="res://grid_map.gd" id="2_l8v81"]
 [ext_resource type="PackedScene" uid="uid://b7825rrkstoa7" path="res://larva/larva.tscn" id="4_vyht1"]
 [ext_resource type="PackedScene" uid="uid://cvbkrxg3m67r3" path="res://bee/bee.tscn" id="5_bf3um"]
+[ext_resource type="PackedScene" uid="uid://bveudwxn7pqsh" path="res://flower/flower.tscn" id="6_huihk"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="8_bf3um"]
 
 [node name="Root" type="Node"]
@@ -20,6 +21,7 @@ script = ExtResource("1_vyht1")
 egg_scene = ExtResource("2_jnlp7")
 larva_scene = ExtResource("4_vyht1")
 bee_scene = ExtResource("5_bf3um")
+flower_scene = ExtResource("6_huihk")
 
 [node name="Camera3D" type="Camera3D" parent="Main/WorldNode3D"]
 transform = Transform3D(-0.707107, 0.270598, -0.653281, 0, 0.92388, 0.382683, 0.707107, 0.270598, -0.653281, 0, 16, 0)

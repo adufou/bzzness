@@ -15,8 +15,6 @@ func _random_item_position(item: int) -> Vector3:
 	var position_z: float = random_item_cell_position.z + randf()
 	var position: Vector3 = Vector3(position_x, 0, position_z)
 	
-	print(position, item)
-	
 	return position
 
 func random_egg_position() -> Vector3:
@@ -24,3 +22,6 @@ func random_egg_position() -> Vector3:
 
 func random_nest_position() -> Vector3:
 	return _random_item_position(ITEMS.NEST)
+
+func random_flower_position() -> Vector3:
+	return _random_item_position(ITEMS.GRASS)

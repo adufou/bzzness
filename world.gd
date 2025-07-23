@@ -3,6 +3,23 @@ extends Node3D
 @export var egg_scene: PackedScene
 @export var larva_scene: PackedScene
 @export var bee_scene: PackedScene
+@export var flower_scene: PackedScene
+
+const FLOWER_SPAWN_CHANCE: float = 0.5
+const FLOWER_SPAWN_TRY_RATE_SECONDS: float = 1
+
+var next_flower_spawn_try_remaining_time = FLOWER_SPAWN_TRY_RATE_SECONDS
+
+func _process(delta: float) -> void:
+	next_flower_spawn_try_remaining_time -= delta
+	
+	if (next_flower_spawn_try_remaining_time <= 0):
+		var try_roll: float = randf()
+		if (try_roll > FLOWER_SPAWN_CHANCE):
+			return
+			
+		spawn_flower()
+		next_flower_spawn_try_remaining_time += FLOWER_SPAWN_TRY_RATE_SECONDS
 
 func create_egg() -> void:
 	var egg: Egg = egg_scene.instantiate()
@@ -26,3 +43,9 @@ func spawn_bee(bee_position: Vector3) -> void:
 	bee.position = bee_position
 	
 	add_sibling(bee)
+
+func spawn_flower() -> void:
+	var flower: Flower = flower_scene.instantiate()
+	flower.position = %GridMap.random_flower_position()
+	
+	add_sibling(flower)
