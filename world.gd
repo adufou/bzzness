@@ -48,7 +48,7 @@ func _assign_hive_cells_spot_to_bee(bee: Bee) -> void:
 	bee.hive_cells_spot = %GridMap.random_hive_cells_spot()
 
 func _handle_pollen_deposit(pollen: int) -> void:
-	%GameStateNode.total_pollen += pollen
+	GameState.total_pollen += pollen
 
 func spawn_bee(bee_position: Vector3) -> void:
 	var bee: Bee = bee_scene.instantiate()
