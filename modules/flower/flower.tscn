@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bveudwxn7pqsh"]
 
-[ext_resource type="Script" uid="uid://c8bx5qu3b8tpi" path="res://flower/flower.gd" id="1_nageh"]
-[ext_resource type="CapsuleMesh" uid="uid://bn1wonmcrhmr2" path="res://flower/flower_capsule_mesh.tres" id="2_511j0"]
+[ext_resource type="Script" uid="uid://c8bx5qu3b8tpi" path="res://modules/flower/flower.gd" id="1_nageh"]
+[ext_resource type="CapsuleMesh" uid="uid://bn1wonmcrhmr2" path="res://modules/flower/flower_capsule_mesh.tres" id="2_511j0"]
 
 [node name="FlowerNode3D" type="Node3D"]
 script = ExtResource("1_nageh")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbatv826yq4i"
-path.s3tc="res://.godot/imported/larva.png-6a55966444cdc0878ef873bdce82dc6d.s3tc.ctex"
+uid="uid://d0ivhjromaceo"
+path.s3tc="res://.godot/imported/nest.jpeg-bce911af7c2f96665290ce1f3d259e4d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://larva/larva.png"
-dest_files=["res://.godot/imported/larva.png-6a55966444cdc0878ef873bdce82dc6d.s3tc.ctex"]
+source_file="res://modules/nest/nest.jpeg"
+dest_files=["res://.godot/imported/nest.jpeg-bce911af7c2f96665290ce1f3d259e4d.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnjex1ecdu0en"
-path.s3tc="res://.godot/imported/hive_cells.jpg-fb8d867a658c954a7e768315360b1e82.s3tc.ctex"
+uid="uid://f5qmkt6phl6c"
+path.s3tc="res://.godot/imported/flower.png-633e4a86f5a1521b31b2c4b18633f6dc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://hive_cells/hive_cells.jpg"
-dest_files=["res://.godot/imported/hive_cells.jpg-fb8d867a658c954a7e768315360b1e82.s3tc.ctex"]
+source_file="res://modules/flower/flower.png"
+dest_files=["res://.godot/imported/flower.png-633e4a86f5a1521b31b2c4b18633f6dc.s3tc.ctex"]
 
 [params]
 

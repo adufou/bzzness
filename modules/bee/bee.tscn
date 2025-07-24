@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvbkrxg3m67r3"]
 
-[ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://bee/bee.gd" id="1_v5qog"]
-[ext_resource type="CapsuleMesh" uid="uid://w7gphvxhaaq0" path="res://bee/bee_capsule_mesh.tres" id="2_q8d8k"]
+[ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
+[ext_resource type="CapsuleMesh" uid="uid://w7gphvxhaaq0" path="res://modules/bee/bee_capsule_mesh.tres" id="2_q8d8k"]
 
 [node name="BeeNode3D" type="Node3D"]
 script = ExtResource("1_v5qog")

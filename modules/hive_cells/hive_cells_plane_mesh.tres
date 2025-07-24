@@ -1,9 +1,9 @@
 [gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://b3arq73pet3g4"]
 
-[ext_resource type="Texture2D" uid="uid://cnjex1ecdu0en" path="res://hive_cells/hive_cells.jpg" id="1_ae8ke"]
+[ext_resource type="Texture2D" uid="uid://cnjex1ecdu0en" path="res://modules/hive_cells/hive_cells.jpg" id="1_jg3kn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_153mi"]
-albedo_texture = ExtResource("1_ae8ke")
+albedo_texture = ExtResource("1_jg3kn")
 
 [resource]
 material = SubResource("StandardMaterial3D_153mi")

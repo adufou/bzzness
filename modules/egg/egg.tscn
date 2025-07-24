@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ui68a8noesti"]
 
-[ext_resource type="Script" uid="uid://7cc5fmytnx0f" path="res://egg/egg.gd" id="1_60cwx"]
-[ext_resource type="CapsuleMesh" uid="uid://krgyvu3m4i5o" path="res://egg/egg_capsule_mesh.tres" id="2_s80rl"]
+[ext_resource type="Script" uid="uid://7cc5fmytnx0f" path="res://modules/egg/egg.gd" id="1_60cwx"]
+[ext_resource type="CapsuleMesh" uid="uid://krgyvu3m4i5o" path="res://modules/egg/egg_capsule_mesh.tres" id="2_s80rl"]
 
 [node name="EggNode3D" type="Node3D"]
 script = ExtResource("1_60cwx")

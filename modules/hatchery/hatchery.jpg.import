@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3k0i5n7wmbp0"
-path.s3tc="res://.godot/imported/grass.png-387b3de73e4c1fdc8d7cf3aa1a36c2b1.s3tc.ctex"
+uid="uid://vlj1a1h25e5i"
+path.s3tc="res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://grass/grass.png"
-dest_files=["res://.godot/imported/grass.png-387b3de73e4c1fdc8d7cf3aa1a36c2b1.s3tc.ctex"]
+source_file="res://modules/hatchery/hatchery.jpg"
+dest_files=["res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.s3tc.ctex"]
 
 [params]
 

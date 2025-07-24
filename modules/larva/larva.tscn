@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7825rrkstoa7"]
 
-[ext_resource type="Script" uid="uid://1e2gtibnnpjq" path="res://larva/larva.gd" id="1_oevgx"]
-[ext_resource type="CapsuleMesh" uid="uid://bhpafa65f0c0a" path="res://larva/larva_capsule_mesh.tres" id="2_g230p"]
+[ext_resource type="Script" uid="uid://1e2gtibnnpjq" path="res://modules/larva/larva.gd" id="1_oevgx"]
+[ext_resource type="CapsuleMesh" uid="uid://bhpafa65f0c0a" path="res://modules/larva/larva_capsule_mesh.tres" id="2_g230p"]
 
 [node name="LarvaNode3D" type="Node3D"]
 script = ExtResource("1_oevgx")
