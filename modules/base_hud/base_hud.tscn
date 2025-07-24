@@ -43,6 +43,32 @@ text = "0 Pollen"
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OpenUpgradesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
+layout_mode = 2
+text = "Upgrades"
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "TBD"
+
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "TBD"
+
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "TBD"
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -70,4 +96,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "CREATE EGG"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer/OpenUpgradesButton" to="." method="_on_open_upgrades_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer4/CreateEggButton" to="." method="_on_create_egg_button_pressed"]
