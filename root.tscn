@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjsjyxhy3uu4d"]
+[gd_scene load_steps=11 format=3 uid="uid://cjsjyxhy3uu4d"]
 
 [ext_resource type="Script" uid="uid://bwgd4ldaawl31" path="res://main.gd" id="1_huihk"]
 [ext_resource type="MeshLibrary" uid="uid://c78lrm5cqyfqk" path="res://mesh_library.tres" id="1_pq8q7"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cvbkrxg3m67r3" path="res://bee/bee.tscn" id="5_bf3um"]
 [ext_resource type="PackedScene" uid="uid://bveudwxn7pqsh" path="res://flower/flower.tscn" id="6_huihk"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="8_bf3um"]
+[ext_resource type="Script" uid="uid://drwyriku6s2v6" path="res://game_state.gd" id="10_tw3kd"]
 
 [node name="Root" type="Node"]
 
@@ -85,12 +86,34 @@ size_flags_vertical = 3
 [node name="HBoxContainer3" type="HBoxContainer" parent="Main/HudControl/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CreateEggButton" type="Button" parent="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QueenLayProgressBar" type="ProgressBar" parent="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Main/HudControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreateEggButton" type="Button" parent="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer4"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "CREATE EGG"
 
-[connection signal="on_update_total_pollen" from="Main/WorldNode3D" to="Main" method="_on_world_node_3d_on_update_total_pollen"]
+[node name="GameStateNode" type="Node" parent="Main"]
+unique_name_in_owner = true
+script = ExtResource("10_tw3kd")
+
 [connection signal="on_create_egg" from="Main/HudControl" to="Main" method="_on_hud_control_on_create_egg"]
-[connection signal="pressed" from="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer3/CreateEggButton" to="Main/HudControl" method="_on_create_egg_button_pressed"]
+[connection signal="pressed" from="Main/HudControl/MarginContainer/VBoxContainer/HBoxContainer4/CreateEggButton" to="Main/HudControl" method="_on_create_egg_button_pressed"]

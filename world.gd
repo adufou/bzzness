@@ -5,14 +5,10 @@ extends Node3D
 @export var bee_scene: PackedScene
 @export var flower_scene: PackedScene
 
-signal on_update_total_pollen(pollen: int)
-
 const FLOWER_SPAWN_CHANCE: float = 0.5
 const FLOWER_SPAWN_TRY_RATE_SECONDS: float = 1
 
 var next_flower_spawn_try_remaining_time = FLOWER_SPAWN_TRY_RATE_SECONDS
-
-var total_pollen = 0
 
 var flowers: Dictionary[int, Flower] = {}
 
@@ -52,8 +48,7 @@ func _assign_hive_cells_spot_to_bee(bee: Bee) -> void:
 	bee.hive_cells_spot = %GridMap.random_hive_cells_spot()
 
 func _handle_pollen_deposit(pollen: int) -> void:
-	total_pollen += pollen
-	on_update_total_pollen.emit(total_pollen)
+	%GameStateNode.total_pollen += pollen
 
 func spawn_bee(bee_position: Vector3) -> void:
 	var bee: Bee = bee_scene.instantiate()

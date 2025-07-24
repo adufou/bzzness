@@ -48,7 +48,6 @@ func check_flower() -> bool:
 	return true
 
 func deposit_pollen() -> void:
-	print_debug("Depositing " + str(pollen_carried) + " pollen")
 	on_deposit_pollen.emit(pollen_carried)
 	pollen_carried = 0
 
