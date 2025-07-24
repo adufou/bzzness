@@ -25,3 +25,6 @@ func random_nest_position() -> Vector3:
 
 func random_flower_position() -> Vector3:
 	return _random_item_position(ITEMS.GRASS)
+
+func random_hive_cells_spot() -> Vector3:
+	return _random_item_position(ITEMS.HIVE_CELLS)

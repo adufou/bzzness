@@ -5,9 +5,9 @@ signal on_request_hatchery_spot
 signal request_spawn_bee(position: Vector3)
 
 const GROWTH_DURATION_SECONDS: float = 1
+const SPEED: float = 5.0
 
 var hatchery_spot: Vector3
-var speed: float = 5.0
 var growth_remaining_time: float = GROWTH_DURATION_SECONDS
 
 func _ready() -> void:
@@ -18,10 +18,7 @@ func _process(delta: float) -> void:
 		move_to_hatchery_spot(delta)
 	else:
 		progress_growth(delta)
-
-func set_hatchery_spot(position: Vector3):
-	hatchery_spot = position
-
+		
 func is_at_hatchery_spot() -> bool:
 	var distance_to_hatchery_spot: Vector3 = hatchery_spot - global_transform.origin
 	
@@ -29,7 +26,7 @@ func is_at_hatchery_spot() -> bool:
 
 func move_to_hatchery_spot(delta: float) -> void:
 	var direction: Vector3 = (hatchery_spot - global_transform.origin).normalized()
-	var movement: Vector3 = direction * speed * delta
+	var movement: Vector3 = direction * SPEED * delta
 
 	global_transform.origin += movement
 
