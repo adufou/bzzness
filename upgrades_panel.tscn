@@ -77,14 +77,51 @@ text = "Tier 1"
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2"]
 layout_mode = 2
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Bee Carry Capacity"
+
+[node name="Tier1BeeCarryCapacityLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lv. 0"
+
+[node name="EmptyControl2" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Tier1BeeCarryCapacityEffectLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+0%"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Tier1BeeCarryCapacityButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+text = "Buy"
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/HBoxContainer"]
 layout_mode = 2
 text = "Bee Lifetime"
 
-[node name="Tier1BeeLifetimeLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Tier1BeeLifetimeLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Lv. 0"
@@ -93,47 +130,52 @@ text = "Lv. 0"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Tier1BeeLifetimeButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-text = "Buy"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Bee Carry Capacity"
-
-[node name="Tier1BeeCarryLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Tier1BeeLifetimeEffectLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Lv. 0"
+text = "+0%"
 
-[node name="EmptyControl" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Tier1BeeCarryCapacityButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Tier1BeeLifetimeButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/HBoxContainer3"]
 layout_mode = 2
 text = "Buy"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Bee Speed"
 
-[node name="Tier1BeeSpeedLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Tier1BeeSpeedLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Lv. 0"
 
-[node name="EmptyControl" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="EmptyControl2" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Tier1BeeSpeedButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Tier1BeeSpeedEffectLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+0%"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Tier1BeeSpeedButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Buy"
 
@@ -141,7 +183,7 @@ text = "Buy"
 layout_mode = 2
 text = "Close"
 
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/Tier1BeeLifetimeButton" to="." method="_on_tier_1_bee_lifetime_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/Tier1BeeCarryCapacityButton" to="." method="_on_tier_1_bee_carry_capacity_button_pressed"]
-[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/Tier1BeeSpeedButton" to="." method="_on_tier_1_bee_speed_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/HBoxContainer3/Tier1BeeCarryCapacityButton" to="." method="_on_tier_1_bee_carry_capacity_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/HBoxContainer3/Tier1BeeLifetimeButton" to="." method="_on_tier_1_bee_lifetime_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer3/Tier1BeeSpeedButton" to="." method="_on_tier_1_bee_speed_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/CloseUpgradesPanelButton" to="." method="_on_close_upgrades_panel_button_pressed"]
