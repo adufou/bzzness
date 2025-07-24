@@ -5,18 +5,25 @@ signal on_request_flower(bee: Bee)
 signal on_request_hive_cells_spot(bee: Bee)
 signal on_deposit_pollen(pollen: int)
 
+const LIFETIME_SECONDS: float = 10
 const POLLEN_CAPACITY: int = 3
 const SPEED: float = 5.0
 
 var aimed_flower: Flower
 var hive_cells_spot: Vector3
 var pollen_carried: int = 0
+var remaining_lifetime: float = LIFETIME_SECONDS
 
 func _ready() -> void:
 	on_request_flower.emit(self)
 	on_request_hive_cells_spot.emit(self)
 
 func _process(delta: float) -> void:
+	remaining_lifetime -= delta
+	if (remaining_lifetime <= 0):
+		queue_free()
+	
+	%LifetimeLabel3D.text = "%.2fs" % remaining_lifetime
 	%CarryLabel3D.text = str(pollen_carried) + "/" + str(POLLEN_CAPACITY)
 	
 	if is_full():
