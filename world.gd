@@ -12,6 +12,9 @@ var next_flower_spawn_try_remaining_time = FLOWER_SPAWN_TRY_RATE_SECONDS
 
 var flowers: Dictionary[int, Flower] = {}
 
+func _ready() -> void:
+	HudInterface.on_create_egg.connect(create_egg)
+
 func _process(delta: float) -> void:
 	next_flower_spawn_try_remaining_time -= delta
 	
