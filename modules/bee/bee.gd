@@ -9,6 +9,9 @@ var lifetime_seconds: float = GameState.bees_lifetime_seconds
 var pollen_capacity: int = GameState.bees_pollen_capacity
 var speed: float = GameState.bees_speed
 
+# Rotation speed factor - higher means faster rotation
+var rotation_speed: float = 2.0
+
 var aimed_flower: Flower
 var hive_cells_spot: Vector3
 var pollen_carried: int = 0
@@ -54,16 +57,35 @@ func _set_speed(value: float) -> void:
 	speed = value
 
 func _move(destination: Vector3, speed: float, delta: float) -> void:
-	var direction: Vector3 = (destination - global_transform.origin).normalized()
-	var movement: Vector3 = direction * speed * delta
+	# Direction toward the destination (target direction)
+	var target_direction: Vector3 = (destination - global_transform.origin).normalized()
+	
+	# Current forward direction of the bee (where it's facing)
+	var current_direction: Vector3 = -global_transform.basis.z.normalized()
+	
+	# Only proceed if we have a meaningful direction
+	if target_direction.length_squared() > 0.001:
+		# Create a temporary transform looking in our target direction
+		var target_transform = global_transform.looking_at(global_transform.origin + target_direction, Vector3.UP)
+		
+		# Extract the rotation quaternions
+		var current_quat = global_transform.basis.get_rotation_quaternion()
+		var target_quat = target_transform.basis.get_rotation_quaternion()
+		
+		# Smoothly interpolate between current and target rotations
+		var interpolated_quat = current_quat.slerp(target_quat, min(delta * rotation_speed, 1.0))
+		
+		# Apply the interpolated rotation
+		global_transform.basis = Basis(interpolated_quat)
+		
+		# Update current_direction after rotation
+		current_direction = -global_transform.basis.z.normalized()
+	
+	# Move in the direction we're actually facing, not necessarily toward the destination
+	var movement: Vector3 = current_direction * speed * delta
 	
 	# Update position
 	global_transform.origin += movement
-	
-	# Make the bee face the direction it's moving
-	if direction.length_squared() > 0.001:
-		# Look at a point in the direction we're moving
-		look_at(global_transform.origin + direction, Vector3.UP)
 
 func check_flower() -> bool:
 	if aimed_flower == null:
