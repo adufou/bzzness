@@ -9,6 +9,15 @@ var current_roll: float = 0.0
 var previous_y_rotation: float = 0.0
 var first_frame: bool = true
 
+func _ready() -> void:
+	# Get the movement component if it exists
+	var movement_comp = get_parent().get_node_or_null("MovementComponent")
+	
+	# If we have a movement component, use its rotation state
+	if movement_comp and "previous_y_rotation" in movement_comp:
+		previous_y_rotation = movement_comp.previous_y_rotation
+		first_frame = false
+
 func apply_roll(entity: Node3D, y_rotation: float, delta: float) -> void:
 	# Initialize previous rotation on first frame
 	if first_frame:

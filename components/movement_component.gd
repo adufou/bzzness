@@ -4,6 +4,20 @@ class_name MovementComponent
 @export var speed: float = 5.0
 @export var rotation_speed: float = 5.0
 
+# For tracking previous rotation state
+var previous_y_rotation: float = 0.0
+
+func _ready() -> void:
+	# Initialize with random rotation for the parent entity
+	randomize()
+	var random_angle = randf_range(0, 2 * PI)
+	var random_basis = Basis(Vector3.UP, random_angle)
+	
+	# Apply random rotation to parent entity if it's a Node3D
+	if get_parent() is Node3D:
+		get_parent().global_transform.basis = random_basis
+		previous_y_rotation = random_angle
+
 func move_to(entity: Node3D, destination: Vector3, delta: float) -> float:
 	# Get the direction to the destination
 	var target_direction = (destination - entity.global_transform.origin).normalized()
