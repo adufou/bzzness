@@ -53,6 +53,17 @@ func _set_pollen_capacity(value: int) -> void:
 func _set_speed(value: float) -> void:
 	speed = value
 
+func _move(destination: Vector3, speed: float, delta: float) -> void:
+	var direction: Vector3 = (destination - global_transform.origin).normalized()
+	var movement: Vector3 = direction * speed * delta
+	
+	# Update position
+	global_transform.origin += movement
+	
+	# Make the bee face the direction it's moving
+	if direction.length_squared() > 0.001:
+		# Look at a point in the direction we're moving
+		look_at(global_transform.origin + direction, Vector3.UP)
 
 func check_flower() -> bool:
 	if aimed_flower == null:
@@ -79,10 +90,7 @@ func is_at_flower() -> bool:
 	return distance_to_flower.length() < 0.5
 
 func move_to_flower(delta: float) -> void:
-	var direction: Vector3 = (aimed_flower.position - global_transform.origin).normalized()
-	var movement: Vector3 = direction * speed * delta
-
-	global_transform.origin += movement
+	_move(aimed_flower.position, speed, delta)
 
 func is_at_hive_cells_spot() -> bool:
 	var distance_to_hive_cells_spot: Vector3 = hive_cells_spot - global_transform.origin
@@ -90,7 +98,4 @@ func is_at_hive_cells_spot() -> bool:
 	return distance_to_hive_cells_spot.length() < 0.5
 
 func move_to_hive_cells_spot(delta: float) -> void:
-	var direction: Vector3 = (hive_cells_spot - global_transform.origin).normalized()
-	var movement: Vector3 = direction * speed * delta
-
-	global_transform.origin += movement
+	_move(hive_cells_spot, speed, delta)
