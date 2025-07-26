@@ -27,7 +27,7 @@ bee_scene = ExtResource("5_txdvm")
 flower_scene = ExtResource("6_2ieat")
 
 [node name="Camera3D" type="Camera3D" parent="Main/WorldNode3D"]
-transform = Transform3D(-0.707107, 0.270598, -0.653281, 0, 0.92388, 0.382683, 0.707107, 0.270598, -0.653281, -5, 16, -5)
+transform = Transform3D(-0.819152, 0.32899, -0.469846, 0, 0.819152, 0.573576, 0.573576, 0.469846, -0.67101, -5, 16, -5)
 script = ExtResource("7_qw60f")
 
 [node name="GridMap" type="GridMap" parent="Main/WorldNode3D"]
