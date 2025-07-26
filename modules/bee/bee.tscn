@@ -6,7 +6,8 @@
 [node name="BeeNode3D" type="Node3D"]
 script = ExtResource("1_v5qog")
 
-[node name="bee" parent="." instance=ExtResource("2_h388o")]
+[node name="BeeBlend" parent="." instance=ExtResource("2_h388o")]
+unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="LifetimeLabel3D" type="Label3D" parent="."]
