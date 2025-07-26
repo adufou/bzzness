@@ -1,15 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ui68a8noesti"]
 
 [ext_resource type="Script" uid="uid://7cc5fmytnx0f" path="res://modules/egg/egg.gd" id="1_60cwx"]
-[ext_resource type="CapsuleMesh" uid="uid://krgyvu3m4i5o" path="res://modules/egg/egg_capsule_mesh.tres" id="2_s80rl"]
+[ext_resource type="PackedScene" uid="uid://lyjqqjii57hx" path="res://modules/egg/egg.blend" id="2_87pbn"]
 
 [node name="EggNode3D" type="Node3D"]
 script = ExtResource("1_60cwx")
 
-[node name="EggMeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("2_s80rl")
-skeleton = NodePath("../..")
+[node name="egg" parent="." instance=ExtResource("2_87pbn")]
 
 [node name="EggLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true
