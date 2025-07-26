@@ -1,15 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bveudwxn7pqsh"]
 
 [ext_resource type="Script" uid="uid://c8bx5qu3b8tpi" path="res://modules/flower/flower.gd" id="1_nageh"]
-[ext_resource type="CapsuleMesh" uid="uid://bn1wonmcrhmr2" path="res://modules/flower/flower_capsule_mesh.tres" id="2_511j0"]
+[ext_resource type="PackedScene" uid="uid://c2pejsdit0db1" path="res://modules/flower/flower.blend" id="2_t50bv"]
 
 [node name="FlowerNode3D" type="Node3D"]
 script = ExtResource("1_nageh")
 
-[node name="FlowerMeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("2_511j0")
-skeleton = NodePath("../..")
+[node name="flower" parent="." instance=ExtResource("2_t50bv")]
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
