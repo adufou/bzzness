@@ -1,15 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvbkrxg3m67r3"]
 
 [ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
-[ext_resource type="CapsuleMesh" uid="uid://w7gphvxhaaq0" path="res://modules/bee/bee_capsule_mesh.tres" id="2_q8d8k"]
+[ext_resource type="PackedScene" uid="uid://cy5u0o2nf2ugw" path="res://modules/bee/bee.blend" id="2_h388o"]
 
 [node name="BeeNode3D" type="Node3D"]
 script = ExtResource("1_v5qog")
 
-[node name="BeeMeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = ExtResource("2_q8d8k")
-skeleton = NodePath("../..")
+[node name="bee" parent="." instance=ExtResource("2_h388o")]
 
 [node name="LifetimeLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true

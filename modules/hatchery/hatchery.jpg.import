@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://vlj1a1h25e5i"
 path.s3tc="res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.s3tc.ctex"
+path.etc2="res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://modules/hatchery/hatchery.jpg"
-dest_files=["res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.s3tc.ctex"]
+dest_files=["res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.s3tc.ctex", "res://.godot/imported/hatchery.jpg-f22c9eea15cf9e8262bdd6744bc41f71.etc2.ctex"]
 
 [params]
 

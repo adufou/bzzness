@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnjex1ecdu0en"
 path.s3tc="res://.godot/imported/hive_cells.jpg-7e2a6cd76fa21171b02eb3ab122dfa70.s3tc.ctex"
+path.etc2="res://.godot/imported/hive_cells.jpg-7e2a6cd76fa21171b02eb3ab122dfa70.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://modules/hive_cells/hive_cells.jpg"
-dest_files=["res://.godot/imported/hive_cells.jpg-7e2a6cd76fa21171b02eb3ab122dfa70.s3tc.ctex"]
+dest_files=["res://.godot/imported/hive_cells.jpg-7e2a6cd76fa21171b02eb3ab122dfa70.s3tc.ctex", "res://.godot/imported/hive_cells.jpg-7e2a6cd76fa21171b02eb3ab122dfa70.etc2.ctex"]
 
 [params]
 

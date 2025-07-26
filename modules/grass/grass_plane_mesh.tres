@@ -1,8 +1,11 @@
-[gd_resource type="PlaneMesh" load_steps=2 format=3 uid="uid://dxkrqwrgeepwh"]
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://dxkrqwrgeepwh"]
 
-[ext_resource type="Material" uid="uid://x6mtnf5cwjot" path="res://modules/grass/grass_standard_material_3d.tres" id="1_lmg6v"]
+[ext_resource type="Texture2D" uid="uid://c5isbta7rkxoj" path="res://modules/grass/grass.jpg" id="1_hxf68"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8evlq"]
+albedo_texture = ExtResource("1_hxf68")
 
 [resource]
-material = ExtResource("1_lmg6v")
+material = SubResource("StandardMaterial3D_8evlq")
 size = Vector2(1, 1)
 center_offset = Vector3(0, -0.5, 0)

@@ -1,6 +1,0 @@
-[gd_resource type="CapsuleMesh" load_steps=2 format=3 uid="uid://w7gphvxhaaq0"]
-
-[ext_resource type="Material" uid="uid://bdr5soaxsjp2h" path="res://modules/bee/bee_standard_material_3d.tres" id="1_2bv4a"]
-
-[resource]
-material = ExtResource("1_2bv4a")
