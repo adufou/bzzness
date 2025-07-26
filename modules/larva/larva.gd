@@ -10,8 +10,14 @@ const SPEED: float = 5.0
 var hatchery_spot: Vector3
 var growth_remaining_time: float = GROWTH_DURATION_SECONDS
 
+# Component reference (with fallback option)
+@onready var movement_component = $MovementComponent
+
 func _ready() -> void:
 	on_request_hatchery_spot.emit()
+	
+	# Initialize movement component with the right speed
+	movement_component.speed = SPEED
 	
 func _process(delta: float) -> void:
 	if not is_at_hatchery_spot():
@@ -25,10 +31,7 @@ func is_at_hatchery_spot() -> bool:
 	return distance_to_hatchery_spot.length() < 0.5
 
 func move_to_hatchery_spot(delta: float) -> void:
-	var direction: Vector3 = (hatchery_spot - global_transform.origin).normalized()
-	var movement: Vector3 = direction * SPEED * delta
-
-	global_transform.origin += movement
+	movement_component.move_to(self, hatchery_spot, delta)
 
 func progress_growth(delta: float) -> void:
 	growth_remaining_time -= delta
