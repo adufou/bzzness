@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://bfokcs4s26ivp"]
 
-[ext_resource type="Script" uid="uid://btugh8n452rei" path="res://death_effect.gd" id="1_p1lmi"]
-[ext_resource type="PackedScene" uid="uid://c6mxjednetv57" path="res://random_audio_stream_player.tscn" id="2_oac34"]
-[ext_resource type="AudioStream" uid="uid://b7lqag8etipac" path="res://pop_1.mp3" id="3_744mo"]
-[ext_resource type="AudioStream" uid="uid://ccffc4giugke1" path="res://pop_2.mp3" id="4_oux8m"]
-[ext_resource type="AudioStream" uid="uid://be56q80mf65ux" path="res://pop_3.mp3" id="5_r6jhv"]
+[ext_resource type="Script" uid="uid://btugh8n452rei" path="res://modules/death_effect/death_effect.gd" id="1_p1lmi"]
+[ext_resource type="PackedScene" uid="uid://c6mxjednetv57" path="res://modules/random_audio_stream_player/random_audio_stream_player.tscn" id="2_oac34"]
+[ext_resource type="AudioStream" uid="uid://b7lqag8etipac" path="res://assets/pop_1.mp3" id="3_744mo"]
+[ext_resource type="AudioStream" uid="uid://ccffc4giugke1" path="res://assets/pop_2.mp3" id="4_oux8m"]
+[ext_resource type="AudioStream" uid="uid://be56q80mf65ux" path="res://assets/pop_3.mp3" id="5_r6jhv"]
 
 [sub_resource type="Curve" id="Curve_oux8m"]
 _data = [Vector2(0, 0.102074), 0.0, 0.0, 0, 0, Vector2(0.22235, 0.332849), 2.82573, 2.82573, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cy5u0o2nf2ugw" path="res://modules/bee/bee.blend" id="2_h388o"]
 [ext_resource type="Script" uid="uid://way7ltc8sygm" path="res://components/death_effect_component.gd" id="2_iliuc"]
 [ext_resource type="Script" uid="uid://g60kdvfcuy3k" path="res://components/roll_component.gd" id="3_lrr5f"]
-[ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://death_effect.tscn" id="5_lrr5f"]
+[ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://modules/death_effect/death_effect.tscn" id="5_lrr5f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iliuc"]
 

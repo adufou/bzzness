@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://c02y8h4w6sij0" path="res://grid_map.gd" id="8_n14oo"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="9_1njtm"]
 [ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="10_gd4vy"]
-[ext_resource type="PackedScene" uid="uid://ctrhsqvu3hsfj" path="res://upgrades_panel.tscn" id="10_tw3kd"]
+[ext_resource type="PackedScene" uid="uid://ctrhsqvu3hsfj" path="res://modules/upgrades_panel/upgrades_panel.tscn" id="10_tw3kd"]
 
 [node name="Root" type="Node"]
 
