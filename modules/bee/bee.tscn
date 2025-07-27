@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvbkrxg3m67r3"]
+[gd_scene load_steps=8 format=3 uid="uid://cvbkrxg3m67r3"]
 
 [ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
 [ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement_component.gd" id="2_gf08q"]
@@ -7,12 +7,15 @@
 [ext_resource type="Script" uid="uid://g60kdvfcuy3k" path="res://components/roll_component.gd" id="3_lrr5f"]
 [ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://death_effect.tscn" id="5_lrr5f"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iliuc"]
+
 [node name="BeeNode3D" type="Node3D"]
 script = ExtResource("1_v5qog")
 
-[node name="DeathEffectComponent" type="Node" parent="."]
+[node name="DeathEffectComponent" type="Node" parent="." node_paths=PackedStringArray("entity_collision_shape")]
 script = ExtResource("2_iliuc")
 death_effect_scene = ExtResource("5_lrr5f")
+entity_collision_shape = NodePath("../CollisionShape3D")
 metadata/_custom_type_script = "uid://way7ltc8sygm"
 
 [node name="MovementComponent" type="Node" parent="."]
@@ -42,3 +45,7 @@ unique_name_in_owner = true
 transform = Transform3D(-0.353553, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353553, 0, 2.35, 0)
 pixel_size = 0.025
 text = "0/0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0.25, 0)
+shape = SubResource("CapsuleShape3D_iliuc")

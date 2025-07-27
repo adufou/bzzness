@@ -1,5 +1,4 @@
 extends Node3D
-# class_name DeathEffect
 
 @onready var clouds = %Clouds
 @onready var debris = %Debris
@@ -13,4 +12,3 @@ func emit_effect() -> void:
 	debris.emitting = true
 	clouds.emitting = true
 	random_audio_player.play_random()
-	# timer.start()
