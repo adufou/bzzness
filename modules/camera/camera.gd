@@ -20,10 +20,6 @@ class_name Camera
 @export var min_zoom: float = 5.0   # Minimum zoom distance (closest)
 @export var max_zoom: float = 20.0  # Maximum zoom distance (furthest)
 
-@export_group("OTHER")
-@export var invert_x: bool = false  # Invert X axis movement
-@export var invert_z: bool = false  # Invert Z axis movement
-
 # Input tracking variables
 var is_dragging: bool = false
 var last_drag_position: Vector2 = Vector2.ZERO
@@ -123,8 +119,8 @@ func _handle_drag(current_position: Vector2) -> void:
 	last_drag_position = current_position
 	
 	# Apply drag sensitivity and inversion settings
-	var move_x = delta_drag.x * drag_sensitivity * (-1 if invert_x else 1)
-	var move_z = -delta_drag.y * drag_sensitivity * (-1 if invert_z else 1)  # Negate Y drag for correct up-down movement
+	var move_x = delta_drag.x * drag_sensitivity
+	var move_z = -delta_drag.y * drag_sensitivity
 	
 	# Get the camera's basis vectors to account for rotation
 	var forward_dir = -global_transform.basis.z.normalized()
