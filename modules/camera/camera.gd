@@ -14,6 +14,7 @@ class_name Camera
 @export var movement_speed: float = 5.0  # Speed multiplier for camera movement
 
 @export_group("Transfom")
+@export var camera_initial_position: Vector3 = Vector3(-5, 16, -5)
 @export var camera_rotation_degrees: Vector3 = Vector3(-35, -145, 0)
 
 @export_group("Zoom")
@@ -33,6 +34,7 @@ func _ready() -> void:
 	# Make sure we can process input
 	set_process_input(true)
 	
+	position = camera_initial_position
 	rotation = Vector3(deg_to_rad(camera_rotation_degrees.x), deg_to_rad(camera_rotation_degrees.y), deg_to_rad(camera_rotation_degrees.z))
 
 func _handle_desktop_input(input_event_mouse: InputEventMouse) -> void:

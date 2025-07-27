@@ -27,7 +27,7 @@ bee_scene = ExtResource("5_txdvm")
 flower_scene = ExtResource("6_2ieat")
 
 [node name="Camera3D" parent="Main/WorldNode3D" instance=ExtResource("7_qw60f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 16, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="GridMap" type="GridMap" parent="Main/WorldNode3D"]
 unique_name_in_owner = true
