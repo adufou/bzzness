@@ -42,7 +42,7 @@ func create_egg() -> void:
 func hatch_egg(egg_position: Vector3) -> void:	
 	var larva: Larva = larva_scene.instantiate()
 	larva.position = egg_position
-	larva.hatchery_spot = %GridMap.random_nest_position()
+	larva.hatchery_position = %GridMap.random_nest_position()
 	
 	larva.request_spawn_bee.connect(spawn_bee)
 	
@@ -52,8 +52,11 @@ func _assign_flower_to_bee(bee: Bee) -> void:
 	var flower: Flower = flowers.values().pick_random()
 	bee.aimed_flower = flower
 
-func _assign_hive_cells_spot_to_bee(bee: Bee) -> void:
-	bee.hive_cells_spot = %GridMap.random_hive_cells_spot()
+func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
+	bee.hive_cells_position = %GridMap.random_hive_cells_position()
+
+func _assign_honey_factory_position_to_bee(bee: Bee) -> void:
+	bee.honey_factory_position = %GridMap.random_honey_factory_position()
 
 func _handle_pollen_deposit(pollen: int) -> void:
 	GameState.total_pollen += pollen
@@ -63,7 +66,8 @@ func spawn_bee(bee_position: Vector3) -> void:
 	bee.position = bee_position
 
 	bee.on_request_flower.connect(_assign_flower_to_bee)
-	bee.on_request_hive_cells_spot.connect(_assign_hive_cells_spot_to_bee)
+	bee.on_request_hive_cells_position.connect(_assign_hive_cells_position_to_bee)
+	bee.on_request_honey_factory_position.connect(_assign_honey_factory_position_to_bee)
 	bee.on_deposit_pollen.connect(_handle_pollen_deposit)
 	
 	add_sibling(bee)

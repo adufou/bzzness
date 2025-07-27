@@ -4,7 +4,8 @@ enum ITEMS {
 	GRASS,
 	HATCHERY,
 	NEST,
-	HIVE_CELLS
+	HIVE_CELLS,
+	HONEY_FACTORY
 }
 
 func _random_item_position(item: int) -> Vector3:
@@ -26,5 +27,9 @@ func random_nest_position() -> Vector3:
 func random_flower_position() -> Vector3:
 	return _random_item_position(ITEMS.GRASS)
 
-func random_hive_cells_spot() -> Vector3:
+func random_hive_cells_position() -> Vector3:
 	return _random_item_position(ITEMS.HIVE_CELLS)
+
+func random_honey_factory_position() -> Vector3:
+	return _random_item_position(ITEMS.HONEY_FACTORY)
+	
