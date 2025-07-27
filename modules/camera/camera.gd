@@ -14,6 +14,7 @@ class_name Camera
 @export var movement_speed: float = 5.0  # Speed multiplier for camera movement
 
 @export_group("Transfom")
+@export var camera_rotation_degrees: Vector3 = Vector3(-35, -145, 0)
 
 @export_group("Zoom")
 @export var zoom_speed: float = 0.1  # Speed of zooming
@@ -31,6 +32,8 @@ var is_pinching: bool = false
 func _ready() -> void:
 	# Make sure we can process input
 	set_process_input(true)
+	
+	rotation = Vector3(deg_to_rad(camera_rotation_degrees.x), deg_to_rad(camera_rotation_degrees.y), deg_to_rad(camera_rotation_degrees.z))
 
 func _handle_desktop_input(input_event_mouse: InputEventMouse) -> void:
 	if input_event_mouse is InputEventMouseButton:
