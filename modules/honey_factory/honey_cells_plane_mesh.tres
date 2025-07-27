@@ -1,6 +1,6 @@
 [gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://rfvhixj0ps7y"]
 
-[ext_resource type="Texture2D" uid="uid://dtfeucxjcwf0q" path="res://modules/honey/honey.jpg" id="1_0bi08"]
+[ext_resource type="Texture2D" uid="uid://dtfeucxjcwf0q" path="res://modules/honey_factory/honey.jpg" id="1_0bi08"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_153mi"]
 albedo_texture = ExtResource("1_0bi08")

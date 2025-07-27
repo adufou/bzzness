@@ -1,4 +1,4 @@
-extends Node
+extends Component
 class_name MovementComponent
 
 @export var speed: float = 5.0
@@ -18,12 +18,9 @@ func _ready() -> void:
 		get_parent().global_transform.basis = random_basis
 		previous_y_rotation = random_angle
 
-func move_to(entity: Node3D, destination: Vector3, delta: float) -> float:
+func move_to(entity: Node3D, destination: Vector3, delta: float) -> void:
 	# Get the direction to the destination
 	var target_direction = (destination - entity.global_transform.origin).normalized()
-	
-	# Get current y rotation before any changes
-	var current_y_rotation = entity.global_transform.basis.get_euler().y
 	
 	if target_direction.length_squared() > 0.001:
 		# Create a temporary transform looking in our target direction
@@ -41,9 +38,6 @@ func move_to(entity: Node3D, destination: Vector3, delta: float) -> float:
 		
 		# Apply the interpolated rotation
 		entity.global_transform.basis = Basis(interpolated_quat)
-		
-		# Update current_y_rotation after rotation
-		current_y_rotation = entity.global_transform.basis.get_euler().y
 	
 	# Get current forward direction (where the entity is facing)
 	var forward_direction = -entity.global_transform.basis.z.normalized()
@@ -51,6 +45,5 @@ func move_to(entity: Node3D, destination: Vector3, delta: float) -> float:
 	# Move in the direction the entity is facing
 	var movement = forward_direction * speed * delta
 	entity.global_transform.origin += movement
-	
-	# Return the current Y rotation for roll calculation
-	return current_y_rotation
+
+	on_call_next_step.emit(entity, delta)

@@ -74,22 +74,13 @@ func is_at_flower() -> bool:
 	return distance_to_flower.length() < 0.5
 
 func move_to_flower(delta: float) -> void:
-	# Handle movement and rotation in one call
-	var y_rotation = 0.0
-	y_rotation = movement_component.move_to(self, aimed_flower.position, delta)
+	movement_component.move_to(self, aimed_flower.position, delta)
 	
-	# Apply roll based on rotation if component exists
-	roll_component.apply_roll(self, y_rotation, delta)
-
 func is_at_hive_cells_position() -> bool:
 	var distance_to_hive_cells_position: Vector3 = hive_cells_position - global_transform.origin
 	
 	return distance_to_hive_cells_position.length() < 0.5
 
 func move_to_hive_cells_position(delta: float) -> void:
-	# Handle movement and rotation in one call
-	var y_rotation = 0.0
-	y_rotation = movement_component.move_to(self, hive_cells_position, delta)
+	movement_component.move_to(self, hive_cells_position, delta)
 	
-	# Apply roll based on rotation if component exists
-	roll_component.apply_roll(self, y_rotation, delta)

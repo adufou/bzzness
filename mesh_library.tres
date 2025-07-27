@@ -4,7 +4,7 @@
 [ext_resource type="PlaneMesh" uid="uid://87giapn35ruy" path="res://modules/hatchery/hatchery_plane_mesh.tres" id="2_7g0jx"]
 [ext_resource type="PlaneMesh" uid="uid://b5ogktjxw21kj" path="res://modules/nest/nest_plane_mesh.tres" id="3_7g0jx"]
 [ext_resource type="PlaneMesh" uid="uid://b3arq73pet3g4" path="res://modules/hive_cells/hive_cells_plane_mesh.tres" id="4_6xv2k"]
-[ext_resource type="PlaneMesh" uid="uid://rfvhixj0ps7y" path="res://modules/honey/honey_cells_plane_mesh.tres" id="5_7g0jx"]
+[ext_resource type="PlaneMesh" uid="uid://rfvhixj0ps7y" path="res://modules/honey_factory/honey_cells_plane_mesh.tres" id="5_7g0jx"]
 
 [resource]
 item/0/name = "Grass"

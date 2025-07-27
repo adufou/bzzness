@@ -1,4 +1,4 @@
-extends Node
+extends Component
 class_name DeathEffectComponent
 
 @export var death_effect_scene: PackedScene

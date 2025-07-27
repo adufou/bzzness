@@ -1,5 +1,7 @@
-extends Node
+extends Component
 class_name RollComponent
+
+@export var movement_component: MovementComponent
 
 @export var max_roll_angle: float = 30.0
 @export var roll_transition_speed: float = 3.0
@@ -10,15 +12,14 @@ var previous_y_rotation: float = 0.0
 var first_frame: bool = true
 
 func _ready() -> void:
-	# Get the movement component if it exists
-	var movement_comp = get_parent().get_node_or_null("MovementComponent")
-	
-	# If we have a movement component, use its rotation state
-	if movement_comp and "previous_y_rotation" in movement_comp:
-		previous_y_rotation = movement_comp.previous_y_rotation
-		first_frame = false
+	movement_component.on_call_next_step.connect(apply_roll)
 
-func apply_roll(entity: Node3D, y_rotation: float, delta: float) -> void:
+	previous_y_rotation = movement_component.previous_y_rotation
+	first_frame = false
+
+func apply_roll(entity: Node3D, delta: float) -> void:
+	var y_rotation = entity.global_transform.basis.get_euler().y
+	
 	# Initialize previous rotation on first frame
 	if first_frame:
 		previous_y_rotation = y_rotation
