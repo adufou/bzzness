@@ -179,6 +179,40 @@ layout_mode = 2
 layout_mode = 2
 text = "Buy"
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+text = "Egg Spawn Rate"
+
+[node name="Tier1EggAutoSpawnRateLevelLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lv. 0"
+
+[node name="EmptyControl2" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Tier1EggAutoSpawnRateEffectLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+0%"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+
+[node name="Tier1EggAutoSpawnRateButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+layout_mode = 2
+text = "Buy"
+
 [node name="CloseUpgradesPanelButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Close"
@@ -186,4 +220,5 @@ text = "Close"
 [connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer2/HBoxContainer3/Tier1BeeCarryCapacityButton" to="." method="_on_tier_1_bee_carry_capacity_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer3/HBoxContainer3/Tier1BeeLifetimeButton" to="." method="_on_tier_1_bee_lifetime_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer/HBoxContainer3/Tier1BeeSpeedButton" to="." method="_on_tier_1_bee_speed_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/VBoxContainer/HBoxContainer4/HBoxContainer3/Tier1EggAutoSpawnRateButton" to="." method="_on_tier_1_egg_auto_spawn_rate_button_pressed"]
 [connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/CloseUpgradesPanelButton" to="." method="_on_close_upgrades_panel_button_pressed"]
