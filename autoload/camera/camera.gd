@@ -1,5 +1,4 @@
 extends Camera3D
-class_name Camera
 
 # Camera movement settings
 @export_group("Bounds")
