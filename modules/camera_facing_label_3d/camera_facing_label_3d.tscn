@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6h1tkbn1g2l5"]
+
+[ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="1_nyyvs"]
+
+[node name="CameraFacingLabel3D" type="Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+pixel_size = 0.025
+text = "Bee"
+script = ExtResource("1_nyyvs")

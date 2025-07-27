@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ui68a8noesti"]
+[gd_scene load_steps=4 format=3 uid="uid://ui68a8noesti"]
 
 [ext_resource type="Script" uid="uid://7cc5fmytnx0f" path="res://modules/egg/egg.gd" id="1_60cwx"]
 [ext_resource type="PackedScene" uid="uid://lyjqqjii57hx" path="res://modules/egg/egg.blend" id="2_87pbn"]
+[ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="3_748s0"]
 
 [node name="EggNode3D" type="Node3D"]
 script = ExtResource("1_60cwx")
@@ -13,3 +14,5 @@ unique_name_in_owner = true
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
 pixel_size = 0.025
 text = "Egg"
+script = ExtResource("3_748s0")
+metadata/_custom_type_script = "uid://c8rwsqhfnyuty"
