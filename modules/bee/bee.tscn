@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvbkrxg3m67r3"]
+[gd_scene load_steps=7 format=3 uid="uid://cvbkrxg3m67r3"]
 
 [ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
 [ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement_component.gd" id="2_gf08q"]
 [ext_resource type="PackedScene" uid="uid://cy5u0o2nf2ugw" path="res://modules/bee/bee.blend" id="2_h388o"]
+[ext_resource type="Script" uid="uid://way7ltc8sygm" path="res://components/death_effect_component.gd" id="2_iliuc"]
 [ext_resource type="Script" uid="uid://g60kdvfcuy3k" path="res://components/roll_component.gd" id="3_lrr5f"]
+[ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://death_effect.tscn" id="5_lrr5f"]
 
 [node name="BeeNode3D" type="Node3D"]
 script = ExtResource("1_v5qog")
+
+[node name="DeathEffectComponent" type="Node" parent="."]
+script = ExtResource("2_iliuc")
+death_effect_scene = ExtResource("5_lrr5f")
+metadata/_custom_type_script = "uid://way7ltc8sygm"
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("2_gf08q")

@@ -1,0 +1,95 @@
+[gd_scene load_steps=18 format=3 uid="uid://bfokcs4s26ivp"]
+
+[ext_resource type="Script" uid="uid://btugh8n452rei" path="res://death_effect.gd" id="1_p1lmi"]
+[ext_resource type="PackedScene" uid="uid://c6mxjednetv57" path="res://random_audio_stream_player.tscn" id="2_oac34"]
+[ext_resource type="AudioStream" uid="uid://b7lqag8etipac" path="res://pop_1.mp3" id="3_744mo"]
+[ext_resource type="AudioStream" uid="uid://ccffc4giugke1" path="res://pop_2.mp3" id="4_oux8m"]
+[ext_resource type="AudioStream" uid="uid://be56q80mf65ux" path="res://pop_3.mp3" id="5_r6jhv"]
+
+[sub_resource type="Curve" id="Curve_gf08q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0817972, 0.50698), 0.0, 0.0, 0, 0, Vector2(0.864055, 0.504882), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_lrr5f"]
+curve = SubResource("Curve_gf08q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iliuc"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_lrr5f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bmpr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_go1n5"]
+material = SubResource("StandardMaterial3D_4bmpr")
+top_radius = 0.1
+bottom_radius = 0.0
+
+[sub_resource type="Curve" id="Curve_lrr5f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_iliuc"]
+curve = SubResource("Curve_lrr5f")
+
+[sub_resource type="Curve" id="Curve_4bmpr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.251152, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_go1n5"]
+curve = SubResource("Curve_4bmpr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8wv7h"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3(1, -1, 0)
+spread = 90.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.25
+scale_curve = SubResource("CurveTexture_go1n5")
+alpha_curve = SubResource("CurveTexture_iliuc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3621r"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_vx2t8"]
+material = SubResource("StandardMaterial3D_3621r")
+radial_segments = 8
+rings = 4
+
+[node name="DeathEffect" type="Node3D"]
+script = ExtResource("1_p1lmi")
+
+[node name="Debris" type="GPUParticles3D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_iliuc")
+draw_pass_1 = SubResource("CylinderMesh_go1n5")
+
+[node name="Clouds" type="GPUParticles3D" parent="."]
+unique_name_in_owner = true
+amount = 16
+lifetime = 0.75
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_8wv7h")
+draw_pass_1 = SubResource("SphereMesh_vx2t8")
+
+[node name="RandomAudioStreamPlayer" parent="." instance=ExtResource("2_oac34")]
+unique_name_in_owner = true
+audio_streams = Array[AudioStream]([ExtResource("3_744mo"), ExtResource("4_oux8m"), ExtResource("5_r6jhv")])
+
+[node name="QueueFreeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true

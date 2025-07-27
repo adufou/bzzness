@@ -15,6 +15,7 @@ var pollen_carried: int = 0
 var remaining_lifetime: float = lifetime_seconds
 
 # Components
+@onready var death_effect_component = $DeathEffectComponent
 @onready var movement_component = $MovementComponent
 @onready var roll_component = $RollComponent
 
@@ -29,6 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	remaining_lifetime -= delta
 	if (remaining_lifetime <= 0):
+		death_effect_component.trigger(self)
 		queue_free()
 	
 	%LifetimeLabel3D.text = "%.2fs" % remaining_lifetime

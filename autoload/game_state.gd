@@ -47,24 +47,24 @@ var tier_1_upgrade_level_bee_speed: int:
 
 ##### |------- STATISTICS -------| #####
 ### ----- Bees ----- ###
-var bees_pollen_capacity: int = 1:
+var bees_pollen_capacity: int:
 	set(value):
 		bees_pollen_capacity = value
 		on_update_bees_pollen_capacity.emit(value)
 
-var bees_lifetime_seconds: float = 10:
+var bees_lifetime_seconds: float:
 	set(value):
 		bees_lifetime_seconds = value
 		on_update_bees_lifetime_seconds.emit(value)
 
-var bees_speed: float = 1.0:
+var bees_speed: float:
 	set(value):
 		bees_speed = value
 		on_update_bees_speed.emit(value)
 
 ##### |------- GOODS -------| #####
 ### ----- Currencies ----- ###
-var total_pollen: int = 0:
+var total_pollen: int:
 	set(value):
 		total_pollen = value
 		on_update_total_pollen.emit(value)
