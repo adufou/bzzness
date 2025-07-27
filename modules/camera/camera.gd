@@ -2,18 +2,27 @@ extends Camera3D
 class_name Camera
 
 # Camera movement settings
-@export var movement_speed: float = 5.0  # Speed multiplier for camera movement
-@export var drag_sensitivity: float = 0.01  # How sensitive the drag motion is
-@export var invert_x: bool = false  # Invert X axis movement
-@export var invert_z: bool = false  # Invert Z axis movement
+@export_group("Bounds")
 @export var bounds_min: Vector2 = Vector2(-15, -15)  # Minimum X,Z position
 @export var bounds_max: Vector2 = Vector2(15, 15)    # Maximum X,Z position
 
-# Zoom settings
+@export_group("Sensibility")
+@export var drag_sensitivity: float = 0.01  # How sensitive the drag motion is
+@export var pinch_sensitivity: float = 0.01  # Sensitivity for pinch gestures
+
+@export_group("Speed")
+@export var movement_speed: float = 5.0  # Speed multiplier for camera movement
+
+@export_group("Transfom")
+
+@export_group("Zoom")
 @export var zoom_speed: float = 0.1  # Speed of zooming
 @export var min_zoom: float = 5.0   # Minimum zoom distance (closest)
 @export var max_zoom: float = 20.0  # Maximum zoom distance (furthest)
-@export var pinch_sensitivity: float = 0.01  # Sensitivity for pinch gestures
+
+@export_group("OTHER")
+@export var invert_x: bool = false  # Invert X axis movement
+@export var invert_z: bool = false  # Invert Z axis movement
 
 # Input tracking variables
 var is_dragging: bool = false
