@@ -13,3 +13,7 @@ static func compute_bees_speed() -> void:
 ### |------- Eggs -------| ###
 static func compute_eggs_auto_spawn_rate_per_second() -> void:
 	GameState.eggs_auto_spawn_rate_per_second = (1 + GameState.tier_1_upgrade_level_eggs_auto_spawn_rate * 0.1) * StatisticsConstants.BASE_EGG_AUTO_SPAWN_RATE_PER_SECOND
+
+### |------- Flowers -------| ###
+static func compute_flowers_spawn_rate_per_second() -> void:
+	GameState.flowers_spawn_rate_per_second = (1 + GameState.tier_1_upgrade_level_flowers_spawn_rate * 0.1) * StatisticsConstants.BASE_FLOWER_SPAWN_RATE_PER_SECOND

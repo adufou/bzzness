@@ -7,6 +7,7 @@ signal on_update_tier_1_upgrade_level_bees_carry_capacity()
 signal on_update_tier_1_upgrade_level_bees_lifetime()
 signal on_update_tier_1_upgrade_level_bees_speed()
 signal on_update_tier_1_upgrade_level_eggs_auto_spawn_rate()
+signal on_update_tier_1_upgrade_level_flowers_spawn_rate()
 
 ##### |------- STATISTICS -------| #####
 ### ----- Bees ----- ###
@@ -16,6 +17,9 @@ signal on_update_bees_speed(value: float)
 
 ### ----- Eggs ----- ###
 signal on_update_eggs_auto_spawn_rate_per_second(value: float)
+
+### ----- Flowers ----- ###
+signal on_update_flowers_spawn_rate_per_second(value: float)
 
 ##### |------- GOODS -------| #####
 ### ----- Currencies ----- ###
@@ -48,6 +52,12 @@ var tier_1_upgrade_level_eggs_auto_spawn_rate: int:
 		on_update_tier_1_upgrade_level_eggs_auto_spawn_rate.emit()
 		Statistics.compute_eggs_auto_spawn_rate_per_second()
 
+var tier_1_upgrade_level_flowers_spawn_rate: int:
+	set(value):
+		tier_1_upgrade_level_flowers_spawn_rate = value
+		on_update_tier_1_upgrade_level_flowers_spawn_rate.emit()
+		Statistics.compute_flowers_spawn_rate_per_second()
+
 ##### |------- STATISTICS -------| #####
 ### ----- Bees ----- ###
 var bees_pollen_capacity: int:
@@ -71,6 +81,12 @@ var eggs_auto_spawn_rate_per_second: float:
 		eggs_auto_spawn_rate_per_second = value
 		on_update_eggs_auto_spawn_rate_per_second.emit(value)
 
+### ----- Flowers ----- ###
+var flowers_spawn_rate_per_second: float:
+	set(value):
+		flowers_spawn_rate_per_second = value
+		on_update_flowers_spawn_rate_per_second.emit(value)
+
 ##### |------- GOODS -------| #####
 ### ----- Currencies ----- ###
 var total_pollen: int:
@@ -87,3 +103,4 @@ func _ready() -> void:
 	tier_1_upgrade_level_bees_lifetime = 0
 	tier_1_upgrade_level_bees_speed = 0
 	tier_1_upgrade_level_eggs_auto_spawn_rate = 0
+	tier_1_upgrade_level_flowers_spawn_rate = 0

@@ -8,3 +8,6 @@ const BASE_BEE_LIFETIME_SECONDS: float = 1.0
 
 ### |------- Eggs -------| ###
 const BASE_EGG_AUTO_SPAWN_RATE_PER_SECOND: float = 1.0
+
+### |------- Flowers -------| ###
+const BASE_FLOWER_SPAWN_RATE_PER_SECOND: float = 1.0
