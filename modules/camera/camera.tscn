@@ -3,5 +3,4 @@
 [ext_resource type="Script" uid="uid://bmwgesh4vnjdb" path="res://modules/camera/camera.gd" id="1_u5kg4"]
 
 [node name="Camera3D" type="Camera3D"]
-transform = Transform3D(-0.819152, 0.32899, -0.469846, 0, 0.819152, 0.573576, 0.573576, 0.469846, -0.67101, 0, 0, 0)
 script = ExtResource("1_u5kg4")
