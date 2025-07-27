@@ -7,6 +7,10 @@ var pollen_remaining: int = FLOWER_HARVESTABLE_POLLEN
 
 signal on_queue_free(flower: Flower)
 
+func _ready() -> void:
+	rotate_x(randf() * 0.15 * PI)
+	rotate_y(randf() * 2 * PI)
+
 func _process(delta: float) -> void:
 	%RemainingPollenLabel3D.text = str(pollen_remaining)
 
