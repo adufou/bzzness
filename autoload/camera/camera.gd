@@ -5,6 +5,9 @@ extends Camera3D
 @export var bounds_min: Vector2 = Vector2(-15, -15)  # Minimum X,Z position
 @export var bounds_max: Vector2 = Vector2(15, 15)    # Maximum X,Z position
 
+@export_group("FOV")
+@export_range(0, 180, 1, "suffix:°") var field_of_vue: float = 40
+
 @export_group("Sensibility")
 @export var drag_sensitivity: float = 0.01  # How sensitive the drag motion is
 @export var pinch_sensitivity: float = 0.01  # Sensitivity for pinch gestures
@@ -14,7 +17,7 @@ extends Camera3D
 
 @export_group("Transfom")
 @export var camera_initial_position: Vector3 = Vector3(-5, 16, -5)
-@export var camera_rotation_degrees: Vector3 = Vector3(-35, -145, 0)
+@export_custom(PROPERTY_HINT_NONE, "suffix:°") var camera_rotation_degrees: Vector3 = Vector3(-35, -145, 0)
 
 @export_group("Zoom")
 @export var zoom_speed: float = 0.1  # Speed of zooming
@@ -35,6 +38,7 @@ func _ready() -> void:
 	
 	position = camera_initial_position
 	rotation = Vector3(deg_to_rad(camera_rotation_degrees.x), deg_to_rad(camera_rotation_degrees.y), deg_to_rad(camera_rotation_degrees.z))
+	fov = field_of_vue
 
 func _handle_desktop_input(input_event_mouse: InputEventMouse) -> void:
 	if input_event_mouse is InputEventMouseButton:
