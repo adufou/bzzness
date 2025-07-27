@@ -23,10 +23,6 @@ func _ready() -> void:
 	on_request_flower.emit(self)
 	on_request_hive_cells_spot.emit(self)
 
-	GameState.on_update_bees_lifetime_seconds.connect(_set_lifetime_seconds)
-	GameState.on_update_bees_pollen_capacity.connect(_set_pollen_capacity)
-	GameState.on_update_bees_speed.connect(_set_speed)
-
 func _process(delta: float) -> void:
 	remaining_lifetime -= delta
 	if (remaining_lifetime <= 0):
@@ -49,16 +45,6 @@ func _process(delta: float) -> void:
 			harvest_pollen()
 		else:
 			move_to_flower(delta)
-
-func _set_lifetime_seconds(value: float) -> void:
-	lifetime_seconds = value
-
-func _set_pollen_capacity(value: int) -> void:
-	pollen_capacity = value
-
-func _set_speed(value: float) -> void:
-	speed = value
-	movement_component.speed = value
 
 func check_flower() -> bool:
 	if aimed_flower == null:
