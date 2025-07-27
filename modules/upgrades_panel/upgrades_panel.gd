@@ -45,20 +45,15 @@ func _on_close_upgrades_panel_button_pressed() -> void:
 
 func _on_tier_1_bee_carry_capacity_button_pressed() -> void:
 	GameState.tier_1_upgrade_level_bees_carry_capacity += 1
-	print_debug(GameState.tier_1_upgrade_level_bees_carry_capacity)
 
 func _on_tier_1_bee_lifetime_button_pressed() -> void:
 	GameState.tier_1_upgrade_level_bees_lifetime += 1
-	print_debug(GameState.tier_1_upgrade_level_bees_lifetime)
 
 func _on_tier_1_bee_speed_button_pressed() -> void:
 	GameState.tier_1_upgrade_level_bees_speed += 1
-	print_debug(GameState.tier_1_upgrade_level_bees_speed)
 
 func _on_tier_1_egg_auto_spawn_rate_button_pressed() -> void:
 	GameState.tier_1_upgrade_level_eggs_auto_spawn_rate += 1
-	print_debug(GameState.tier_1_upgrade_level_eggs_auto_spawn_rate)
 
 func _on_tier_1_flower_spawn_rate_button_pressed() -> void:
 	GameState.tier_1_upgrade_level_flowers_spawn_rate += 1
-	print_debug(GameState.tier_1_upgrade_level_flowers_spawn_rate)
