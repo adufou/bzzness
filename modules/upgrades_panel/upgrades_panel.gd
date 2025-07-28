@@ -2,6 +2,14 @@ extends Control
 
 signal on_close_upgrades_panel
 
+var is_tier_1_upgrade_level_bees_carry_capacity_button_pressed: bool = false
+var is_tier_1_upgrade_level_bees_lifetime_button_pressed: bool = false
+var is_tier_1_upgrade_level_bees_speed_button_pressed: bool = false
+var is_tier_1_upgrade_level_eggs_auto_spawn_rate_button_pressed: bool = false
+var is_tier_1_upgrade_level_flowers_spawn_rate_button_pressed: bool = false
+var is_tier_1_upgrade_level_honey_factory_max_pollen_button_pressed: bool = false
+var is_tier_1_upgrade_level_honey_factory_production_rate_button_pressed: bool = false
+
 func _ready() -> void:
 	GameState.on_update_tier_1_upgrade_level_bees_carry_capacity.connect(update_tier_1_upgrade_level_bees_carry_capacity)
 	GameState.on_update_tier_1_upgrade_level_bees_lifetime.connect(update_tier_1_upgrade_level_bees_lifetime)
@@ -18,6 +26,22 @@ func _ready() -> void:
 	update_tier_1_upgrade_level_flowers_spawn_rate()
 	update_tier_1_upgrade_level_honey_factory_max_pollen()
 	update_tier_1_upgrade_level_honey_factory_production_rate()
+
+func _process(delta: float) -> void:
+	if is_tier_1_upgrade_level_bees_carry_capacity_button_pressed:
+		GameState.tier_1_upgrade_level_bees_carry_capacity += 1
+	if is_tier_1_upgrade_level_bees_lifetime_button_pressed:
+		GameState.tier_1_upgrade_level_bees_lifetime += 1
+	if is_tier_1_upgrade_level_bees_speed_button_pressed:
+		GameState.tier_1_upgrade_level_bees_speed += 1
+	if is_tier_1_upgrade_level_eggs_auto_spawn_rate_button_pressed:
+		GameState.tier_1_upgrade_level_eggs_auto_spawn_rate += 1
+	if is_tier_1_upgrade_level_flowers_spawn_rate_button_pressed:
+		GameState.tier_1_upgrade_level_flowers_spawn_rate += 1
+	if is_tier_1_upgrade_level_honey_factory_max_pollen_button_pressed:
+		GameState.tier_1_upgrade_level_honey_factory_max_pollen += 1
+	if is_tier_1_upgrade_level_honey_factory_production_rate_button_pressed:
+		GameState.tier_1_upgrade_level_honey_factory_production_rate += 1
 
 func update_tier_1_upgrade_level_bees_carry_capacity():
 	var level: int = GameState.tier_1_upgrade_level_bees_carry_capacity
@@ -57,23 +81,44 @@ func update_tier_1_upgrade_level_honey_factory_production_rate():
 func _on_close_upgrades_panel_button_pressed() -> void:
 	on_close_upgrades_panel.emit()
 
-func _on_tier_1_bee_carry_capacity_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_bees_carry_capacity += 1
+func _on_tier_1_bee_carry_capacity_button_button_down() -> void:
+	is_tier_1_upgrade_level_bees_carry_capacity_button_pressed = true
+	
+func _on_tier_1_bee_carry_capacity_button_button_up() -> void:
+	is_tier_1_upgrade_level_bees_carry_capacity_button_pressed = false
+	
+func _on_tier_1_bee_lifetime_button_button_down() -> void:
+	is_tier_1_upgrade_level_bees_lifetime_button_pressed = true
+	
+func _on_tier_1_bee_lifetime_button_button_up() -> void:
+	is_tier_1_upgrade_level_bees_lifetime_button_pressed = false
+	
+func _on_tier_1_bee_speed_button_button_down() -> void:
+	is_tier_1_upgrade_level_bees_speed_button_pressed = true
+	
+func _on_tier_1_bee_speed_button_button_up() -> void:
+	is_tier_1_upgrade_level_bees_speed_button_pressed = false
 
-func _on_tier_1_bee_lifetime_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_bees_lifetime += 1
+func _on_tier_1_egg_auto_spawn_rate_button_button_down() -> void:
+	is_tier_1_upgrade_level_eggs_auto_spawn_rate_button_pressed = true
 
-func _on_tier_1_bee_speed_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_bees_speed += 1
+func _on_tier_1_egg_auto_spawn_rate_button_button_up() -> void:
+	is_tier_1_upgrade_level_eggs_auto_spawn_rate_button_pressed = false
 
-func _on_tier_1_egg_auto_spawn_rate_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_eggs_auto_spawn_rate += 1
+func _on_tier_1_flower_spawn_rate_button_button_down() -> void:
+	is_tier_1_upgrade_level_flowers_spawn_rate_button_pressed = true
 
-func _on_tier_1_flower_spawn_rate_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_flowers_spawn_rate += 1
+func _on_tier_1_flower_spawn_rate_button_button_up() -> void:
+	is_tier_1_upgrade_level_flowers_spawn_rate_button_pressed = false
 
-func _on_tier_1_honey_factory_max_pollen_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_honey_factory_max_pollen += 1
+func _on_tier_1_honey_factory_max_pollen_button_button_down() -> void:
+	is_tier_1_upgrade_level_honey_factory_max_pollen_button_pressed = true
 
-func _on_tier_1_honey_factory_production_rate_button_pressed() -> void:
-	GameState.tier_1_upgrade_level_honey_factory_production_rate += 1
+func _on_tier_1_honey_factory_max_pollen_button_button_up() -> void:
+	is_tier_1_upgrade_level_honey_factory_max_pollen_button_pressed = false
+
+func _on_tier_1_honey_factory_production_rate_button_button_down() -> void:
+	is_tier_1_upgrade_level_honey_factory_production_rate_button_pressed = true
+
+func _on_tier_1_honey_factory_production_rate_button_button_up() -> void:
+	is_tier_1_upgrade_level_honey_factory_production_rate_button_pressed = false
