@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvbkrxg3m67r3"]
+[gd_scene load_steps=12 format=3 uid="uid://cvbkrxg3m67r3"]
 
 [ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
 [ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement/movement_component.gd" id="2_gf08q"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://d3gt5mvulh83q" path="res://components/bee_jobs/gatherer_component.gd" id="3_ng8hs"]
 [ext_resource type="Script" uid="uid://wrt5u1ijiha3" path="res://components/bee_jobs/worker_component.gd" id="4_4l0iy"]
 [ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://modules/death_effect/death_effect.tscn" id="5_lrr5f"]
-[ext_resource type="PackedScene" uid="uid://6h1tkbn1g2l5" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.tscn" id="7_4bmpr"]
 [ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="7_go1n5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iliuc"]
@@ -51,18 +50,15 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="LifetimeLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.353553, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353553, 0, 3.65, 0)
+transform = Transform3D(-0.353553, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353553, 0, 1.65, 0)
 pixel_size = 0.025
 text = "0.00s"
 script = ExtResource("7_go1n5")
 metadata/_custom_type_script = "uid://c8rwsqhfnyuty"
 
-[node name="CameraFacingLabel3D" parent="." instance=ExtResource("7_4bmpr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-
 [node name="CarryLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.353553, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353553, 0, 2.35, 0)
+transform = Transform3D(-0.353553, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353553, 0, 1.25, 0)
 pixel_size = 0.025
 text = "0/0"
 script = ExtResource("7_go1n5")

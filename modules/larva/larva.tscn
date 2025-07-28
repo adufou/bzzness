@@ -16,8 +16,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="LarvaLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 3, 0)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 1.35, 0)
 pixel_size = 0.025
-text = "Larva"
+font_size = 10
 script = ExtResource("4_es2fl")
 metadata/_custom_type_script = "uid://c8rwsqhfnyuty"
