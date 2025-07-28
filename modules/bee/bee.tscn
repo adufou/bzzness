@@ -1,7 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cvbkrxg3m67r3"]
 
 [ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
-[ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement/move_component.gd" id="2_gf08q"]
 [ext_resource type="PackedScene" uid="uid://cy5u0o2nf2ugw" path="res://modules/bee/bee.blend" id="2_h388o"]
 [ext_resource type="Script" uid="uid://way7ltc8sygm" path="res://components/effects/death_effect_component.gd" id="2_iliuc"]
 [ext_resource type="Script" uid="uid://b04aar3u73hkx" path="res://components/bee_jobs/bee_jobs_component.gd" id="2_vx2t8"]
@@ -10,6 +9,7 @@
 [ext_resource type="Script" uid="uid://wrt5u1ijiha3" path="res://components/bee_jobs/worker_component.gd" id="4_4l0iy"]
 [ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://modules/death_effect/death_effect.tscn" id="5_lrr5f"]
 [ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="7_go1n5"]
+[ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement/move_component.gd" id="8_vx2t8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iliuc"]
 
@@ -37,11 +37,10 @@ entity_collision_shape = NodePath("../CollisionShape3D")
 metadata/_custom_type_script = "uid://way7ltc8sygm"
 
 [node name="MoveComponent" type="Node" parent="."]
-script = ExtResource("2_gf08q")
+script = ExtResource("8_vx2t8")
 
-[node name="RollComponent" type="Node" parent="." node_paths=PackedStringArray("movement_component")]
+[node name="RollComponent" type="Node" parent="MoveComponent"]
 script = ExtResource("3_lrr5f")
-movement_component = NodePath("../MoveComponent")
 metadata/_custom_type_script = "uid://g60kdvfcuy3k"
 
 [node name="BeeBlend" parent="." instance=ExtResource("2_h388o")]

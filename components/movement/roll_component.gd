@@ -1,8 +1,6 @@
 extends Component
 class_name RollComponent
 
-@export var movement_component: MoveComponent
-
 @export var max_roll_angle: float = 30.0
 @export var roll_transition_speed: float = 3.0
 @export var roll_node_path: NodePath = "BeeBlend"  # Default to BeeBlend for bees
@@ -12,6 +10,7 @@ var previous_y_rotation: float = 0.0
 var first_frame: bool = true
 
 func _ready() -> void:
+	var movement_component: MoveComponent = get_parent()
 	movement_component.on_call_next_step.connect(apply_roll)
 
 	previous_y_rotation = movement_component.previous_y_rotation
