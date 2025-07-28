@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name UpgradeItem
 
 var upgrade: Upgrades.UpgradesEnum
 
@@ -13,11 +14,18 @@ func _process(delta: float) -> void:
 		GameState.set_upgrade_level(upgrade, GameState.get_upgrade_level(upgrade) + 1)
 
 func update():
+	print_debug(upgrade)
 	var level: int = GameState.get_upgrade_level(upgrade)
 	%LevelLabel.text = "Lv. " + str(level)
-	%EffectLabel.text = "+" + str(Upgrades.get_upgrade_effect(upgrade, level)) + "%"
+	%EffectLabel.text = _prettify_effect()
 	%NameLabel.text = Upgrades.get_upgrade(upgrade).display_name
 	%DescriptionLabel.text = Upgrades.get_upgrade(upgrade).description
+
+func _prettify_effect() -> String:
+	var effect: float = Upgrades.get_upgrade_effect(upgrade, GameState.get_upgrade_level(upgrade))
+	var effect_difference_in_percent: int = int((effect - 1) * 100)
+	
+	return "+" + str(effect_difference_in_percent) + "%"
 
 func _on_buy_button_button_down() -> void:
 	is_button_pressed = true

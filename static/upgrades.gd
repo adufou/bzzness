@@ -39,8 +39,8 @@ const _UPGRADES: Dictionary = {
 		cost_multiplier = 1.1,
 		description = "Increases the amount of pollen that bees can carry.",
 		display_name = "Bee Carry Capacity",
-		effect_base = 0,
-		effect_value = 1,
+		effect_base = 1,
+		effect_value = 0.1,
 		level_max = 10,
 		tier = 1,
 		tier_index = 0
@@ -50,8 +50,8 @@ const _UPGRADES: Dictionary = {
 		cost_multiplier = 1.1,
 		description = "Increases the lifetime of bees.",
 		display_name = "Bee Lifetime",
-		effect_base = 0,
-		effect_value = 1,
+		effect_base = 1,
+		effect_value = 0.1,
 		level_max = 10,
 		tier = 1,
 		tier_index = 1
@@ -94,8 +94,8 @@ const _UPGRADES: Dictionary = {
 		cost_multiplier = 1.1,
 		description = "Increases the max pollen of honey factory.",
 		display_name = "Honey Factory Max Pollen",
-		effect_base = 0,
-		effect_value = 1,
+		effect_base = 1,
+		effect_value = 0.1,
 		level_max = 10,
 		tier = 1,
 		tier_index = 5
@@ -105,27 +105,27 @@ const _UPGRADES: Dictionary = {
 		cost_multiplier = 1.1,
 		description = "Increases the production rate of honey factory.",
 		display_name = "Honey Factory Production Rate",
-		effect_value = 0.1,
 		effect_base = 1,
+		effect_value = 0.1,
 		level_max = 10,
 		tier = 1,
 		tier_index = 6
 	},
 }
 
-static func get_upgrade(upgrade_name: UpgradesEnum) -> Upgrade:
-	return Upgrade.new(_UPGRADES[upgrade_name])
+static func get_upgrade(upgrade: UpgradesEnum) -> Upgrade:
+	return Upgrade.new(_UPGRADES[upgrade])
 
-static func get_upgrade_cost(upgrade_name: UpgradesEnum, next_level: int) -> int:
-	return _UPGRADES[upgrade_name].cost_base * _UPGRADES[upgrade_name].cost_multiplier ** next_level
+static func get_upgrade_cost(upgrade: UpgradesEnum, next_level: int) -> int:
+	return _UPGRADES[upgrade].cost_base * _UPGRADES[upgrade].cost_multiplier ** next_level
 
-static func get_upgrade_effect(upgrade_name: UpgradesEnum, level: int) -> float:
-	return _UPGRADES[upgrade_name].effect_base + _UPGRADES[upgrade_name].effect_value * level
+static func get_upgrade_effect(upgrade: UpgradesEnum, level: int) -> float:
+	return _UPGRADES[upgrade].effect_base + _UPGRADES[upgrade].effect_value * level
 
-static func get_total_effect_of_upgrades(upgrade_names: Array[UpgradesEnum]) -> float:
+static func get_total_effect_of_upgrades(upgrades: Array[UpgradesEnum]) -> float:
 	var total_effect: float = 1
 	
-	for upgrade_name in upgrade_names:
-		total_effect *= get_upgrade_effect(upgrade_name, GameState.get_upgrade_level(upgrade_name))
+	for upgrade in upgrades:
+		total_effect *= get_upgrade_effect(upgrade, GameState.get_upgrade_level(upgrade))
 
 	return total_effect
