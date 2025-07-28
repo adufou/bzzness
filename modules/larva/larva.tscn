@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1e2gtibnnpjq" path="res://modules/larva/larva.gd" id="1_oevgx"]
 [ext_resource type="PackedScene" uid="uid://bwp8kay1tao87" path="res://modules/larva/larva.blend" id="2_p3d84"]
-[ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement/movement_component.gd" id="3_dho8t"]
+[ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement/move_component.gd" id="3_dho8t"]
 [ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="4_es2fl"]
 
 [node name="LarvaNode3D" type="Node3D"]

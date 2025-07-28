@@ -34,10 +34,10 @@ func work(bee: Bee, delta: float) -> void:
 		if not _has_honey_factory_or_request_one(bee):
 			return
 
-		if bee.is_at_honey_factory_position():
+		if _is_at_honey_factory_position(bee):
 			_deposit_pollen_to_honey_factory(bee)
 		else:
-			bee.move_to_honey_factory_position(delta)
+			_move_to_honey_factory_position(bee, delta)
 	else:
 		if bee.is_at_hive_cells_position():
 			_load_pollen_from_hive_cells(bee)

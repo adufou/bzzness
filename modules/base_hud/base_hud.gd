@@ -13,7 +13,7 @@ func update_pollen_label(pollen: int) -> void:
 	%PollenLabel.text = str(pollen) + " Pollen"
 
 func update_honey_factory_pollen_label(pollen: int) -> void:
-	%HoneyFactoryPollenLabel.text = str(pollen) + " Pollen"
+	%HoneyFactoryPollenLabel.text = str(pollen) + " Honey Factory Pollen	"
 
 func _on_open_upgrades_button_pressed() -> void:
 	on_open_upgrades_panel.emit()
