@@ -48,9 +48,9 @@ func hatch_egg(egg_position: Vector3) -> void:
 	
 	add_sibling(larva)
 
-func _assign_flower_to_bee(bee: Bee) -> void:
+func _assign_flower_to_gatherer(gatherer_component: GathererComponent) -> void:
 	var flower: Flower = flowers.values().pick_random()
-	bee.aimed_flower = flower
+	gatherer_component.aimed_flower = flower
 
 func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
 	bee.hive_cells_position = %GridMap.random_hive_cells_position()
@@ -65,7 +65,7 @@ func spawn_bee(bee_position: Vector3) -> void:
 	var bee: Bee = bee_scene.instantiate()
 	bee.position = bee_position
 
-	bee.on_request_flower.connect(_assign_flower_to_bee)
+	bee.on_request_flower.connect(_assign_flower_to_gatherer)
 	bee.on_request_hive_cells_position.connect(_assign_hive_cells_position_to_bee)
 	bee.on_request_honey_factory_position.connect(_assign_honey_factory_position_to_bee)
 	bee.on_deposit_pollen.connect(_handle_pollen_deposit)
