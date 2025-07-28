@@ -144,3 +144,16 @@ func _ready() -> void:
 	tier_1_upgrade_level_honey_factory_max_pollen = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
 	
+
+#################################### |---------------[ METHODS ]---------------| ####################################
+func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:
+	match upgrade_name:
+		Upgrades.UpgradesEnum.BEE_CARRY_CAPACITY: return tier_1_upgrade_level_bees_carry_capacity
+		Upgrades.UpgradesEnum.BEE_LIFETIME: return tier_1_upgrade_level_bees_lifetime
+		Upgrades.UpgradesEnum.BEE_SPEED: return tier_1_upgrade_level_bees_speed
+		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: return tier_1_upgrade_level_eggs_auto_spawn_rate
+		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: return tier_1_upgrade_level_flowers_spawn_rate
+		Upgrades.UpgradesEnum.HONEY_FACTORY_MAX_POLLEN: return tier_1_upgrade_level_honey_factory_max_pollen
+		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: return tier_1_upgrade_level_honey_factory_production_rate
+		
+	return -1
