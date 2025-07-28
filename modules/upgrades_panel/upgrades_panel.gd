@@ -23,6 +23,8 @@ func _ready() -> void:
 	update_tier_1_upgrade_level_flowers_spawn_rate()
 	update_tier_1_upgrade_level_honey_factory_max_pollen()
 	update_tier_1_upgrade_level_honey_factory_production_rate()
+	
+	%UpgradeItem.upgrade = Upgrades.UpgradesEnum.BEE_CARRY_CAPACITY
 
 func _process(delta: float) -> void:
 	if is_tier_1_upgrade_level_bees_lifetime_button_pressed:

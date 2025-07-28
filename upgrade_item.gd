@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var upgrade: Upgrades.UpgradesEnum = Upgrades.UpgradesEnum.BEE_CARRY_CAPACITY
+var upgrade: Upgrades.UpgradesEnum
 
 var is_button_pressed: bool = false
 
@@ -16,6 +16,8 @@ func update():
 	var level: int = GameState.get_upgrade_level(upgrade)
 	%LevelLabel.text = "Lv. " + str(level)
 	%EffectLabel.text = "+" + str(Upgrades.get_upgrade_effect(upgrade, level)) + "%"
+	%NameLabel.text = Upgrades.get_upgrade(upgrade).display_name
+	%DescriptionLabel.text = Upgrades.get_upgrade(upgrade).description
 
 func _on_buy_button_button_down() -> void:
 	is_button_pressed = true

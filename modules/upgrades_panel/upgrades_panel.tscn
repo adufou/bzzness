@@ -86,6 +86,7 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 
 [node name="UpgradeItem" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer" instance=ExtResource("2_tkxu2")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Tier1MarginContainer/VBoxContainer2/MarginContainer/VBoxContainer"]

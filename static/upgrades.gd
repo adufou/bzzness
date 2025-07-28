@@ -17,11 +17,21 @@ class Upgrade:
 	var description: String
 	var display_name: String
 	var effect_base: float
-	var effect_type: String
 	var effect_value: float
 	var level_max: int
-	var tier_index: int
 	var tier: int
+	var tier_index: int
+	
+	func _init(upgrade_dict: Dictionary):
+		cost_base = upgrade_dict.cost_base
+		cost_multiplier = upgrade_dict.cost_multiplier
+		description = upgrade_dict.description
+		display_name = upgrade_dict.display_name
+		effect_base = upgrade_dict.effect_base
+		effect_value = upgrade_dict.effect_value
+		level_max = upgrade_dict.level_max
+		tier = upgrade_dict.tier
+		tier_index = upgrade_dict.tier_index
 
 const _UPGRADES: Dictionary = {
 	UpgradesEnum.BEE_CARRY_CAPACITY: {
@@ -103,11 +113,8 @@ const _UPGRADES: Dictionary = {
 	},
 }
 
-static func get_upgrades() -> Dictionary[UpgradesEnum, Upgrade]:
-	return _UPGRADES
-
 static func get_upgrade(upgrade_name: UpgradesEnum) -> Upgrade:
-	return _UPGRADES[upgrade_name]
+	return Upgrade.new(_UPGRADES[upgrade_name])
 
 static func get_upgrade_cost(upgrade_name: UpgradesEnum, next_level: int) -> int:
 	return _UPGRADES[upgrade_name].cost_base * _UPGRADES[upgrade_name].cost_multiplier ** next_level
