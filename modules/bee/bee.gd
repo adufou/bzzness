@@ -18,7 +18,7 @@ var remaining_lifetime: float = lifetime_seconds
 # Components
 @onready var bee_jobs_component = $BeeJobsComponent
 @onready var death_effect_component = $DeathEffectComponent
-@onready var movement_component = $MovementComponent
+@onready var move_component = $MoveComponent
 @onready var roll_component = $RollComponent
 
 func _ready() -> void:
@@ -53,5 +53,5 @@ func is_at_hive_cells_position() -> bool:
 	return distance_to_hive_cells_position.length() < 0.5
 
 func move_to_hive_cells_position(delta: float) -> void:
-	movement_component.move_to(self, hive_cells_position, delta)
+	move_component.move_to(self, hive_cells_position, delta)
 	

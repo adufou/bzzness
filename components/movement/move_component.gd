@@ -1,5 +1,5 @@
 extends Component
-class_name MovementComponent
+class_name MoveComponent
 
 @export var speed: float = 5.0
 @export var rotation_speed: float = 5.0

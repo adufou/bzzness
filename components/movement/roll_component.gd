@@ -1,7 +1,7 @@
 extends Component
 class_name RollComponent
 
-@export var movement_component: MovementComponent
+@export var movement_component: MoveComponent
 
 @export var max_roll_angle: float = 30.0
 @export var roll_transition_speed: float = 3.0

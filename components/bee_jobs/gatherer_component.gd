@@ -25,7 +25,7 @@ func _is_at_flower(bee: Bee) -> bool:
 	return distance_to_flower.length() < 0.5
 
 func _move_to_flower(bee: Bee, delta: float) -> void:
-	bee.movement_component.move_to(bee, aimed_flower.position, delta)
+	bee.move_component.move_to(bee, aimed_flower.position, delta)
 
 func work(bee: Bee, delta: float) -> void:
 	if bee.is_full():
