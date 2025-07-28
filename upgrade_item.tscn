@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxefbyj2v6g5h"]
+
+[ext_resource type="Script" uid="uid://bt1gbhbrbnffl" path="res://upgrade_item.gd" id="1_jncux"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_jncux")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Bee Carry Capacity"
+
+[node name="LevelLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lv. 0"
+
+[node name="EmptyControl" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="EffectLabel" type="Label" parent="HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+0%"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="HBoxContainer3"]
+layout_mode = 2
+text = "Buy"
+
+[connection signal="button_down" from="HBoxContainer3/BuyButton" to="." method="_on_buy_button_button_down"]
+[connection signal="button_up" from="HBoxContainer3/BuyButton" to="." method="_on_buy_button_button_up"]
