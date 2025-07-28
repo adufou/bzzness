@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		GameState.set_upgrade_level(upgrade, GameState.get_upgrade_level(upgrade) + 1)
 
 func update():
-	print_debug(upgrade)
 	var level: int = GameState.get_upgrade_level(upgrade)
 	%LevelLabel.text = "Lv. " + str(level)
 	%EffectLabel.text = _prettify_effect()
