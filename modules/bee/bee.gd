@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 	%LifetimeLabel3D.text = "%.2fs" % remaining_lifetime
 	%CarryLabel3D.text = str(pollen_carried) + "/" + str(pollen_capacity)
 	
+	move_component.speed = speed
 	bee_jobs_component.work(self, delta)
 	
 func deposit_pollen_to_hive_cells() -> void:

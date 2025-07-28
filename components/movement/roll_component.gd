@@ -3,7 +3,6 @@ class_name RollComponent
 
 @export var max_roll_angle: float = 30.0
 @export var roll_transition_speed: float = 3.0
-#@export var roll_node_path: NodePath = "BeeBlend"  # Default to BeeBlend for bees
 
 var current_roll: float = 0.0
 var previous_y_rotation: float = 0.0
