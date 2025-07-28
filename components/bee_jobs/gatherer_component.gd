@@ -3,8 +3,8 @@ class_name GathererComponent
 
 var aimed_flower: Flower
 
-func _deposit_pollen(bee: Bee) -> void:
-	bee.on_deposit_pollen.emit(bee.pollen_carried)
+func _deposit_pollen_to_hive_cells(bee: Bee) -> void:
+	bee.on_deposit_pollen_to_hive_cells.emit(bee.pollen_carried)
 	bee.pollen_carried = 0
 
 func _harvest_pollen(bee: Bee) -> void:
@@ -30,7 +30,7 @@ func _move_to_flower(bee: Bee, delta: float) -> void:
 func work(bee: Bee, delta: float) -> void:
 	if bee.is_full():
 		if bee.is_at_hive_cells_position():
-			_deposit_pollen(bee)
+			_deposit_pollen_to_hive_cells(bee)
 		else:
 			bee.move_to_hive_cells_position(delta)
 	else:

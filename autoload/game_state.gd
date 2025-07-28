@@ -94,6 +94,9 @@ var total_pollen: int:
 		total_pollen = value
 		on_update_total_pollen.emit(value)
 
+##### |------- PRODUCTION -------| #####
+### ----- Honey factory ----- ###
+
 
 ################## |---------------[ READY ]---------------| ##################
 func _ready() -> void:

@@ -48,27 +48,31 @@ func hatch_egg(egg_position: Vector3) -> void:
 	
 	add_sibling(larva)
 
-func _assign_flower_to_gatherer(gatherer_component: GathererComponent) -> void:
+func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> void:
 	var flower: Flower = flowers.values().pick_random()
 	gatherer_component.aimed_flower = flower
 
 func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
 	bee.hive_cells_position = %GridMap.random_hive_cells_position()
 
-func _assign_honey_factory_position_to_bee(bee: Bee) -> void:
-	bee.honey_factory_position = %GridMap.random_honey_factory_position()
+func _assign_honey_factory_position_to_worker_bee(worker_component: WorkerComponent) -> void:
+	worker_component.honey_factory_position = %GridMap.random_honey_factory_position()
 
-func _handle_pollen_deposit(pollen: int) -> void:
+func _handle_pollen_deposit_to_hive_cells(pollen: int) -> void:
+	GameState.total_pollen += pollen
+
+func _handle_pollen_deposit_to_honey_factory(pollen: int) -> void:
 	GameState.total_pollen += pollen
 
 func spawn_bee(bee_position: Vector3) -> void:
 	var bee: Bee = bee_scene.instantiate()
 	bee.position = bee_position
 
-	bee.on_request_flower.connect(_assign_flower_to_gatherer)
+	bee.on_request_flower.connect(_assign_flower_to_gatherer_bee)
 	bee.on_request_hive_cells_position.connect(_assign_hive_cells_position_to_bee)
-	bee.on_request_honey_factory_position.connect(_assign_honey_factory_position_to_bee)
-	bee.on_deposit_pollen.connect(_handle_pollen_deposit)
+	bee.on_request_honey_factory_position.connect(_assign_honey_factory_position_to_worker_bee)
+	bee.on_deposit_pollen_to_hive_cells.connect(_handle_pollen_deposit_to_hive_cells)
+	bee.on_deposit_pollen_to_honey_factory.connect(_handle_pollen_deposit_to_honey_factory)
 	
 	add_sibling(bee)
 
