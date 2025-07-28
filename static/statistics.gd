@@ -17,3 +17,10 @@ static func compute_eggs_auto_spawn_rate_per_second() -> void:
 ### |------- Flowers -------| ###
 static func compute_flowers_spawn_rate_per_second() -> void:
 	GameState.flowers_spawn_rate_per_second = (1 + GameState.tier_1_upgrade_level_flowers_spawn_rate * 0.1) * StatisticsConstants.BASE_FLOWER_SPAWN_RATE_PER_SECOND
+
+### |------- Honey factory -------| ###
+static func compute_honey_factory_max_pollen() -> void:
+	GameState.honey_factory_max_pollen = (1 + GameState.tier_1_upgrade_level_honey_factory_max_pollen * 0.1) * StatisticsConstants.BASE_HONEY_FACTORY_MAX_POLLEN
+
+static func compute_honey_factory_production_rate_per_second() -> void:
+	GameState.honey_factory_production_rate_per_second = (1 + GameState.tier_1_upgrade_level_honey_factory_production_rate * 0.1) * StatisticsConstants.BASE_HONEY_FACTORY_PRODUCTION_RATE_PER_SECOND

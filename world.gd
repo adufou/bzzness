@@ -62,7 +62,7 @@ func _handle_pollen_deposit_to_hive_cells(pollen: int) -> void:
 	GameState.total_pollen += pollen
 
 func _handle_pollen_deposit_to_honey_factory(pollen: int) -> void:
-	GameState.total_pollen += pollen
+	GameState.honey_factory_total_pollen += pollen
 
 func spawn_bee(bee_position: Vector3) -> void:
 	var bee: Bee = bee_scene.instantiate()
