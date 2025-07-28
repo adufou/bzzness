@@ -3,7 +3,7 @@ class_name RollComponent
 
 @export var max_roll_angle: float = 30.0
 @export var roll_transition_speed: float = 3.0
-@export var roll_node_path: NodePath = "BeeBlend"  # Default to BeeBlend for bees
+#@export var roll_node_path: NodePath = "BeeBlend"  # Default to BeeBlend for bees
 
 var current_roll: float = 0.0
 var previous_y_rotation: float = 0.0
@@ -38,6 +38,7 @@ func apply_roll(entity: Node3D, delta: float) -> void:
 	current_roll = lerp(current_roll, target_roll, min(delta * roll_transition_speed, 1.0))
 	
 	# Apply roll to target node (typically the model)
-	var roll_node = entity.get_node_or_null(roll_node_path)
-	if roll_node:
-		roll_node.rotation.z = current_roll
+	#var roll_node = entity.get_node_or_null(roll_node_path)
+	#if roll_node:
+		#roll_node.rotation.z = current_roll
+	entity.rotation.z = -current_roll

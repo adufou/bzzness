@@ -27,7 +27,7 @@ func _is_at_honey_factory_position(bee: Bee) -> bool:
 	return distance_to_honey_factory_position.length() < 0.5
 
 func _move_to_honey_factory_position(bee: Bee, delta: float) -> void:
-	bee.movement_component.move_to(bee, honey_factory_position, delta)
+	bee.move_component.move_to(bee, honey_factory_position, delta)
 
 func work(bee: Bee, delta: float) -> void:
 	if bee.is_full():
