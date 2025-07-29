@@ -1,7 +1,7 @@
 extends MovementComponent
 class_name RollComponent
 
-@export var roll_model_node: Node3D
+@export var model_node: Node3D
 @export var base_max_roll_angle: float = 90.0
 @export var base_roll_transition_speed: float = 3.0
 @export var roll_angle_speed_factor: float = 0.5  # How much roll angle increases with speed
@@ -49,4 +49,4 @@ func apply_roll(entity: Node3D, destination: Vector3, delta: float) -> void:
 	current_roll = lerp(current_roll, target_roll, min(delta * dynamic_roll_speed, 1.0))
 	
 	# Apply roll to target node (typically the model)
-	roll_model_node.rotation.z = current_roll
+	model_node.rotation.z = current_roll

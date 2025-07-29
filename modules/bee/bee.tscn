@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvbkrxg3m67r3"]
+[gd_scene load_steps=13 format=3 uid="uid://cvbkrxg3m67r3"]
 
 [ext_resource type="Script" uid="uid://h1k4gdw74gnu" path="res://modules/bee/bee.gd" id="1_v5qog"]
 [ext_resource type="PackedScene" uid="uid://cy5u0o2nf2ugw" path="res://modules/bee/bee.blend" id="2_h388o"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bfokcs4s26ivp" path="res://modules/death_effect/death_effect.tscn" id="5_lrr5f"]
 [ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="7_go1n5"]
 [ext_resource type="Script" uid="uid://cxhvrc78bb02w" path="res://components/movement/move_component.gd" id="8_vx2t8"]
+[ext_resource type="Script" uid="uid://cycsmv1m7onmq" path="res://components/movement/fly_component.gd" id="9_vx2t8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iliuc"]
 
@@ -39,10 +40,16 @@ metadata/_custom_type_script = "uid://way7ltc8sygm"
 [node name="MoveComponent" type="Node" parent="."]
 script = ExtResource("8_vx2t8")
 
-[node name="RollComponent" type="Node" parent="MoveComponent" node_paths=PackedStringArray("roll_model_node")]
+[node name="RollComponent" type="Node" parent="MoveComponent" node_paths=PackedStringArray("model_node")]
 script = ExtResource("3_lrr5f")
-roll_model_node = NodePath("../../BeeBlend")
+model_node = NodePath("../../BeeBlend")
 metadata/_custom_type_script = "uid://g60kdvfcuy3k"
+
+[node name="FlyComponent" type="Node" parent="MoveComponent" node_paths=PackedStringArray("model_node")]
+script = ExtResource("9_vx2t8")
+model_node = NodePath("../../BeeBlend")
+lower_limit = 0.25
+metadata/_custom_type_script = "uid://cycsmv1m7onmq"
 
 [node name="BeeBlend" parent="." instance=ExtResource("2_h388o")]
 unique_name_in_owner = true
