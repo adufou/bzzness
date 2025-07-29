@@ -1,4 +1,4 @@
-extends Component
+extends MovementComponent
 class_name MoveComponent
 
 @export var speed: float = 5.0
@@ -50,4 +50,4 @@ func move_to(entity: Node3D, destination: Vector3, delta: float) -> void:
 	var movement = forward_direction * speed * delta
 	entity.global_transform.origin += movement
 
-	on_call_next_step.emit(entity, delta)
+	on_call_next_movement_step.emit(entity, destination, delta)

@@ -1,4 +1,4 @@
-extends Component
+extends MovementComponent
 class_name RollComponent
 
 @export var roll_model_node: Node3D
@@ -15,12 +15,12 @@ var movement_component: MoveComponent
 
 func _ready() -> void:
 	movement_component = get_parent()
-	movement_component.on_call_next_step.connect(apply_roll)
+	movement_component.on_call_next_movement_step.connect(apply_roll)
 
 	previous_y_rotation = movement_component.previous_y_rotation
 	first_frame = false
 
-func apply_roll(entity: Node3D, delta: float) -> void:
+func apply_roll(entity: Node3D, destination: Vector3, delta: float) -> void:
 	var y_rotation = entity.global_transform.basis.get_euler().y
 	
 	# Initialize previous rotation on first frame
