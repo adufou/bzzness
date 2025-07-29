@@ -5,7 +5,7 @@ signal on_request_flower(gatherer_component: GathererComponent)
 signal on_request_hive_cells_position(bee: Bee)
 signal on_deposit_pollen_to_hive_cells(pollen: int)
 signal on_deposit_pollen_to_honey_factory(pollen: int)
-signal on_request_honey_factory_position(bee: Bee)
+signal on_request_honey_factory_position(bee: WorkerComponent)
 
 var lifetime_seconds: float = GameState.bees_lifetime_seconds
 var pollen_capacity: int = GameState.bees_pollen_capacity
@@ -19,11 +19,10 @@ var remaining_lifetime: float = lifetime_seconds
 @onready var bee_jobs_component = $BeeJobsComponent
 @onready var death_effect_component = $DeathEffectComponent
 @onready var move_component = $MoveComponent
-@onready var roll_component = $RollComponent
 
 func _ready() -> void:
 	on_request_hive_cells_position.emit(self)
-	on_request_honey_factory_position.emit(self)
+
 
 func _process(delta: float) -> void:
 	remaining_lifetime -= delta
