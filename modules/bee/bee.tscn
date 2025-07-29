@@ -39,13 +39,14 @@ metadata/_custom_type_script = "uid://way7ltc8sygm"
 [node name="MoveComponent" type="Node" parent="."]
 script = ExtResource("8_vx2t8")
 
-[node name="RollComponent" type="Node" parent="MoveComponent"]
+[node name="RollComponent" type="Node" parent="MoveComponent" node_paths=PackedStringArray("roll_model_node")]
 script = ExtResource("3_lrr5f")
+roll_model_node = NodePath("../../BeeBlend")
 metadata/_custom_type_script = "uid://g60kdvfcuy3k"
 
 [node name="BeeBlend" parent="." instance=ExtResource("2_h388o")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
 [node name="LifetimeLabel3D" type="Label3D" parent="."]
 unique_name_in_owner = true
