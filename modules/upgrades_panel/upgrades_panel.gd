@@ -16,7 +16,7 @@ func _ready() -> void:
 func instantiate_upgrade_items() -> void:
 	for upgrade_name: String in Upgrades.UpgradesEnum:
 		var upgrade_item: UpgradeItem = upgrade_item_scene.instantiate()
-		upgrade_item.upgrade = Upgrades.UpgradesEnum[upgrade_name]
+		upgrade_item.upgrade_enum = Upgrades.UpgradesEnum[upgrade_name]
 		%Tier1VBoxContainer.add_child(upgrade_item)
 
 func _on_close_upgrades_panel_button_pressed() -> void:
