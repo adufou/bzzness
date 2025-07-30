@@ -10,6 +10,7 @@ var _is_button_pressed: bool = false
 
 func _ready() -> void:
 	GameState.get_upgrade_signal(upgrade_enum).connect(update)
+	GameState.on_update_total_pollen.connect(_update_purchasability)
 	_upgrade = Upgrades.get_upgrade(upgrade_enum)
 	
 	%ProgressBar.max_value = _upgrade.level_max
@@ -28,9 +29,14 @@ func update():
 	%NameLabel.text = _upgrade.display_name
 	%ProgressBar.value = _level
 	
-	if _level == _upgrade.level_max:
+	_update_purchasability(GameState.total_pollen)
+
+func _update_purchasability(total_pollen: float) -> void:
+	if _level == _upgrade.level_max || total_pollen < Upgrades.get_upgrade_cost(upgrade_enum, _level + 1):
 		_is_button_pressed = false
 		%BuyButton.disabled = true
+	else:
+		%BuyButton.disabled = false
 
 func _prettify_buy() -> String:
 	if _level == _upgrade.level_max:
