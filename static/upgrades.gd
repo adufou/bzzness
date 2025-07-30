@@ -36,8 +36,8 @@ class Upgrade:
 
 const _UPGRADES: Dictionary = {
 	UpgradesEnum.BEE_CARRY_CAPACITY: {
-		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_base = 0.1,
+		cost_multiplier = 1.25,
 		description = "Increases the amount of pollen that bees can carry.",
 		display_name = "Bee Carry Capacity",
 		effect_base = 1,
@@ -48,7 +48,7 @@ const _UPGRADES: Dictionary = {
 	},
 	UpgradesEnum.BEE_LIFETIME: {
 		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_multiplier = 1.5,
 		description = "Increases the lifetime of bees.",
 		display_name = "Bee Lifetime",
 		effect_base = 1,
@@ -58,7 +58,7 @@ const _UPGRADES: Dictionary = {
 		tier_index = 1
 	},
 	UpgradesEnum.BEE_SPEED: {
-		cost_base = 1,
+		cost_base = 0.1,
 		cost_multiplier = 1.1,
 		description = "Increases the speed of bees.",
 		display_name = "Bee Speed",
@@ -69,8 +69,8 @@ const _UPGRADES: Dictionary = {
 		tier_index = 2
 	},
 	UpgradesEnum.EGG_AUTO_SPAWN_RATE: {
-		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_base = 0.25,
+		cost_multiplier = 1.25,
 		description = "Increases the auto spawn rate of eggs.",
 		display_name = "Egg Auto Spawn Rate",
 		effect_base = 1,
@@ -80,8 +80,8 @@ const _UPGRADES: Dictionary = {
 		tier_index = 3
 	},
 	UpgradesEnum.FLOWER_SPAWN_RATE: {
-		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_base = 0.5,
+		cost_multiplier = 1.25,
 		description = "Increases the spawn rate of flowers.",
 		display_name = "Flower Spawn Rate",
 		effect_base = 1,
@@ -91,8 +91,8 @@ const _UPGRADES: Dictionary = {
 		tier_index = 4
 	},
 	UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: {
-		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_base = 0.1,
+		cost_multiplier = 1.05,
 		description = "Increases the production rate of honey factory.",
 		display_name = "Honey Factory Production Rate",
 		effect_base = 1,
@@ -102,8 +102,8 @@ const _UPGRADES: Dictionary = {
 		tier_index = 6
 	},
 	UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: {
-		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_base = 0.5,
+		cost_multiplier = 1.25,
 		description = "Increases the production quantity of honey factory.",
 		display_name = "Honey Factory Production Quantity",
 		effect_base = 1,
@@ -113,8 +113,8 @@ const _UPGRADES: Dictionary = {
 		tier_index = 7
 	},
 	UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE: {
-		cost_base = 1,
-		cost_multiplier = 1.1,
+		cost_base = 0.1,
+		cost_multiplier = 1.5,
 		description = "Increases the pollen to honey rate of honey factory.",
 		display_name = "Honey Factory Pollen To Honey Rate",
 		effect_base = 1,
