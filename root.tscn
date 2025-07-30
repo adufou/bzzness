@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjsjyxhy3uu4d"]
+[gd_scene load_steps=13 format=3 uid="uid://cjsjyxhy3uu4d"]
 
 [ext_resource type="Script" uid="uid://bwgd4ldaawl31" path="res://main.gd" id="1_57iuh"]
 [ext_resource type="Script" uid="uid://bgxpm5ufv70iw" path="res://world.gd" id="2_ik3te"]
@@ -9,6 +9,7 @@
 [ext_resource type="MeshLibrary" uid="uid://c78lrm5cqyfqk" path="res://mesh_library.tres" id="7_o4cgv"]
 [ext_resource type="Script" uid="uid://c02y8h4w6sij0" path="res://grid_map.gd" id="8_n14oo"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="9_1njtm"]
+[ext_resource type="PackedScene" uid="uid://bfs05j5fus6qv" path="res://modules/terrain/terrain_inherited.tscn" id="9_qw60f"]
 [ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="10_gd4vy"]
 [ext_resource type="PackedScene" uid="uid://ctrhsqvu3hsfj" path="res://modules/upgrades_panel/upgrades_panel.tscn" id="10_tw3kd"]
 
@@ -27,6 +28,7 @@ flower_scene = ExtResource("6_2ieat")
 
 [node name="GridMap" type="GridMap" parent="Main/WorldNode3D"]
 unique_name_in_owner = true
+visible = false
 mesh_library = ExtResource("7_o4cgv")
 cell_size = Vector3(1, 1, 1)
 data = {
@@ -34,6 +36,9 @@ data = {
 }
 script = ExtResource("8_n14oo")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="TerrainInherited" parent="Main/WorldNode3D" instance=ExtResource("9_qw60f")]
+unique_name_in_owner = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
 transform = Transform3D(-0.979925, -0.172658, 0.0996839, 0, 0.5, 0.866025, -0.199368, 0.84864, -0.489962, 0, 0, 0)

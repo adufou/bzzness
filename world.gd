@@ -5,6 +5,8 @@ extends Node3D
 @export var bee_scene: PackedScene
 @export var flower_scene: PackedScene
 
+var terrain_collision_shape_3d: CollisionShape3D
+
 var eggs_auto_spawnable: float = 0
 var flowers_auto_spawnable: float = 0
 
@@ -17,6 +19,7 @@ func _process(delta: float) -> void:
 	_auto_spawn_eggs(delta)
 	_auto_spawn_flowers(delta)
 	_process_honey_factory(delta)
+	terrain_collision_shape_3d = %TerrainInherited/CollisionShape3D
 	
 func _auto_spawn_eggs(delta: float) -> void:
 	eggs_auto_spawnable += delta * GameState.eggs_auto_spawn_rate_per_second
@@ -55,6 +58,7 @@ func _process_honey_factory(delta: float) -> void:
 func create_egg() -> void:
 	var egg: Egg = egg_scene.instantiate()
 	egg.position = %GridMap.random_egg_position()
+	_adjust_object_position_to_terrain(egg)
 	
 	egg.request_spawn_larva.connect(hatch_egg)
 	
@@ -63,6 +67,8 @@ func create_egg() -> void:
 func hatch_egg(egg_position: Vector3) -> void:	
 	var larva: Larva = larva_scene.instantiate()
 	larva.position = egg_position
+	_adjust_object_position_to_terrain(larva)
+	
 	larva.hatchery_position = %GridMap.random_nest_position()
 	
 	larva.request_spawn_bee.connect(spawn_bee)
@@ -91,6 +97,7 @@ func _handle_pollen_deposit_to_honey_factory(pollen: float) -> void:
 func spawn_bee(bee_position: Vector3) -> void:
 	var bee: Bee = bee_scene.instantiate()
 	bee.position = bee_position
+	_adjust_object_position_to_terrain(bee)
 
 	bee.on_request_flower.connect(_assign_flower_to_gatherer_bee)
 	bee.on_request_hive_cells_position.connect(_assign_hive_cells_position_to_bee)
@@ -108,8 +115,34 @@ func spawn_flower() -> void:
 	var flower_id: int = flower.get_instance_id()
 
 	flower.position = %GridMap.random_flower_position()
+	_adjust_object_position_to_terrain(flower)
 
 	flower.on_queue_free.connect(_remove_flower)
 	
 	flowers[flower_id] = flower
 	add_sibling(flower)
+
+func _adjust_object_position_to_terrain(object: Node3D) -> void:
+	var position = object.position
+	position.y = get_terrain_height_at(position)
+	object.position = position
+
+func get_terrain_height_at(position: Vector3) -> float:
+	var from = Vector3(position.x, 100, position.z)
+	var to = Vector3(position.x, -100, position.z)
+	
+	var space = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	var collision = space.intersect_ray(query)
+	
+	if collision and "collider" in collision and "position" in collision:
+		var collider = collision["collider"]
+		# You can check by name
+		if "Terrain" in collider.name:
+			return collision["position"].y
+		
+		# Or alternatively by group
+		# if collider.is_in_group("terrain"):
+		#    return collision["position"].y
+	
+	return position.y
