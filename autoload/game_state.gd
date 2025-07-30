@@ -8,7 +8,6 @@ signal on_update_tier_1_upgrade_level_bees_lifetime()
 signal on_update_tier_1_upgrade_level_bees_speed()
 signal on_update_tier_1_upgrade_level_eggs_auto_spawn_rate()
 signal on_update_tier_1_upgrade_level_flowers_spawn_rate()
-signal on_update_tier_1_upgrade_level_honey_factory_max_pollen()
 signal on_update_tier_1_upgrade_level_honey_factory_pollen_to_honey_rate()
 signal on_update_tier_1_upgrade_level_honey_factory_production_quantity()
 signal on_update_tier_1_upgrade_level_honey_factory_production_rate()
@@ -26,7 +25,6 @@ signal on_update_eggs_auto_spawn_rate_per_second(value: float)
 signal on_update_flowers_spawn_rate_per_second(value: float)
 
 ### ----- Honey factory ----- ###
-signal on_update_honey_factory_max_pollen(value: int)
 signal on_update_honey_factory_pollen_to_honey_rate(value: float)
 signal on_update_honey_factory_production_quantity(value: int)
 signal on_update_honey_factory_production_rate_per_second(value: float)
@@ -76,12 +74,6 @@ var tier_1_upgrade_level_flowers_spawn_rate: int:
 		on_update_tier_1_upgrade_level_flowers_spawn_rate.emit()
 		Statistics.compute_flowers_spawn_rate_per_second()
 
-var tier_1_upgrade_level_honey_factory_max_pollen: int:
-	set(value):
-		tier_1_upgrade_level_honey_factory_max_pollen = value
-		on_update_tier_1_upgrade_level_honey_factory_max_pollen.emit()
-		Statistics.compute_honey_factory_max_pollen()
-
 var tier_1_upgrade_level_honey_factory_pollen_to_honey_rate: int:
 	set(value):
 		tier_1_upgrade_level_honey_factory_pollen_to_honey_rate = value
@@ -130,11 +122,6 @@ var flowers_spawn_rate_per_second: float:
 		on_update_flowers_spawn_rate_per_second.emit(value)
 
 ### ----- Honey factory ----- ###
-var honey_factory_max_pollen: int:
-	set(value):
-		honey_factory_max_pollen = value
-		on_update_honey_factory_max_pollen.emit(value)
-
 var honey_factory_pollen_to_honey_rate: float:
 	set(value):
 		honey_factory_pollen_to_honey_rate = value
@@ -186,7 +173,6 @@ func _ready() -> void:
 	tier_1_upgrade_level_bees_speed = 0
 	tier_1_upgrade_level_eggs_auto_spawn_rate = 0
 	tier_1_upgrade_level_flowers_spawn_rate = 0
-	tier_1_upgrade_level_honey_factory_max_pollen = 0
 	tier_1_upgrade_level_honey_factory_pollen_to_honey_rate = 0
 	tier_1_upgrade_level_honey_factory_production_quantity = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
@@ -199,7 +185,6 @@ func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:
 		Upgrades.UpgradesEnum.BEE_SPEED: return tier_1_upgrade_level_bees_speed
 		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: return tier_1_upgrade_level_eggs_auto_spawn_rate
 		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: return tier_1_upgrade_level_flowers_spawn_rate
-		Upgrades.UpgradesEnum.HONEY_FACTORY_MAX_POLLEN: return tier_1_upgrade_level_honey_factory_max_pollen
 		Upgrades.UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE: return tier_1_upgrade_level_honey_factory_pollen_to_honey_rate
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: return tier_1_upgrade_level_honey_factory_production_quantity
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: return tier_1_upgrade_level_honey_factory_production_rate
@@ -213,7 +198,6 @@ func set_upgrade_level(upgrade_name: Upgrades.UpgradesEnum, level: int) -> void:
 		Upgrades.UpgradesEnum.BEE_SPEED: tier_1_upgrade_level_bees_speed = level
 		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: tier_1_upgrade_level_eggs_auto_spawn_rate = level
 		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: tier_1_upgrade_level_flowers_spawn_rate = level
-		Upgrades.UpgradesEnum.HONEY_FACTORY_MAX_POLLEN: tier_1_upgrade_level_honey_factory_max_pollen = level
 		Upgrades.UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE: tier_1_upgrade_level_honey_factory_pollen_to_honey_rate = level
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: tier_1_upgrade_level_honey_factory_production_quantity = level
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: tier_1_upgrade_level_honey_factory_production_rate = level
@@ -225,7 +209,6 @@ func get_upgrade_signal(upgrade_name: Upgrades.UpgradesEnum) -> Signal:
 		Upgrades.UpgradesEnum.BEE_SPEED: return on_update_tier_1_upgrade_level_bees_speed
 		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: return on_update_tier_1_upgrade_level_eggs_auto_spawn_rate
 		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: return on_update_tier_1_upgrade_level_flowers_spawn_rate
-		Upgrades.UpgradesEnum.HONEY_FACTORY_MAX_POLLEN: return on_update_tier_1_upgrade_level_honey_factory_max_pollen
 		Upgrades.UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE: return on_update_tier_1_upgrade_level_honey_factory_pollen_to_honey_rate
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: return on_update_tier_1_upgrade_level_honey_factory_production_quantity
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: return on_update_tier_1_upgrade_level_honey_factory_production_rate
