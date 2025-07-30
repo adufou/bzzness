@@ -3,16 +3,16 @@ class_name Bee
 
 signal on_request_flower(gatherer_component: GathererComponent)
 signal on_request_hive_cells_position(bee: Bee)
-signal on_deposit_pollen_to_hive_cells(pollen: int)
-signal on_deposit_pollen_to_honey_factory(pollen: int)
+signal on_deposit_pollen_to_hive_cells(pollen: float)
+signal on_deposit_pollen_to_honey_factory(pollen: float)
 signal on_request_honey_factory_position(worker_component: WorkerComponent)
 
 var lifetime_seconds: float = GameState.bees_lifetime_seconds
-var pollen_capacity: int = GameState.bees_pollen_capacity
+var pollen_capacity: float = GameState.bees_pollen_capacity
 var speed: float = GameState.bees_speed
 
 var hive_cells_position: Vector3
-var pollen_carried: int = 0
+var pollen_carried: float = 0
 var remaining_lifetime: float = lifetime_seconds
 
 # Components

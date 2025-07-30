@@ -8,8 +8,8 @@ func _deposit_pollen_to_hive_cells(bee: Bee) -> void:
 	bee.pollen_carried = 0
 
 func _harvest_pollen(bee: Bee) -> void:
-	var available_pollen_carry: int = bee.pollen_capacity - bee.pollen_carried
-	var pollen_harvested: int = aimed_flower.harvest_pollen(available_pollen_carry)
+	var available_pollen_carry: float = bee.pollen_capacity - bee.pollen_carried
+	var pollen_harvested: float = aimed_flower.harvest_pollen(available_pollen_carry)
 	bee.pollen_carried += pollen_harvested
 
 func _has_flower_or_request_one(bee: Bee) -> bool:

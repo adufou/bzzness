@@ -15,7 +15,7 @@ signal on_update_tier_1_upgrade_level_honey_factory_production_rate()
 ##################### |------- STATISTICS -------| #####################
 ### ----- Bees ----- ###
 signal on_update_bees_lifetime_seconds(value: float)
-signal on_update_bees_pollen_capacity(value: int)
+signal on_update_bees_pollen_capacity(value: float)
 signal on_update_bees_speed(value: float)
 
 ### ----- Eggs ----- ###
@@ -26,7 +26,7 @@ signal on_update_flowers_spawn_rate_per_second(value: float)
 
 ### ----- Honey factory ----- ###
 signal on_update_honey_factory_pollen_to_honey_rate(value: float)
-signal on_update_honey_factory_production_quantity(value: int)
+signal on_update_honey_factory_production_quantity(value: float)
 signal on_update_honey_factory_production_rate_per_second(value: float)
 
 ##################### |------- GOODS -------| #####################
@@ -94,7 +94,7 @@ var tier_1_upgrade_level_honey_factory_production_rate: int:
 
 #####################	 |------- STATISTICS -------| #####################
 ### ----- Bees ----- ###
-var bees_pollen_capacity: int:
+var bees_pollen_capacity: float:
 	set(value):
 		bees_pollen_capacity = value
 		on_update_bees_pollen_capacity.emit(value)
@@ -127,7 +127,7 @@ var honey_factory_pollen_to_honey_rate: float:
 		honey_factory_pollen_to_honey_rate = value
 		on_update_honey_factory_pollen_to_honey_rate.emit(value)
 
-var honey_factory_production_quantity: int:
+var honey_factory_production_quantity: float:
 	set(value):
 		honey_factory_production_quantity = value
 		on_update_honey_factory_production_quantity.emit(value)

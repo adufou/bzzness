@@ -12,8 +12,8 @@ func _deposit_pollen_to_honey_factory(bee: Bee) -> void:
 	bee.pollen_carried = 0
 
 func _load_pollen_from_hive_cells(bee: Bee) -> void:
-	var available_pollen_carry: int = bee.pollen_capacity - bee.pollen_carried
-	var pollen_to_load: int = min(available_pollen_carry, GameState.total_pollen)
+	var available_pollen_carry: float = bee.pollen_capacity - bee.pollen_carried
+	var pollen_to_load: float = min(available_pollen_carry, GameState.total_pollen)
 	
 	GameState.total_pollen -= pollen_to_load
 	bee.pollen_carried += pollen_to_load

@@ -40,20 +40,9 @@ func _process_honey_factory(delta: float) -> void:
 		return
 	
 	GameState.honey_factory_total_pollen -= process_honey_cost
-
-	# print_debug({
-	# 	"honey_factory_total_pollen": GameState.honey_factory_total_pollen,
-	# 	"process_honey_cost": process_honey_cost,
-	# })
 	
 	GameState.honey_factory_production_progress_as_quantity += processable_honey
 	var nb_of_completions: int = GameState.honey_factory_production_progress_as_quantity / GameState.honey_factory_production_quantity
-	
-	# print_debug({
-	# 	"processable_honey": processable_honey,
-	# 	"process_honey_cost": process_honey_cost,
-	# 	"honey_factory_production_progress_as_quantity": GameState.honey_factory_production_progress_as_quantity,
-	# })
 
 	if (nb_of_completions == 0):
 		return
@@ -62,11 +51,6 @@ func _process_honey_factory(delta: float) -> void:
 	GameState.honey_factory_production_progress_as_quantity -= produced_honey
 
 	GameState.total_honey += produced_honey
-
-	# print_debug({
-	# 	"produced_honey": produced_honey,
-	# 	"total_honey": GameState.total_honey,
-	# })
 
 func create_egg() -> void:
 	var egg: Egg = egg_scene.instantiate()
@@ -98,7 +82,7 @@ func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
 func _assign_honey_factory_position_to_worker_bee(worker_component: WorkerComponent) -> void:
 	worker_component.honey_factory_position = %GridMap.random_honey_factory_position()
 
-func _handle_pollen_deposit_to_hive_cells(pollen: int) -> void:
+func _handle_pollen_deposit_to_hive_cells(pollen: float) -> void:
 	GameState.total_pollen += pollen
 
 func _handle_pollen_deposit_to_honey_factory(pollen: float) -> void:
