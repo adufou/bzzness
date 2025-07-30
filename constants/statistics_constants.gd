@@ -3,7 +3,7 @@ class_name StatisticsConstants
 
 ### |------- Bees -------| ###
 const BASE_BEE_SPEED: float = 2.0
-const BASE_BEE_CARRY_CAPACITY: float = 0.01
+const BASE_BEE_CARRY_CAPACITY: float = 100.0
 const BASE_BEE_LIFETIME_SECONDS: float = 10.0
 
 ### |------- Eggs -------| ###

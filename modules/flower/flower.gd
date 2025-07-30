@@ -1,7 +1,7 @@
 extends Node3D
 class_name Flower
 
-const FLOWER_HARVESTABLE_POLLEN: float = 5.0
+const FLOWER_HARVESTABLE_POLLEN: float = 250.0
 
 var pollen_remaining: float = FLOWER_HARVESTABLE_POLLEN
 
