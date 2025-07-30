@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ej3f5b4nt1s"]
+
+[ext_resource type="PackedScene" uid="uid://cxewe4knhmwva" path="res://modules/hive_cells/hive_cells.blend" id="1_wc7t0"]
+[ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="2_j4rqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwhpj"]
+
+[node name="HiveCellsStaticBody3D" type="StaticBody3D"]
+
+[node name="hive_cells" parent="." instance=ExtResource("1_wc7t0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_qwhpj")
+
+[node name="CameraFacingLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+text = "Hive Cells"
+script = ExtResource("2_j4rqt")
+metadata/_custom_type_script = "uid://c8rwsqhfnyuty"

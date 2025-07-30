@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://druv4qmf5xu2a"]
+
+[ext_resource type="PackedScene" uid="uid://ba7w6qd1y7776" path="res://modules/nest/nest.blend" id="1_vxvd1"]
+[ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="2_u16m5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwhpj"]
+
+[node name="NestStaticBody3D" type="StaticBody3D"]
+
+[node name="nest" parent="." instance=ExtResource("1_vxvd1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_qwhpj")
+
+[node name="CameraFacingLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+text = "Nest"
+script = ExtResource("2_u16m5")
+metadata/_custom_type_script = "uid://c8rwsqhfnyuty"

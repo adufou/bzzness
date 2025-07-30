@@ -176,6 +176,8 @@ func _ready() -> void:
 	tier_1_upgrade_level_honey_factory_pollen_to_honey_rate = 0
 	tier_1_upgrade_level_honey_factory_production_quantity = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
+	
+	total_honey = 42069
 
 #################################### |---------------[ METHODS ]---------------| ####################################
 func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:

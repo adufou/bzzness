@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjsjyxhy3uu4d"]
+[gd_scene load_steps=15 format=3 uid="uid://cjsjyxhy3uu4d"]
 
 [ext_resource type="Script" uid="uid://bwgd4ldaawl31" path="res://main.gd" id="1_57iuh"]
 [ext_resource type="Script" uid="uid://bgxpm5ufv70iw" path="res://world.gd" id="2_ik3te"]
@@ -6,12 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b7825rrkstoa7" path="res://modules/larva/larva.tscn" id="4_xy117"]
 [ext_resource type="PackedScene" uid="uid://cvbkrxg3m67r3" path="res://modules/bee/bee.tscn" id="5_txdvm"]
 [ext_resource type="PackedScene" uid="uid://bveudwxn7pqsh" path="res://modules/flower/flower.tscn" id="6_2ieat"]
-[ext_resource type="MeshLibrary" uid="uid://c78lrm5cqyfqk" path="res://mesh_library.tres" id="7_o4cgv"]
-[ext_resource type="Script" uid="uid://c02y8h4w6sij0" path="res://grid_map.gd" id="8_n14oo"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="9_1njtm"]
 [ext_resource type="PackedScene" uid="uid://bfs05j5fus6qv" path="res://modules/terrain/terrain_inherited.tscn" id="9_qw60f"]
 [ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="10_gd4vy"]
 [ext_resource type="PackedScene" uid="uid://ctrhsqvu3hsfj" path="res://modules/upgrades_panel/upgrades_panel.tscn" id="10_tw3kd"]
+[ext_resource type="PackedScene" uid="uid://druv4qmf5xu2a" path="res://modules/nest/nest.tscn" id="11_sq7yr"]
+[ext_resource type="PackedScene" uid="uid://co02rijqdttnn" path="res://modules/honey_factory/honey_factory.tscn" id="12_r3r3k"]
+[ext_resource type="PackedScene" uid="uid://c0ej3f5b4nt1s" path="res://modules/hive_cells/hive_cells.tscn" id="13_blcw0"]
+[ext_resource type="PackedScene" uid="uid://c6k6oe74ca04h" path="res://modules/hatchery/hatchery.tscn" id="14_r3r3k"]
 
 [node name="Root" type="Node"]
 
@@ -26,22 +28,27 @@ larva_scene = ExtResource("4_xy117")
 bee_scene = ExtResource("5_txdvm")
 flower_scene = ExtResource("6_2ieat")
 
-[node name="GridMap" type="GridMap" parent="Main/WorldNode3D"]
-unique_name_in_owner = true
-visible = false
-mesh_library = ExtResource("7_o4cgv")
-cell_size = Vector3(1, 1, 1)
-data = {
-"cells": PackedInt32Array(2, 2, 4, 0, 0, 1048576, 0, 1, 1048576, 1, 1, 1048576, 1, 0, 1048576, 0, 2, 1048576, 0, 3, 1048576, 0, 4, 1048576, 0, 5, 1048576, 0, 6, 1048576, 0, 7, 1048576, 0, 11, 1048576, 0, 15, 1048576, 3, 0, 1048576, 7, 0, 1048576, 11, 0, 1048576, 15, 0, 1048576, 15, 1, 1048576, 15, 2, 1048576, 14, 2, 1048576, 14, 3, 1048576, 13, 3, 1048577, 13, 4, 1048577, 12, 4, 1048577, 12, 5, 1048577, 11, 5, 1048577, 11, 6, 1048576, 10, 6, 1048576, 9, 7, 1048576, 8, 7, 1048576, 8, 8, 1048576, 7, 9, 1048576, 6, 9, 1048576, 6, 10, 1048576, 5, 10, 1048579, 5, 11, 1048579, 4, 11, 1048579, 4, 12, 1048579, 3, 12, 1048579, 3, 13, 1048579, 2, 13, 1048579, 1, 13, 1048576, 1, 14, 1048576, 0, 14, 1048576, 0, 13, 1048576, 0, 12, 1048576, 1, 11, 1048576, 1, 12, 1048576, 2, 12, 1048579, 3, 11, 1048579, 3, 10, 1048579, 4, 10, 1048579, 4, 9, 1048576, 5, 9, 1048576, 5, 8, 1048576, 6, 8, 1048576, 6, 7, 1048576, 7, 7, 1048576, 7, 6, 1048576, 8, 6, 1048576, 9, 6, 1048576, 9, 5, 1048576, 10, 5, 1048577, 11, 4, 1048577, 12, 3, 1048577, 13, 2, 1048577, 13, 1, 1048576, 14, 1, 1048576, 14, 0, 1048576, 13, 0, 1048576, 12, 0, 1048576, 10, 0, 1048576, 9, 0, 1048576, 8, 0, 1048576, 6, 0, 1048576, 5, 0, 1048576, 4, 0, 1048576, 2, 0, 1048576, 1, 2, 1048576, 1, 3, 1048576, 1, 4, 1048576, 0, 8, 1048576, 0, 9, 1048576, 0, 10, 1048576, 2, 11, 1048579, 3, 9, 1048576, 4, 8, 1048576, 4, 7, 1048576, 5, 6, 1048576, 6, 5, 1048576, 7, 5, 1048576, 7, 4, 1048576, 8, 4, 1048576, 8, 3, 1048576, 9, 3, 1048576, 9, 2, 1048576, 10, 2, 1048577, 11, 2, 1048577, 11, 1, 1048576, 12, 1, 1048576, 2, 1, 1048576, 3, 1, 1048576, 4, 1, 1048576, 5, 1, 1048576, 6, 1, 1048576, 8, 1, 1048576, 9, 1, 1048576, 10, 1, 1048576, 12, 2, 1048577, 11, 3, 1048577, 10, 3, 1048577, 10, 4, 1048577, 9, 4, 1048576, 8, 5, 1048576, 7, 3, 1048576, 7, 2, 1048576, 7, 1, 1048576, 8, 2, 1048576, 6, 2, 1048576, 5, 2, 4, 4, 2, 4, 3, 2, 4, 2, 3, 4, 3, 3, 4, 4, 3, 4, 5, 3, 4, 6, 3, 1048576, 6, 4, 1048576, 5, 4, 4, 4, 4, 4, 3, 4, 4, 2, 4, 4, 2, 5, 4, 1, 6, 1048576, 1, 7, 1048576, 1, 8, 1048576, 1, 9, 1048576, 1, 10, 1048576, 1, 5, 1048576, 5, 5, 4, 4, 5, 4, 3, 5, 4, 2, 6, 1048576, 2, 10, 1048579, 2, 9, 1048576, 2, 8, 1048576, 2, 7, 1048576, 3, 7, 1048576, 3, 8, 1048576, 3, 6, 1048576, 4, 6, 1048576, 5, 7, 1048576, 6, 6, 1048576, 7, 8, 1048576, 15, 3, 1048576, 15, 4, 1048576, 15, 5, 1048576, 15, 6, 1048576, 15, 7, 1048576, 15, 8, 1048576, 15, 9, 1048576, 14, 9, 1048576, 14, 10, 1048576, 13, 11, 1048578, 12, 11, 1048578, 11, 11, 1048578, 11, 12, 1048578, 10, 12, 1048578, 9, 12, 1048576, 8, 12, 1048576, 7, 12, 1048576, 7, 13, 1048576, 6, 13, 1048576, 5, 13, 1048579, 5, 14, 1048576, 4, 14, 1048576, 3, 14, 1048576, 2, 14, 1048576, 2, 15, 1048576, 1, 15, 1048576, 4, 13, 1048579, 5, 12, 1048579, 6, 12, 1048576, 7, 11, 1048576, 8, 11, 1048576, 9, 11, 1048576, 10, 11, 1048578, 12, 10, 1048578, 13, 10, 1048578, 13, 9, 1048576, 14, 8, 1048576, 14, 5, 1048576, 14, 4, 1048576, 14, 6, 1048576, 14, 7, 1048576, 13, 8, 1048576, 13, 7, 1048576, 12, 6, 1048576, 13, 5, 1048577, 13, 6, 1048576, 12, 8, 1048576, 12, 9, 1048576, 11, 10, 1048578, 11, 9, 1048576, 11, 8, 1048576, 11, 7, 1048576, 12, 7, 1048576, 10, 7, 1048576, 10, 8, 1048576, 10, 9, 1048576, 10, 10, 1048578, 9, 10, 1048576, 8, 10, 1048576, 7, 10, 1048576, 8, 9, 1048576, 9, 8, 1048576, 9, 9, 1048576, 6, 11, 1048576, 6, 14, 1048576, 7, 14, 1048576, 8, 14, 1048576, 8, 13, 1048576, 9, 13, 1048576, 9, 14, 1048576, 10, 14, 1048576, 11, 14, 1048576, 11, 13, 1048578, 12, 14, 1048576, 12, 13, 1048578, 13, 14, 1048576, 13, 13, 1048578, 14, 13, 1048576, 14, 12, 1048576, 15, 12, 1048576, 14, 11, 1048576, 13, 12, 1048578, 12, 12, 1048578, 10, 13, 1048578, 15, 10, 1048576, 15, 11, 1048576, 15, 13, 1048576, 15, 14, 1048576, 14, 14, 1048576, 15, 15, 1048576, 14, 15, 1048576, 13, 15, 1048576, 12, 15, 1048576, 11, 15, 1048576, 10, 15, 1048576, 9, 15, 1048576, 8, 15, 1048576, 7, 15, 1048576, 6, 15, 1048576, 5, 15, 1048576, 4, 15, 1048576, 3, 15, 1048576)
-}
-script = ExtResource("8_n14oo")
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
 [node name="TerrainInherited" parent="Main/WorldNode3D" instance=ExtResource("9_qw60f")]
 unique_name_in_owner = true
 
+[node name="Hatchery" parent="Main/WorldNode3D" instance=ExtResource("14_r3r3k")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="Nest" parent="Main/WorldNode3D" instance=ExtResource("11_sq7yr")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+
+[node name="HoneyFactory" parent="Main/WorldNode3D" instance=ExtResource("12_r3r3k")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="HiveCells" parent="Main/WorldNode3D" instance=ExtResource("13_blcw0")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Main"]
-transform = Transform3D(-0.979925, -0.172658, 0.0996839, 0, 0.5, 0.866025, -0.199368, 0.84864, -0.489962, 0, 0, 0)
+transform = Transform3D(0.770693, 0.312244, -0.55546, -0.12888, 0.930079, 0.344011, 0.624037, -0.193539, 0.757047, 0, 0, 0)
 shadow_enabled = true
 
 [node name="HudControl" type="Control" parent="Main"]

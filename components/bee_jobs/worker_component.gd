@@ -28,7 +28,7 @@ func _has_honey_factory_or_request_one(bee: Bee) -> bool:
 func _is_at_honey_factory_position(bee: Bee) -> bool:
 	var distance_to_honey_factory_position: Vector3 = honey_factory_position - bee.global_transform.origin
 	
-	return distance_to_honey_factory_position.length() < 0.5
+	return distance_to_honey_factory_position.length() < 1.5
 
 func _move_to_honey_factory_position(bee: Bee, delta: float) -> void:
 	bee.move_component.move_to(bee, honey_factory_position, delta)

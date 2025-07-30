@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	_auto_spawn_eggs(delta)
 	_auto_spawn_flowers(delta)
 	_process_honey_factory(delta)
-	terrain_collision_shape_3d = %TerrainInherited/CollisionShape3D
+	terrain_collision_shape_3d = %TerrainInherited/StaticBody3D/CollisionShape3D
 	
 func _auto_spawn_eggs(delta: float) -> void:
 	eggs_auto_spawnable += delta * GameState.eggs_auto_spawn_rate_per_second
@@ -55,9 +55,17 @@ func _process_honey_factory(delta: float) -> void:
 
 	GameState.total_honey += produced_honey
 
+func _get_egg_position() -> Vector3:
+	var hatchery_position: Vector3 = %Hatchery.global_transform.origin
+	
+	# Return a position in a circle around the hatchery of radius 10, excluding and 3 radius circle inside
+	var angle = randf() * 2 * PI
+	var radius = randf() * 7 + 3
+	return Vector3(hatchery_position.x + radius * cos(angle), 0, hatchery_position.z + radius * sin(angle))
+
 func create_egg() -> void:
 	var egg: Egg = egg_scene.instantiate()
-	egg.position = %GridMap.random_egg_position()
+	egg.position = _get_egg_position()
 	_adjust_object_position_to_terrain(egg)
 	
 	egg.request_spawn_larva.connect(hatch_egg)
@@ -69,7 +77,7 @@ func hatch_egg(egg_position: Vector3) -> void:
 	larva.position = egg_position
 	_adjust_object_position_to_terrain(larva)
 	
-	larva.hatchery_position = %GridMap.random_nest_position()
+	larva.hatchery_position = %Nest.global_transform.origin
 	
 	larva.request_spawn_bee.connect(spawn_bee)
 	
@@ -83,10 +91,10 @@ func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> vo
 	gatherer_component.aimed_flower = flower
 
 func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
-	bee.hive_cells_position = %GridMap.random_hive_cells_position()
+	bee.hive_cells_position = %HiveCells.global_transform.origin
 
 func _assign_honey_factory_position_to_worker_bee(worker_component: WorkerComponent) -> void:
-	worker_component.honey_factory_position = %GridMap.random_honey_factory_position()
+	worker_component.honey_factory_position = %HoneyFactory.global_transform.origin
 
 func _handle_pollen_deposit_to_hive_cells(pollen: float) -> void:
 	GameState.total_pollen += pollen
@@ -110,11 +118,17 @@ func spawn_bee(bee_position: Vector3) -> void:
 func _remove_flower(flower: Flower) -> void:
 	flowers.erase(flower.get_instance_id())
 
+func _get_flower_position() -> Vector3:
+	# Position inside random range, will use or update later. 
+	var position_x: float = randf_range(-25, 25)
+	var position_z: float = randf_range(-25, 25)
+	return Vector3(position_x, 0, position_z)
+
 func spawn_flower() -> void:
 	var flower: Flower = flower_scene.instantiate()
 	var flower_id: int = flower.get_instance_id()
 
-	flower.position = %GridMap.random_flower_position()
+	flower.position = _get_flower_position()
 	_adjust_object_position_to_terrain(flower)
 
 	flower.on_queue_free.connect(_remove_flower)
@@ -124,25 +138,5 @@ func spawn_flower() -> void:
 
 func _adjust_object_position_to_terrain(object: Node3D) -> void:
 	var position = object.position
-	position.y = get_terrain_height_at(position)
+	position.y = WorldUtils.get_terrain_height_at(position, self)
 	object.position = position
-
-func get_terrain_height_at(position: Vector3) -> float:
-	var from = Vector3(position.x, 100, position.z)
-	var to = Vector3(position.x, -100, position.z)
-	
-	var space = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(from, to)
-	var collision = space.intersect_ray(query)
-	
-	if collision and "collider" in collision and "position" in collision:
-		var collider = collision["collider"]
-		# You can check by name
-		if "Terrain" in collider.name:
-			return collision["position"].y
-		
-		# Or alternatively by group
-		# if collider.is_in_group("terrain"):
-		#    return collision["position"].y
-	
-	return position.y

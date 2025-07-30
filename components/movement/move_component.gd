@@ -46,8 +46,16 @@ func move_to(entity: Node3D, destination: Vector3, delta: float) -> void:
 	# Get current forward direction (where the entity is facing)
 	var forward_direction = -entity.global_transform.basis.z.normalized()
 	
-	# Move in the direction the entity is facing
+	# Move in the direction the entity is facing (but only in the XZ plane)
 	var movement = forward_direction * speed * delta
-	entity.global_transform.origin += movement
+	
+	# Apply XZ movement
+	entity.global_transform.origin += Vector3(movement.x, 0, movement.z)
+	
+	# Use WorldUtils to get the terrain height at the new position, passing the entity for physics space
+	var terrain_height = WorldUtils.get_terrain_height_at(entity.global_transform.origin, entity)
+	
+	# Set the entity's Y position to the terrain height
+	entity.global_transform.origin.y = terrain_height
 
 	on_call_next_movement_step.emit(entity, destination, delta)

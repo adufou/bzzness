@@ -8,7 +8,7 @@
 [node name="LarvaNode3D" type="Node3D"]
 script = ExtResource("1_oevgx")
 
-[node name="MovementComponent" type="Node" parent="."]
+[node name="MoveComponent" type="Node" parent="."]
 script = ExtResource("3_dho8t")
 
 [node name="LarvaBlend" parent="." instance=ExtResource("2_p3d84")]

@@ -22,7 +22,7 @@ func _has_flower_or_request_one(bee: Bee) -> bool:
 func _is_at_flower(bee: Bee) -> bool:
 	var distance_to_flower: Vector3 = aimed_flower.position - bee.global_transform.origin
 	
-	return distance_to_flower.length() < 0.5
+	return distance_to_flower.length() < 1.5
 
 func _move_to_flower(bee: Bee, delta: float) -> void:
 	bee.move_component.move_to(bee, aimed_flower.position, delta)

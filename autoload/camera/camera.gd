@@ -2,8 +2,8 @@ extends Camera3D
 
 # Camera movement settings
 @export_group("Bounds")
-@export var bounds_min: Vector2 = Vector2(-15, -15)  # Minimum X,Z position
-@export var bounds_max: Vector2 = Vector2(15, 15)    # Maximum X,Z position
+@export var bounds_min: Vector2 = Vector2(-50, -50)  # Minimum X,Z position
+@export var bounds_max: Vector2 = Vector2(50, 50)    # Maximum X,Z position
 
 @export_group("FOV")
 @export_range(0, 180, 1, "suffix:°") var field_of_vue: float = 40
@@ -16,13 +16,13 @@ extends Camera3D
 @export var movement_speed: float = 5.0  # Speed multiplier for camera movement
 
 @export_group("Transfom")
-@export var camera_initial_position: Vector3 = Vector3(-5, 16, -5)
+@export var camera_initial_position: Vector3 = Vector3(-20, 16, -30)
 @export_custom(PROPERTY_HINT_NONE, "suffix:°") var camera_rotation_degrees: Vector3 = Vector3(-35, -145, 0)
 
 @export_group("Zoom")
 @export var zoom_speed: float = 0.1  # Speed of zooming
 @export var min_zoom: float = 5.0   # Minimum zoom distance (closest)
-@export var max_zoom: float = 20.0  # Maximum zoom distance (furthest)
+@export var max_zoom: float = 50.0  # Maximum zoom distance (furthest)
 
 # Input tracking variables
 var is_dragging: bool = false

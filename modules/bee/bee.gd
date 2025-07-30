@@ -50,7 +50,7 @@ func is_full() -> bool:
 func is_at_hive_cells_position() -> bool:
 	var distance_to_hive_cells_position: Vector3 = hive_cells_position - global_transform.origin
 	
-	return distance_to_hive_cells_position.length() < 0.5
+	return distance_to_hive_cells_position.length() < 1.5
 
 func move_to_hive_cells_position(delta: float) -> void:
 	move_component.move_to(self, hive_cells_position, delta)
