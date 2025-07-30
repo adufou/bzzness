@@ -6,7 +6,7 @@ var upgrade_enum: Upgrades.UpgradesEnum
 var _level: int
 var _upgrade: Upgrades.Upgrade
 
-var is_button_pressed: bool = false
+var _is_button_pressed: bool = false
 
 func _ready() -> void:
 	GameState.get_upgrade_signal(upgrade_enum).connect(update)
@@ -16,7 +16,7 @@ func _ready() -> void:
 	update()
 
 func _process(delta: float) -> void:
-	if is_button_pressed:
+	if _is_button_pressed:
 		GameState.set_upgrade_level(upgrade_enum, _level + 1)
 
 func update():
@@ -27,6 +27,10 @@ func update():
 	%NameLabel.text = _upgrade.display_name
 	%DescriptionLabel.text = _upgrade.description
 
+	if _level == _upgrade.level_max:
+		_is_button_pressed = false
+		%BuyButton.disabled = true
+	
 func _prettify_level() -> String:
 	var level_max: int = _upgrade.level_max
 	
@@ -39,7 +43,7 @@ func _prettify_effect() -> String:
 	return "+" + str(effect_difference_in_percent) + "%"
 
 func _on_buy_button_button_down() -> void:
-	is_button_pressed = true
+	_is_button_pressed = true
 
 func _on_buy_button_button_up() -> void:
-	is_button_pressed = false
+	_is_button_pressed = false
