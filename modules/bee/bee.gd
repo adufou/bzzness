@@ -5,7 +5,7 @@ signal on_request_flower(gatherer_component: GathererComponent)
 signal on_request_hive_cells_position(bee: Bee)
 signal on_deposit_pollen_to_hive_cells(pollen: int)
 signal on_deposit_pollen_to_honey_factory(pollen: int)
-signal on_request_honey_factory_position(bee: WorkerComponent)
+signal on_request_honey_factory_position(worker_component: WorkerComponent)
 
 var lifetime_seconds: float = GameState.bees_lifetime_seconds
 var pollen_capacity: int = GameState.bees_pollen_capacity
