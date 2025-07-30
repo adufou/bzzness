@@ -8,7 +8,9 @@ enum UpgradesEnum {
 	EGG_AUTO_SPAWN_RATE,
 	FLOWER_SPAWN_RATE,
 	HONEY_FACTORY_MAX_POLLEN,
-	HONEY_FACTORY_PRODUCTION_RATE
+	HONEY_FACTORY_PRODUCTION_RATE,
+	HONEY_FACTORY_PRODUCTION_QUANTITY,
+	HONEY_FACTORY_POLLEN_TO_HONEY_RATE
 }
 
 class Upgrade:
@@ -111,6 +113,28 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 6
 	},
+	UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: {
+		cost_base = 1,
+		cost_multiplier = 1.1,
+		description = "Increases the production quantity of honey factory.",
+		display_name = "Honey Factory Production Quantity",
+		effect_base = 1,
+		effect_value = 0.1,
+		level_max = 10,
+		tier = 1,
+		tier_index = 7
+	},
+	UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE: {
+		cost_base = 1,
+		cost_multiplier = 1.1,
+		description = "Increases the pollen to honey rate of honey factory.",
+		display_name = "Honey Factory Pollen To Honey Rate",
+		effect_base = 1,
+		effect_value = 0.1,
+		level_max = 10,
+		tier = 1,
+		tier_index = 8
+	}
 }
 
 static func get_upgrade(upgrade: UpgradesEnum) -> Upgrade:

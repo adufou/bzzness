@@ -16,6 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_auto_spawn_eggs(delta)
 	_auto_spawn_flowers(delta)
+	_process_honey_factory(delta)
 	
 func _auto_spawn_eggs(delta: float) -> void:
 	eggs_auto_spawnable += delta * GameState.eggs_auto_spawn_rate_per_second
@@ -30,6 +31,42 @@ func _auto_spawn_flowers(delta: float) -> void:
 	while flowers_auto_spawnable > 0:
 		spawn_flower()
 		flowers_auto_spawnable -= 1
+		
+func _process_honey_factory(delta: float) -> void:
+	var processable_honey: float = GameState.honey_factory_production_rate_per_second * delta
+	var process_honey_cost: float = GameState.honey_factory_pollen_to_honey_rate * processable_honey
+	
+	if (GameState.honey_factory_total_pollen < process_honey_cost):
+		return
+	
+	GameState.honey_factory_total_pollen -= process_honey_cost
+
+	# print_debug({
+	# 	"honey_factory_total_pollen": GameState.honey_factory_total_pollen,
+	# 	"process_honey_cost": process_honey_cost,
+	# })
+	
+	GameState.honey_factory_production_progress_as_quantity += processable_honey
+	var nb_of_completions: int = GameState.honey_factory_production_progress_as_quantity / GameState.honey_factory_production_quantity
+	
+	# print_debug({
+	# 	"processable_honey": processable_honey,
+	# 	"process_honey_cost": process_honey_cost,
+	# 	"honey_factory_production_progress_as_quantity": GameState.honey_factory_production_progress_as_quantity,
+	# })
+
+	if (nb_of_completions == 0):
+		return
+		
+	var produced_honey = nb_of_completions * GameState.honey_factory_production_quantity
+	GameState.honey_factory_production_progress_as_quantity -= produced_honey
+
+	GameState.total_honey += produced_honey
+
+	# print_debug({
+	# 	"produced_honey": produced_honey,
+	# 	"total_honey": GameState.total_honey,
+	# })
 
 func create_egg() -> void:
 	var egg: Egg = egg_scene.instantiate()
@@ -49,6 +86,9 @@ func hatch_egg(egg_position: Vector3) -> void:
 	add_sibling(larva)
 
 func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> void:
+	if flowers.is_empty():
+		return
+		
 	var flower: Flower = flowers.values().pick_random()
 	gatherer_component.aimed_flower = flower
 
@@ -61,7 +101,7 @@ func _assign_honey_factory_position_to_worker_bee(worker_component: WorkerCompon
 func _handle_pollen_deposit_to_hive_cells(pollen: int) -> void:
 	GameState.total_pollen += pollen
 
-func _handle_pollen_deposit_to_honey_factory(pollen: int) -> void:
+func _handle_pollen_deposit_to_honey_factory(pollen: float) -> void:
 	GameState.honey_factory_total_pollen += pollen
 
 func spawn_bee(bee_position: Vector3) -> void:
