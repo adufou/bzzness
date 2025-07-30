@@ -4,12 +4,6 @@ extends Control
 
 signal on_close_upgrades_panel
 
-var is_tier_1_upgrade_level_bees_lifetime_button_pressed: bool = false
-var is_tier_1_upgrade_level_bees_speed_button_pressed: bool = false
-var is_tier_1_upgrade_level_eggs_auto_spawn_rate_button_pressed: bool = false
-var is_tier_1_upgrade_level_flowers_spawn_rate_button_pressed: bool = false
-var is_tier_1_upgrade_level_honey_factory_production_rate_button_pressed: bool = false
-
 func _ready() -> void:
 	instantiate_upgrade_items()
 
