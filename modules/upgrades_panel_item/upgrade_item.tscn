@@ -59,7 +59,8 @@ layout_mode = 2
 [node name="BuyButton" type="Button" parent="HBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Buy"
+text = "Buy
+0 Pollen"
 
 [connection signal="button_down" from="HBoxContainer3/BuyButton" to="." method="_on_buy_button_button_down"]
 [connection signal="button_up" from="HBoxContainer3/BuyButton" to="." method="_on_buy_button_button_up"]

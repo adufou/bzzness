@@ -21,26 +21,39 @@ func _process(delta: float) -> void:
 
 func update():
 	_level = GameState.get_upgrade_level(upgrade_enum)
-	%LevelLabel.text = _prettify_level()
-	%ProgressBar.value = _level
-	%EffectLabel.text = _prettify_effect()
-	%NameLabel.text = _upgrade.display_name
+	%BuyButton.text = _prettify_buy()
 	%DescriptionLabel.text = _upgrade.description
-
+	%EffectLabel.text = _prettify_effect()
+	%LevelLabel.text = _prettify_level()
+	%NameLabel.text = _upgrade.display_name
+	%ProgressBar.value = _level
+	
 	if _level == _upgrade.level_max:
 		_is_button_pressed = false
 		%BuyButton.disabled = true
+
+func _prettify_buy() -> String:
+	if _level == _upgrade.level_max:
+		return "MAX" 
+
+	var result: String = "Buy\n"
 	
-func _prettify_level() -> String:
-	var level_max: int = _upgrade.level_max
+	var cost: float = Upgrades.get_upgrade_cost(upgrade_enum, _level + 1)
 	
-	return "Lv. " + str(_level) + " / " + str(level_max)
+	result += "%0.2f" % cost + " Pollen"
+	
+	return result
 
 func _prettify_effect() -> String:
 	var effect: float = Upgrades.get_upgrade_effect(upgrade_enum, _level)
 	var effect_difference_in_percent: int = int((effect - 1) * 100)
 	
 	return "+" + str(effect_difference_in_percent) + "%"
+
+func _prettify_level() -> String:
+	var level_max: int = _upgrade.level_max
+	
+	return "Lv. " + str(_level) + " / " + str(level_max)
 
 func _on_buy_button_button_down() -> void:
 	_is_button_pressed = true

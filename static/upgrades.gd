@@ -128,7 +128,7 @@ const _UPGRADES: Dictionary = {
 static func get_upgrade(upgrade: UpgradesEnum) -> Upgrade:
 	return Upgrade.new(_UPGRADES[upgrade])
 
-static func get_upgrade_cost(upgrade: UpgradesEnum, next_level: int) -> int:
+static func get_upgrade_cost(upgrade: UpgradesEnum, next_level: int) -> float:
 	return _UPGRADES[upgrade].cost_base * _UPGRADES[upgrade].cost_multiplier ** next_level
 
 static func get_upgrade_effect(upgrade: UpgradesEnum, level: int) -> float:
