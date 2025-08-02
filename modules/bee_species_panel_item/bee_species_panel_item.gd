@@ -1,0 +1,4 @@
+extends VBoxContainer
+class_name BeeSpeciesPanelItem
+
+var bee_species_enum: BeeSpecies.SpeciesEnum

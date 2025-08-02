@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://b2sm6vp5fx7jr"]
+[gd_scene load_steps=3 format=3 uid="uid://b2sm6vp5fx7jr"]
+
+[ext_resource type="Script" uid="uid://vt8xg4sbyb3g" path="res://modules/bee_species_panel_item/bee_species_panel_item.gd" id="1_jw45u"]
+[ext_resource type="Texture2D" uid="uid://bwpeufwycjvrm" path="res://assets/bee_species/black.png" id="2_lnt3f"]
 
 [node name="SpeciesPanelItem" type="VBoxContainer"]
 anchors_preset = 15
@@ -8,10 +11,23 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_jw45u")
 
 [node name="NameLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Name: Beeee"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 32
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer3"]
+layout_mode = 2
+texture = ExtResource("2_lnt3f")
+expand_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

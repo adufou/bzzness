@@ -45,6 +45,10 @@ signal on_update_honey_factory_total_pollen(value: float)
 ### ----- Honey factory ----- ###
 signal on_update_honey_factory_production_progress_as_quantity(value: float)
 
+##################### |------- SPECIES -------| #####################
+### ----- Species ----- ###
+signal on_update_bee_species(bee_species: BeeSpecies.SpeciesEnum)
+
 #################################### |---------------[ VALUES ]---------------| ####################################
 ##################### |------- OPTIONS -------| #####################
 ### ----- Dev Mode ----- ###
@@ -172,7 +176,14 @@ var honey_factory_production_progress_as_quantity: float:
 	set(value):
 		honey_factory_production_progress_as_quantity = value
 		on_update_honey_factory_production_progress_as_quantity.emit(value)
-	
+
+
+##################### |------- SPECIES -------| #####################
+### ----- Species ----- ###
+var bee_species: BeeSpecies.SpeciesEnum:
+	set(value):
+		bee_species = value
+		on_update_bee_species.emit()
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:
@@ -190,6 +201,10 @@ func _ready() -> void:
 	tier_1_upgrade_level_honey_factory_pollen_to_honey_rate = 0
 	tier_1_upgrade_level_honey_factory_production_quantity = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
+
+	##################### |------- SPECIES -------| #####################
+	### ----- Species ----- ###
+	bee_species = BeeSpecies.SpeciesEnum.MELLIFERA
 
 #################################### |---------------[ METHODS ]---------------| ####################################
 func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:

@@ -93,8 +93,7 @@ text = "Upgrades"
 
 [node name="OpenSpeciesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
 layout_mode = 2
-disabled = true
-text = "TBD"
+text = "Species"
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
 layout_mode = 2

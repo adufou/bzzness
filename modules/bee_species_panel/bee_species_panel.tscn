@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3roqf50noxhk"]
+[gd_scene load_steps=3 format=3 uid="uid://b3roqf50noxhk"]
 
-[ext_resource type="PackedScene" uid="uid://b2sm6vp5fx7jr" path="res://modules/species_panel_item/species_panel_item.tscn" id="1_qokyc"]
+[ext_resource type="Script" uid="uid://djpbmhgv4pw1i" path="res://modules/bee_species_panel/bee_species_panel.gd" id="1_niua0"]
+[ext_resource type="PackedScene" uid="uid://b2sm6vp5fx7jr" path="res://modules/bee_species_panel_item/bee_species_panel_item.tscn" id="2_8uhhh"]
 
 [node name="SpeciesPanel" type="Control"]
 layout_mode = 3
@@ -9,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_niua0")
+species_item_scene = ExtResource("2_8uhhh")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -47,12 +50,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Bee Species"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="SpeciesGalleryMarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_top = 16
-
-[node name="SpeciesPanelItem" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("1_qokyc")]
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -90,3 +91,7 @@ size_flags_vertical = 3
 [node name="CloseButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Close"
+
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
