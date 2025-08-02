@@ -11,6 +11,7 @@ func _ready() -> void:
 	GameState.on_update_honey_factory_production_progress_as_quantity.connect(_update_honey_factory_production_progress_bar)
 	GameState.on_update_honey_factory_production_quantity.connect(_update_honey_factory_production_progress_bar)
 	GameState.on_update_honey_factory_total_pollen.connect(update_honey_factory_pollen_label)
+	GameState.on_update_honey_factory_production_rate_per_second.connect(update_honey_factory_production_rate_label)
 	GameState.on_update_total_pollen.connect(update_pollen_label)
 
 func _on_create_egg_button_pressed() -> void:
@@ -37,6 +38,9 @@ func update_honey_label(honey: float) -> void:
 
 func update_honey_factory_pollen_label(pollen: float) -> void:
 	%HoneyFactoryPollenLabel.text = "%0.2f" % pollen + " Honey Factory Pollen"
+
+func update_honey_factory_production_rate_label(rate: float) -> void:
+	%HoneyFactoryProductionRateLabel.text = "%0.2f" % rate + "/s"
 
 func update_pollen_label(pollen: float) -> void:
 	%PollenLabel.text = "%0.2f" % pollen + " Pollen"

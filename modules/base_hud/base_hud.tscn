@@ -60,6 +60,12 @@ text = "0 Honey Factory Pollen"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="HoneyFactoryProductionRateLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0.00/s"
+horizontal_alignment = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 

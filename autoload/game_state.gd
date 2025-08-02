@@ -184,6 +184,7 @@ var bee_species: BeeSpecies.SpeciesEnum:
 	set(value):
 		bee_species = value
 		on_update_bee_species.emit()
+		Statistics.compute_honey_factory_pollen_to_honey_rate()
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:

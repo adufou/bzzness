@@ -29,6 +29,7 @@ theme_override_constants/margin_right = 96
 theme_override_constants/margin_bottom = 32
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_lnt3f")
 expand_mode = 5
@@ -67,3 +68,5 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Cost: 0
 Buy"
+
+[connection signal="pressed" from="VBoxContainer/MarginContainer2/BuyButton" to="." method="_on_buy_button_pressed"]

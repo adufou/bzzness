@@ -26,4 +26,4 @@ static func compute_honey_factory_production_quantity() -> void:
 	GameState.honey_factory_production_quantity = Upgrades.get_total_effect_of_upgrades([Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY]) * StatisticsConstants.BASE_HONEY_FACTORY_PRODUCTION_QUANTITY
 
 static func compute_honey_factory_pollen_to_honey_rate() -> void:
-	GameState.honey_factory_pollen_to_honey_rate = Upgrades.get_total_effect_of_upgrades([Upgrades.UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE]) * StatisticsConstants.BASE_HONEY_FACTORY_POLLEN_TO_HONEY_RATE
+	GameState.honey_factory_pollen_to_honey_rate = BeeSpecies.get_multiplier(GameState.bee_species) * Upgrades.get_total_effect_of_upgrades([Upgrades.UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE]) * StatisticsConstants.BASE_HONEY_FACTORY_POLLEN_TO_HONEY_RATE
