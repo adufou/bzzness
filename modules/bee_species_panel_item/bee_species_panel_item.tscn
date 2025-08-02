@@ -3,60 +3,67 @@
 [ext_resource type="Script" uid="uid://vt8xg4sbyb3g" path="res://modules/bee_species_panel_item/bee_species_panel_item.gd" id="1_jw45u"]
 [ext_resource type="Texture2D" uid="uid://bwpeufwycjvrm" path="res://assets/bee_species/black.png" id="2_lnt3f"]
 
-[node name="SpeciesPanelItem" type="VBoxContainer"]
+[node name="SpeciesPanelItem" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 6
 script = ExtResource("1_jw45u")
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Name: Beeee"
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 96
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 96
 theme_override_constants/margin_bottom = 32
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer3"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer3"]
 layout_mode = 2
 texture = ExtResource("2_lnt3f")
 expand_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="DescriptionLabel" type="Label" parent="MarginContainer"]
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Species Description - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam semper porta rutrum."
 autowrap_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="MultiplierLabel" type="Label" parent="CenterContainer"]
+[node name="MultiplierLabel" type="Label" parent="VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Multiplier: 1"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 128
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 128
 theme_override_constants/margin_bottom = 16
 
-[node name="BuyButton" type="Button" parent="MarginContainer2"]
+[node name="BuyButton" type="Button" parent="VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Cost: 0
 Buy"

@@ -50,7 +50,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Bee Species"
 
-[node name="SpeciesGalleryMarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="BeeSpeciesGalleryMarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_top = 16
@@ -68,6 +68,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PreviousButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Previous"
 
@@ -76,6 +77,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="NextButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Next"
 
