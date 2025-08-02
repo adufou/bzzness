@@ -36,24 +36,20 @@ func _auto_spawn_flowers(delta: float) -> void:
 		flowers_auto_spawnable -= 1
 		
 func _process_honey_factory(delta: float) -> void:
-	var processable_honey: float = GameState.honey_factory_production_rate_per_second * delta
-	var process_cost_in_pollen: float = processable_honey / GameState.honey_factory_honey_by_pollen_rate
-	
-	if (GameState.honey_factory_total_pollen < process_cost_in_pollen):
-		return
-	
-	GameState.honey_factory_total_pollen -= process_cost_in_pollen
-	
-	GameState.honey_factory_production_progress_as_quantity += processable_honey
-	var nb_of_completions: int = GameState.honey_factory_production_progress_as_quantity / GameState.honey_factory_production_quantity
+	var max_production_of_honey: float = delta * GameState.honey_factory_production_rate_per_second
+	var max_cost_in_pollen: float = max_production_of_honey / GameState.honey_factory_honey_by_pollen_rate
 
-	if (nb_of_completions == 0):
-		return
-		
-	var produced_honey = nb_of_completions * GameState.honey_factory_production_quantity
-	GameState.honey_factory_production_progress_as_quantity -= produced_honey
+	var processable_ratio: float = min(1.0, GameState.honey_factory_total_pollen / max_cost_in_pollen)
 
-	GameState.total_honey += produced_honey * BeeSpecies.get_multiplier(GameState.bee_species)
+	var cost_in_pollen: float = max_cost_in_pollen * processable_ratio
+	var production_of_honey: float = max_production_of_honey * processable_ratio
+
+	var total_production_of_honey: float = production_of_honey * BeeSpecies.get_multiplier(GameState.bee_species)
+	
+	GameState.honey_factory_total_pollen -= cost_in_pollen
+	GameState.total_honey += total_production_of_honey
+
+	GameState.honey_factory_gains_per_second = total_production_of_honey / delta
 
 func _get_egg_position() -> Vector3:
 	var hatchery_position: Vector3 = %Hatchery.global_transform.origin

@@ -13,7 +13,6 @@ signal on_update_tier_1_upgrade_level_bees_speed()
 signal on_update_tier_1_upgrade_level_eggs_auto_spawn_rate()
 signal on_update_tier_1_upgrade_level_flowers_spawn_rate()
 signal on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate()
-signal on_update_tier_1_upgrade_level_honey_factory_production_quantity()
 signal on_update_tier_1_upgrade_level_honey_factory_production_rate()
 
 ##################### |------- STATISTICS -------| #####################
@@ -30,8 +29,8 @@ signal on_update_flowers_spawn_rate_per_second(value: float)
 
 ### ----- Honey factory ----- ###
 signal on_update_honey_factory_honey_by_pollen_rate(value: float)
-signal on_update_honey_factory_production_quantity(value: float)
 signal on_update_honey_factory_production_rate_per_second(value: float)
+signal on_update_honey_factory_gains_per_second(value: float)
 
 ##################### |------- GOODS -------| #####################
 ### ----- Currencies ----- ###
@@ -40,10 +39,6 @@ signal on_update_total_honey(value: float)
 
 ### ----- Honey factory ----- ###
 signal on_update_honey_factory_total_pollen(value: float)
-
-##################### |------- PRODUCTION -------| #####################
-### ----- Honey factory ----- ###
-signal on_update_honey_factory_production_progress_as_quantity(value: float)
 
 ##################### |------- SPECIES -------| #####################
 ### ----- Species ----- ###
@@ -95,12 +90,6 @@ var tier_1_upgrade_level_honey_factory_honey_by_pollen_rate: int:
 		on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate.emit()
 		Statistics.compute_honey_factory_honey_by_pollen_rate()
 
-var tier_1_upgrade_level_honey_factory_production_quantity: int:
-	set(value):
-		tier_1_upgrade_level_honey_factory_production_quantity = value
-		on_update_tier_1_upgrade_level_honey_factory_production_quantity.emit()
-		Statistics.compute_honey_factory_production_quantity()
-
 var tier_1_upgrade_level_honey_factory_production_rate: int:
 	set(value):
 		tier_1_upgrade_level_honey_factory_production_rate = value
@@ -142,11 +131,6 @@ var honey_factory_honey_by_pollen_rate: float:
 		honey_factory_honey_by_pollen_rate = value
 		on_update_honey_factory_honey_by_pollen_rate.emit(value)
 
-var honey_factory_production_quantity: float:
-	set(value):
-		honey_factory_production_quantity = value
-		on_update_honey_factory_production_quantity.emit(value)
-
 var honey_factory_production_rate_per_second: float:
 	set(value):
 		honey_factory_production_rate_per_second = value
@@ -172,11 +156,10 @@ var honey_factory_total_pollen: float:
 
 ##################### |------- PRODUCTION -------| #####################
 ### ----- Honey factory ----- ###
-var honey_factory_production_progress_as_quantity: float:
+var honey_factory_gains_per_second: float:
 	set(value):
-		honey_factory_production_progress_as_quantity = value
-		on_update_honey_factory_production_progress_as_quantity.emit(value)
-
+		honey_factory_gains_per_second = value
+		on_update_honey_factory_gains_per_second.emit(value)
 
 ##################### |------- SPECIES -------| #####################
 ### ----- Species ----- ###
@@ -199,7 +182,6 @@ func _ready() -> void:
 	tier_1_upgrade_level_eggs_auto_spawn_rate = 0
 	tier_1_upgrade_level_flowers_spawn_rate = 0
 	tier_1_upgrade_level_honey_factory_honey_by_pollen_rate = 0
-	tier_1_upgrade_level_honey_factory_production_quantity = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
 
 	##################### |------- SPECIES -------| #####################
@@ -215,7 +197,6 @@ func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:
 		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: return tier_1_upgrade_level_eggs_auto_spawn_rate
 		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: return tier_1_upgrade_level_flowers_spawn_rate
 		Upgrades.UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE: return tier_1_upgrade_level_honey_factory_honey_by_pollen_rate
-		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: return tier_1_upgrade_level_honey_factory_production_quantity
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: return tier_1_upgrade_level_honey_factory_production_rate
 		
 	return -1
@@ -228,7 +209,6 @@ func set_upgrade_level(upgrade_name: Upgrades.UpgradesEnum, level: int) -> void:
 		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: tier_1_upgrade_level_eggs_auto_spawn_rate = level
 		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: tier_1_upgrade_level_flowers_spawn_rate = level
 		Upgrades.UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE: tier_1_upgrade_level_honey_factory_honey_by_pollen_rate = level
-		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: tier_1_upgrade_level_honey_factory_production_quantity = level
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: tier_1_upgrade_level_honey_factory_production_rate = level
 
 func get_upgrade_signal(upgrade_name: Upgrades.UpgradesEnum) -> Signal:
@@ -239,7 +219,6 @@ func get_upgrade_signal(upgrade_name: Upgrades.UpgradesEnum) -> Signal:
 		Upgrades.UpgradesEnum.EGG_AUTO_SPAWN_RATE: return on_update_tier_1_upgrade_level_eggs_auto_spawn_rate
 		Upgrades.UpgradesEnum.FLOWER_SPAWN_RATE: return on_update_tier_1_upgrade_level_flowers_spawn_rate
 		Upgrades.UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE: return on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate
-		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: return on_update_tier_1_upgrade_level_honey_factory_production_quantity
 		Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: return on_update_tier_1_upgrade_level_honey_factory_production_rate
 	
 	return Signal()

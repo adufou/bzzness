@@ -8,7 +8,6 @@ enum UpgradesEnum {
 	EGG_AUTO_SPAWN_RATE,
 	FLOWER_SPAWN_RATE,
 	HONEY_FACTORY_PRODUCTION_RATE,
-	HONEY_FACTORY_PRODUCTION_QUANTITY,
 	HONEY_FACTORY_HONEY_BY_POLLEN_RATE
 }
 
@@ -101,25 +100,14 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 6
 	},
-	UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY: {
-		cost_base = 0.5,
-		cost_multiplier = 1.25,
-		description = "Increases the production quantity of honey factory.",
-		display_name = "Honey Factory Production Quantity",
-		effect_base = 1,
-		effect_value = 0.01,
-		level_max = 100,
-		tier = 1,
-		tier_index = 7
-	},
 	UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE: {
 		cost_base = 0.1,
 		cost_multiplier = 1.5,
-		description = "Increases the pollen to honey rate of honey factory.",
-		display_name = "Honey Factory Pollen To Honey Rate",
+		description = "Increases the honey by pollen rate of honey factory.",
+		display_name = "Honey Factory Honey By Pollen Rate",
 		effect_base = 1,
-		effect_value = 0.01,
-		level_max = 10,
+		effect_value = 0.025,
+		level_max = 50,
 		tier = 1,
 		tier_index = 8
 	}

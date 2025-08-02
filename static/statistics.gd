@@ -22,8 +22,5 @@ static func compute_flowers_spawn_rate_per_second() -> void:
 static func compute_honey_factory_production_rate_per_second() -> void:
 	GameState.honey_factory_production_rate_per_second = Upgrades.get_total_effect_of_upgrades([Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE]) * StatisticsConstants.BASE_HONEY_FACTORY_PRODUCTION_RATE_PER_SECOND
 
-static func compute_honey_factory_production_quantity() -> void:
-	GameState.honey_factory_production_quantity = Upgrades.get_total_effect_of_upgrades([Upgrades.UpgradesEnum.HONEY_FACTORY_PRODUCTION_QUANTITY]) * StatisticsConstants.BASE_HONEY_FACTORY_PRODUCTION_QUANTITY
-
 static func compute_honey_factory_honey_by_pollen_rate() -> void:
 	GameState.honey_factory_honey_by_pollen_rate = Upgrades.get_total_effect_of_upgrades([Upgrades.UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE]) * StatisticsConstants.BASE_HONEY_FACTORY_HONEY_BY_POLLEN_RATE
