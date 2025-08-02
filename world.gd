@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	_auto_spawn_eggs(delta)
 	_auto_spawn_flowers(delta)
 	_process_honey_factory(delta)
-	terrain_collision_shape_3d = %TerrainInherited/StaticBody3D/CollisionShape3D
+	terrain_collision_shape_3d = %TerrainInherited/Grid/StaticBody3D/CollisionShape3D
 	
 func _auto_spawn_eggs(delta: float) -> void:
 	eggs_auto_spawnable += delta * GameState.eggs_auto_spawn_rate_per_second
