@@ -37,7 +37,7 @@ func _auto_spawn_flowers(delta: float) -> void:
 		
 func _process_honey_factory(delta: float) -> void:
 	var processable_honey: float = GameState.honey_factory_production_rate_per_second * delta
-	var process_honey_cost: float = GameState.honey_factory_pollen_to_honey_rate * processable_honey
+	var process_honey_cost: float = GameState.honey_factory_honey_by_pollen_rate * processable_honey
 	
 	if (GameState.honey_factory_total_pollen < process_honey_cost):
 		return
@@ -131,7 +131,7 @@ func spawn_bee(bee_position: Vector3) -> void:
 	bee.on_request_hive_cells_position.connect(_assign_hive_cells_position_to_bee)
 	bee.on_request_honey_factory_position.connect(_assign_honey_factory_position_to_worker_bee)
 	bee.on_deposit_pollen_to_hive_cells.connect(_handle_pollen_deposit_to_hive_cells)
-	bee.on_deposit_pollen_to_honey_factory.connect(_handle_pollen_deposit_to_honey_factory)
+	bee.on_deposit_honey_by_pollen_factory.connect(_handle_pollen_deposit_to_honey_factory)
 	
 	add_sibling(bee)
 

@@ -9,7 +9,7 @@ enum UpgradesEnum {
 	FLOWER_SPAWN_RATE,
 	HONEY_FACTORY_PRODUCTION_RATE,
 	HONEY_FACTORY_PRODUCTION_QUANTITY,
-	HONEY_FACTORY_POLLEN_TO_HONEY_RATE
+	HONEY_FACTORY_HONEY_BY_POLLEN_RATE
 }
 
 class Upgrade:
@@ -112,7 +112,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 7
 	},
-	UpgradesEnum.HONEY_FACTORY_POLLEN_TO_HONEY_RATE: {
+	UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE: {
 		cost_base = 0.1,
 		cost_multiplier = 1.5,
 		description = "Increases the pollen to honey rate of honey factory.",

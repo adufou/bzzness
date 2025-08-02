@@ -7,8 +7,8 @@ var honey_factory_position: Vector3:
 		_needs_honey_factory_position = false
 		honey_factory_position = value
 
-func _deposit_pollen_to_honey_factory(bee: Bee) -> void:
-	bee.on_deposit_pollen_to_honey_factory.emit(bee.pollen_carried)
+func _deposit_honey_by_pollen_factory(bee: Bee) -> void:
+	bee.on_deposit_honey_by_pollen_factory.emit(bee.pollen_carried)
 	bee.pollen_carried = 0
 
 func _load_pollen_from_hive_cells(bee: Bee) -> void:
@@ -39,7 +39,7 @@ func work(bee: Bee, delta: float) -> void:
 			return
 
 		if _is_at_honey_factory_position(bee):
-			_deposit_pollen_to_honey_factory(bee)
+			_deposit_honey_by_pollen_factory(bee)
 		else:
 			_move_to_honey_factory_position(bee, delta)
 	else:

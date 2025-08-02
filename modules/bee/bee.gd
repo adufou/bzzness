@@ -4,7 +4,7 @@ class_name Bee
 signal on_request_flower(gatherer_component: GathererComponent)
 signal on_request_hive_cells_position(bee: Bee)
 signal on_deposit_pollen_to_hive_cells(pollen: float)
-signal on_deposit_pollen_to_honey_factory(pollen: float)
+signal on_deposit_honey_by_pollen_factory(pollen: float)
 signal on_request_honey_factory_position(worker_component: WorkerComponent)
 
 var lifetime_seconds: float = GameState.bees_lifetime_seconds
@@ -40,8 +40,8 @@ func deposit_pollen_to_hive_cells() -> void:
 	on_deposit_pollen_to_hive_cells.emit(pollen_carried)
 	pollen_carried = 0
 
-func deposit_pollen_to_honey_factory() -> void:
-	on_deposit_pollen_to_honey_factory.emit(pollen_carried)
+func deposit_honey_by_pollen_factory() -> void:
+	on_deposit_honey_by_pollen_factory.emit(pollen_carried)
 	pollen_carried = 0
 
 func is_full() -> bool:
