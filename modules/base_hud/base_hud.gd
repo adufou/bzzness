@@ -3,16 +3,28 @@ extends Control
 signal on_open_upgrades_panel
 signal on_open_bee_species_panel
 
+var _honey_gains_per_second_moving_average: float = 0
+var _previous_total_honey: float = 0
+
 func _ready() -> void:
 	%DevCheckButton.button_pressed = GameState.is_dev_mode
 	
 	GameState.on_update_is_dev_mode.connect(update_dev_mode_button)
-	GameState.on_update_total_honey.connect(update_honey_label)
 	GameState.on_update_honey_factory_production_progress_as_quantity.connect(_update_honey_factory_production_progress_bar)
 	GameState.on_update_honey_factory_production_quantity.connect(_update_honey_factory_production_progress_bar)
 	GameState.on_update_honey_factory_total_pollen.connect(update_honey_factory_pollen_label)
-	GameState.on_update_honey_factory_production_rate_per_second.connect(update_honey_factory_production_rate_label)
 	GameState.on_update_total_pollen.connect(update_pollen_label)
+
+func _process(delta: float) -> void:
+	var total_honey: float = GameState.total_honey
+	var diff: float = total_honey - _previous_total_honey
+	var gains_per_second: float = diff / delta
+	
+	_honey_gains_per_second_moving_average = (gains_per_second + _honey_gains_per_second_moving_average * 99) / 100
+	_previous_total_honey = total_honey
+	
+	update_honey_label(total_honey)
+	update_honey_factory_production_rate_label(_honey_gains_per_second_moving_average)
 
 func _on_create_egg_button_pressed() -> void:
 	HudInterface.on_create_egg.emit()
