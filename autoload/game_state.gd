@@ -1,6 +1,10 @@
 extends Node
 
 #################################### |---------------[ SIGNALS ]---------------| ####################################
+##################### |------- OPTIONS -------| #####################
+### ----- Dev Mode ----- ###
+signal on_update_is_dev_mode(value: bool)
+
 ##################### |------- UPGRADES -------| #####################
 ### ----- Tier 1 ----- ###
 signal on_update_tier_1_upgrade_level_bees_carry_capacity()
@@ -42,6 +46,14 @@ signal on_update_honey_factory_total_pollen(value: float)
 signal on_update_honey_factory_production_progress_as_quantity(value: float)
 
 #################################### |---------------[ VALUES ]---------------| ####################################
+##################### |------- OPTIONS -------| #####################
+### ----- Dev Mode ----- ###
+var is_dev_mode: bool:
+	set(value):
+		is_dev_mode = value
+		on_update_is_dev_mode.emit(value)
+		print_debug(value)
+
 ##################### |------- UPGRADES -------| #####################
 ### ----- Tier 1 ----- ###
 var tier_1_upgrade_level_bees_carry_capacity: int:
@@ -166,6 +178,10 @@ var honey_factory_production_progress_as_quantity: float:
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:
+	##################### |------- OPTIONS -------| #####################
+	### ----- Dev Mode ----- ###
+	is_dev_mode = OS.is_debug_build()
+	
 	##################### |------- UPGRADES -------| #####################
 	### ----- Tier 1 ----- ###
 	tier_1_upgrade_level_bees_carry_capacity = 0
@@ -176,8 +192,6 @@ func _ready() -> void:
 	tier_1_upgrade_level_honey_factory_pollen_to_honey_rate = 0
 	tier_1_upgrade_level_honey_factory_production_quantity = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
-	
-	total_honey = 42069
 
 #################################### |---------------[ METHODS ]---------------| ####################################
 func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:

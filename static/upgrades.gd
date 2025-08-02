@@ -129,6 +129,8 @@ static func get_upgrade(upgrade: UpgradesEnum) -> Upgrade:
 	return Upgrade.new(_UPGRADES[upgrade])
 
 static func get_upgrade_cost(upgrade: UpgradesEnum, next_level: int) -> float:
+	if GameState.is_dev_mode:
+		return 0
 	return _UPGRADES[upgrade].cost_base * _UPGRADES[upgrade].cost_multiplier ** next_level
 
 static func get_upgrade_effect(upgrade: UpgradesEnum, level: int) -> float:

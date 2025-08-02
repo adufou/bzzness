@@ -3,6 +3,9 @@ extends Control
 signal on_open_upgrades_panel
 
 func _ready() -> void:
+	%DevCheckButton.button_pressed = GameState.is_dev_mode
+	
+	GameState.on_update_is_dev_mode.connect(update_dev_mode_button)
 	GameState.on_update_total_honey.connect(update_honey_label)
 	GameState.on_update_honey_factory_production_progress_as_quantity.connect(_update_honey_factory_production_progress_bar)
 	GameState.on_update_honey_factory_production_quantity.connect(_update_honey_factory_production_progress_bar)
@@ -14,6 +17,14 @@ func _on_create_egg_button_pressed() -> void:
 
 func _on_open_upgrades_button_pressed() -> void:
 	on_open_upgrades_panel.emit()
+
+func _on_dev_check_button_toggled(toggled_on: bool) -> void:
+	GameState.is_dev_mode = toggled_on
+	print_debug(toggled_on)
+
+func update_dev_mode_button(value: bool) -> void:
+	%DevCheckButton.button_pressed = value
+	print_debug(value)
 
 func _update_honey_factory_production_progress_bar(_value: float) -> void:
 	var progress_bar: ProgressBar = %HoneyFactoryProductionProgressBar
