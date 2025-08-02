@@ -15,7 +15,7 @@ signal on_update_tier_1_upgrade_level_flowers_spawn_rate()
 signal on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate()
 signal on_update_tier_1_upgrade_level_honey_factory_production_rate()
 
-##################### |------- STATISTICS -------| #####################
+##################### |------- ATTRIBUTES -------| #####################
 ### ----- Bees ----- ###
 signal on_update_bees_lifetime_seconds(value: float)
 signal on_update_bees_pollen_capacity(value: float)
@@ -62,45 +62,45 @@ var tier_1_upgrade_level_bees_carry_capacity: int:
 	set(value):
 		tier_1_upgrade_level_bees_carry_capacity = value
 		on_update_tier_1_upgrade_level_bees_carry_capacity.emit()
-		Statistics.compute_bees_pollen_capacity()
+		Attributes.compute_bees_pollen_capacity()
 
 var tier_1_upgrade_level_bees_lifetime: int:
 	set(value):
 		tier_1_upgrade_level_bees_lifetime = value
 		on_update_tier_1_upgrade_level_bees_lifetime.emit()
-		Statistics.compute_bees_lifetime_seconds()
+		Attributes.compute_bees_lifetime_seconds()
 
 var tier_1_upgrade_level_bees_speed: int:
 	set(value):
 		tier_1_upgrade_level_bees_speed = value
 		on_update_tier_1_upgrade_level_bees_speed.emit()
-		Statistics.compute_bees_speed()
+		Attributes.compute_bees_speed()
 
 var tier_1_upgrade_level_eggs_auto_spawn_rate: int:
 	set(value):
 		tier_1_upgrade_level_eggs_auto_spawn_rate = value
 		on_update_tier_1_upgrade_level_eggs_auto_spawn_rate.emit()
-		Statistics.compute_eggs_auto_spawn_rate_per_second()
+		Attributes.compute_eggs_auto_spawn_rate_per_second()
 
 var tier_1_upgrade_level_flowers_spawn_rate: int:
 	set(value):
 		tier_1_upgrade_level_flowers_spawn_rate = value
 		on_update_tier_1_upgrade_level_flowers_spawn_rate.emit()
-		Statistics.compute_flowers_spawn_rate_per_second()
+		Attributes.compute_flowers_spawn_rate_per_second()
 
 var tier_1_upgrade_level_honey_factory_honey_by_pollen_rate: int:
 	set(value):
 		tier_1_upgrade_level_honey_factory_honey_by_pollen_rate = value
 		on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate.emit()
-		Statistics.compute_honey_factory_honey_by_pollen_rate()
+		Attributes.compute_honey_factory_honey_by_pollen_rate()
 
 var tier_1_upgrade_level_honey_factory_production_rate: int:
 	set(value):
 		tier_1_upgrade_level_honey_factory_production_rate = value
 		on_update_tier_1_upgrade_level_honey_factory_production_rate.emit()
-		Statistics.compute_honey_factory_production_rate_per_second()
+		Attributes.compute_honey_factory_production_rate_per_second()
 
-#####################	 |------- STATISTICS -------| #####################
+#####################	 |------- ATTRIBUTES -------| #####################
 ### ----- Bees ----- ###
 var bees_pollen_capacity: float:
 	set(value):

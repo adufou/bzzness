@@ -1,5 +1,5 @@
 extends Node
-class_name StatisticsConstants
+class_name AttributesConstants
 
 ### |------- Bees -------| ###
 const BASE_TIER_1_BEE_SPEED: float = 2.0
