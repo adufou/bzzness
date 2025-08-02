@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1man6dv4fdae"]
+
+[ext_resource type="Script" uid="uid://cb4w13babij0h" path="res://modules/upgrades_panel_tier/upgrades_panel_tier.gd" id="1_j7j21"]
+
+[node name="UpgradesPanelTier" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_j7j21")
+
+[node name="Tier1MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Tier1MarginContainer"]
+layout_mode = 2
+
+[node name="TierLabel" type="Label" parent="Tier1MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tier 0"
+
+[node name="MarginContainer" type="MarginContainer" parent="Tier1MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 0
+
+[node name="UpgradesVBoxContainer" type="VBoxContainer" parent="Tier1MarginContainer/VBoxContainer2/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2

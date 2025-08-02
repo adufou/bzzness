@@ -2,13 +2,20 @@ extends Node
 class_name Upgrades
 
 enum UpgradesEnum {
-	BEE_CARRY_CAPACITY,
-	BEE_LIFETIME,
-	BEE_SPEED,
-	EGG_AUTO_SPAWN_RATE,
-	FLOWER_SPAWN_RATE,
-	HONEY_FACTORY_PRODUCTION_RATE,
-	HONEY_FACTORY_HONEY_BY_POLLEN_RATE
+	# |------- Tier 1 -------|
+	TIER_1_BEE_CARRY_CAPACITY,
+	TIER_1_BEE_LIFETIME,
+	TIER_1_BEE_SPEED,
+	TIER_1_EGG_AUTO_SPAWN_RATE,
+	TIER_1_FLOWER_SPAWN_RATE,
+	TIER_1_HONEY_FACTORY_PRODUCTION_RATE,
+	TIER_1_HONEY_FACTORY_HONEY_BY_POLLEN_RATE,
+	# |------- Tier 2 -------|
+	TIER_2_BEE_CARRY_CAPACITY,
+	TIER_2_BEE_LIFETIME,
+	TIER_2_HONEY_FACTORY_PRODUCTION_RATE,
+	TIER_2_HONEY_FACTORY_HONEY_BY_POLLEN_RATE,
+	TIER_2_FLOWER_SPAWN_RATE
 }
 
 class Upgrade:
@@ -34,7 +41,8 @@ class Upgrade:
 		tier_index = upgrade_dict.tier_index
 
 const _UPGRADES: Dictionary = {
-	UpgradesEnum.BEE_CARRY_CAPACITY: {
+	# |------- Tier 1 -------|
+	UpgradesEnum.TIER_1_BEE_CARRY_CAPACITY: {
 		cost_base = 0.1,
 		cost_multiplier = 1.25,
 		description = "Increases the amount of pollen that bees can carry.",
@@ -45,7 +53,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 0
 	},
-	UpgradesEnum.BEE_LIFETIME: {
+	UpgradesEnum.TIER_1_BEE_LIFETIME: {
 		cost_base = 1,
 		cost_multiplier = 1.5,
 		description = "Increases the lifetime of bees.",
@@ -56,7 +64,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 1
 	},
-	UpgradesEnum.BEE_SPEED: {
+	UpgradesEnum.TIER_1_BEE_SPEED: {
 		cost_base = 0.1,
 		cost_multiplier = 1.1,
 		description = "Increases the speed of bees.",
@@ -67,7 +75,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 2
 	},
-	UpgradesEnum.EGG_AUTO_SPAWN_RATE: {
+	UpgradesEnum.TIER_1_EGG_AUTO_SPAWN_RATE: {
 		cost_base = 0.25,
 		cost_multiplier = 1.25,
 		description = "Increases the auto spawn rate of eggs.",
@@ -78,7 +86,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 3
 	},
-	UpgradesEnum.FLOWER_SPAWN_RATE: {
+	UpgradesEnum.TIER_1_FLOWER_SPAWN_RATE: {
 		cost_base = 0.5,
 		cost_multiplier = 1.25,
 		description = "Increases the spawn rate of flowers.",
@@ -89,7 +97,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 4
 	},
-	UpgradesEnum.HONEY_FACTORY_PRODUCTION_RATE: {
+	UpgradesEnum.TIER_1_HONEY_FACTORY_PRODUCTION_RATE: {
 		cost_base = 0.1,
 		cost_multiplier = 1.05,
 		description = "Increases the production rate of honey factory.",
@@ -100,7 +108,7 @@ const _UPGRADES: Dictionary = {
 		tier = 1,
 		tier_index = 6
 	},
-	UpgradesEnum.HONEY_FACTORY_HONEY_BY_POLLEN_RATE: {
+	UpgradesEnum.TIER_1_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: {
 		cost_base = 0.1,
 		cost_multiplier = 1.5,
 		description = "Increases the honey by pollen rate of honey factory.",
@@ -110,7 +118,63 @@ const _UPGRADES: Dictionary = {
 		level_max = 50,
 		tier = 1,
 		tier_index = 8
-	}
+	},
+	# |------- Tier 2 -------|
+	UpgradesEnum.TIER_2_BEE_CARRY_CAPACITY: {
+		cost_base = 100.0,
+		cost_multiplier = 1.25,
+		description = "Increases the amount of pollen that bees can carry.",
+		display_name = "Bee Carry Capacity",
+		effect_base = 1,
+		effect_value = 0.05,
+		level_max = 100,
+		tier = 2,
+		tier_index = 0
+	},
+	UpgradesEnum.TIER_2_BEE_LIFETIME: {
+		cost_base = 100.0,
+		cost_multiplier = 1.5,
+		description = "Increases the lifetime of bees.",
+		display_name = "Bee Lifetime",
+		effect_base = 1,
+		effect_value = 0.1,
+		level_max = 10,
+		tier = 2,
+		tier_index = 1
+	},
+	UpgradesEnum.TIER_2_HONEY_FACTORY_PRODUCTION_RATE: {
+		cost_base = 100.0,
+		cost_multiplier = 1.05,
+		description = "Increases the production rate of honey factory.",
+		display_name = "Honey Factory Production Rate",
+		effect_base = 1,
+		effect_value = 0.1,
+		level_max = 100,
+		tier = 2,
+		tier_index = 2
+	},
+	UpgradesEnum.TIER_2_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: {
+		cost_base = 100.0,
+		cost_multiplier = 1.5,
+		description = "Increases the honey by pollen rate of honey factory.",
+		display_name = "Honey Factory Honey By Pollen Rate",
+		effect_base = 1,
+		effect_value = 0.1,
+		level_max = 10,
+		tier = 2,
+		tier_index = 3
+	},
+	UpgradesEnum.TIER_2_FLOWER_SPAWN_RATE: {
+		cost_base = 100.0,
+		cost_multiplier = 1.25,
+		description = "Increases the spawn rate of flowers.",
+		display_name = "Flower Spawn Rate",
+		effect_base = 1,
+		effect_value = 0.1,
+		level_max = 15,
+		tier = 2,
+		tier_index = 4
+	},
 }
 
 static func get_upgrade(upgrade: UpgradesEnum) -> Upgrade:
@@ -123,6 +187,9 @@ static func get_upgrade_cost(upgrade: UpgradesEnum, next_level: int) -> float:
 
 static func get_upgrade_effect(upgrade: UpgradesEnum, level: int) -> float:
 	return _UPGRADES[upgrade].effect_base + _UPGRADES[upgrade].effect_value * level
+
+static func get_upgrade_tier(upgrade: UpgradesEnum) -> int:
+	return _UPGRADES[upgrade].tier
 
 static func get_total_effect_of_upgrades(upgrades: Array[UpgradesEnum]) -> float:
 	var total_effect: float = 1
