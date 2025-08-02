@@ -92,7 +92,7 @@ func _handle_mobile_input(input_event_from_window: InputEventFromWindow) -> void
 			_zoom_camera(pinch_delta)
 			pinch_distance_start = current_distance
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	# Handle mouse input for development
 	if event is InputEventMouse:
 		_handle_desktop_input(event)
