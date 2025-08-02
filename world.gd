@@ -94,7 +94,7 @@ func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> vo
 	# Start with a small search radius
 	var search_radius = 10.0  # Initial search radius in game units
 	var closest_flower = null
-	var max_radius = 100.0  # Maximum search radius
+	var max_radius = 500.0  # Maximum search radius
 	
 	# Create shape for sphere cast
 	var sphere_shape = SphereShape3D.new()
