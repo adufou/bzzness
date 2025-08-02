@@ -18,6 +18,9 @@ func _on_create_egg_button_pressed() -> void:
 func _on_open_upgrades_button_pressed() -> void:
 	on_open_upgrades_panel.emit()
 
+func _on_open_species_button_pressed() -> void:
+	pass # Replace with function body.
+
 func _on_dev_check_button_toggled(toggled_on: bool) -> void:
 	GameState.is_dev_mode = toggled_on
 
