@@ -32,21 +32,21 @@ const _SPECIES: Dictionary = {
 		texture_path = "res://assets/bee_species/black.png"
 	},
 	SpeciesEnum.CAUCASIA: {
-		unlock_cost = 1_000 / 1_000_000_000,
+		unlock_cost = 1_000,
 		multiplier = 2.5,
 		display_name = "Caucasia",
 		description = "A hardy bee from the Caucasus region, prized for its long tongue and gentle nature.",
 		texture_path = "res://assets/bee_species/orange.png"
 	},
 	SpeciesEnum.CARNICA: {
-		unlock_cost = 1_000_000 / 1_000_000_000,
+		unlock_cost = 1_000_000,
 		multiplier = 15,
 		display_name = "Carnica",
 		description = "Also called the Carniolan bee, favored for its calm behavior and excellent overwintering.",
 		texture_path = "res://assets/bee_species/yellow.png"
 	},
 	SpeciesEnum.LINGUSTICA: {
-		unlock_cost = 1_000_000_000 / 1_000_000_000,
+		unlock_cost = 1_000_000_000,
 		multiplier = 425,
 		display_name = "Lingustica",
 		description = "The Italian honey bee, popular for its productivity, cleanliness, and golden color.",
