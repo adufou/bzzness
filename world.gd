@@ -120,8 +120,8 @@ func _remove_flower(flower: Flower) -> void:
 
 func _get_flower_position() -> Vector3:
 	# Position inside random range, will use or update later. 
-	var position_x: float = randf_range(-25, 25)
-	var position_z: float = randf_range(-25, 25)
+	var position_x: float = randf_range(-10, 10)
+	var position_z: float = randf_range(-10, 10)
 	return Vector3(position_x, 0, position_z)
 
 func spawn_flower() -> void:
