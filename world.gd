@@ -91,50 +91,22 @@ func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> vo
 	var bee: Bee = gatherer_component.get_parent().get_parent()
 	var bee_position = bee.global_transform.origin
 	
-	# Start with a small search radius
-	var search_radius = 10.0  # Initial search radius in game units
-	var closest_flower = null
-	var max_radius = 500.0  # Maximum search radius
+	# Define the predicate function to identify valid flowers
+	var is_valid_flower = func(node):
+		return node is Flower
 	
-	# Create shape for sphere cast
-	var sphere_shape = SphereShape3D.new()
-	var space_state = get_world_3d().direct_space_state
+	# Use the generic utility function to find the closest flower
+	var closest_flower = WorldUtils.find_closest_entity_in_radius(
+		bee_position,     # Origin point
+		self,            # Entity for world reference
+		2,              # Collision mask (2 for flowers)
+		is_valid_flower, # Predicate function
+		10.0,           # Initial radius
+		500.0,          # Maximum radius
+		2.0            # Radius multiplier
+	)
 	
-	# Incrementally increase radius until we find at least one flower
-	while search_radius <= max_radius and closest_flower == null:
-		# Setup query with current radius
-		var query = PhysicsShapeQueryParameters3D.new()
-		sphere_shape.radius = search_radius
-		query.shape = sphere_shape
-		query.transform = Transform3D(Basis(), bee_position)
-		query.collision_mask = 2  # Match flower's layer (2)
-		query.collide_with_bodies = true
-		query.collide_with_areas = false
-		
-		# Execute the query
-		var results = space_state.intersect_shape(query)
-		
-		if not results.is_empty():
-			# Find the closest among results
-			var closest_distance = INF
-			
-			for result in results:
-				var flower_node = result["collider"]
-				# Verify it's a flower
-				if flower_node is RigidBody3D and "pollen_remaining" in flower_node:
-					var distance = bee_position.distance_to(flower_node.global_transform.origin)
-					if distance < closest_distance:
-						closest_distance = distance
-						closest_flower = flower_node
-			
-			# If we found a flower, we're done
-			if closest_flower != null:
-				break
-		
-		# Increase radius for next attempt
-		search_radius *= 2.0
-	
-	# Assign the closest flower, or fallback to random
+	# Assign the closest flower if found
 	if closest_flower != null:
 		gatherer_component.aimed_flower = closest_flower
 

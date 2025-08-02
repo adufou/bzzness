@@ -8,6 +8,7 @@ data = PackedVector3Array(-0.8062, 0.0026, 0.8062, -0.8, 0.004, 0.8, -0.8, 0.003
 [node name="terrain" instance=ExtResource("1_cqk2u")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Grid" index="0"]
+collision_layer = 32768
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Grid/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_cqk2u")
