@@ -20,11 +20,9 @@ func _on_open_upgrades_button_pressed() -> void:
 
 func _on_dev_check_button_toggled(toggled_on: bool) -> void:
 	GameState.is_dev_mode = toggled_on
-	print_debug(toggled_on)
 
 func update_dev_mode_button(value: bool) -> void:
 	%DevCheckButton.button_pressed = value
-	print_debug(value)
 
 func _update_honey_factory_production_progress_bar(_value: float) -> void:
 	var progress_bar: ProgressBar = %HoneyFactoryProductionProgressBar

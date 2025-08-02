@@ -52,7 +52,6 @@ var is_dev_mode: bool:
 	set(value):
 		is_dev_mode = value
 		on_update_is_dev_mode.emit(value)
-		print_debug(value)
 
 ##################### |------- UPGRADES -------| #####################
 ### ----- Tier 1 ----- ###
@@ -159,7 +158,6 @@ var total_pollen: float:
 var total_honey: float:
 	set(value):
 		total_honey = value
-		print_debug({"total_honey": total_honey})
 		on_update_total_honey.emit(value)
 
 ### ----- Honey factory ----- ###
