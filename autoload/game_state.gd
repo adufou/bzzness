@@ -44,6 +44,10 @@ signal on_update_honey_factory_total_pollen(value: float)
 ### ----- Species ----- ###
 signal on_update_bee_species(bee_species: BeeSpecies.SpeciesEnum)
 
+##################### |------- ROYAL JELLY -------| #####################
+### ----- Royal Jelly ----- ###
+signal on_update_royal_jelly(royal_jelly: int)
+
 #################################### |---------------[ VALUES ]---------------| ####################################
 ##################### |------- OPTIONS -------| #####################
 ### ----- Dev Mode ----- ###
@@ -167,6 +171,13 @@ var bee_species: BeeSpecies.SpeciesEnum:
 	set(value):
 		bee_species = value
 		on_update_bee_species.emit()
+
+##################### |------- ROYAL JELLY -------| #####################
+### ----- Royal Jelly ----- ###
+var royal_jelly: int:
+	set(value):
+		royal_jelly = value
+		on_update_royal_jelly.emit(value)
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:

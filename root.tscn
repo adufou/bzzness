@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cjsjyxhy3uu4d"]
+[gd_scene load_steps=17 format=3 uid="uid://cjsjyxhy3uu4d"]
 
 [ext_resource type="Script" uid="uid://bwgd4ldaawl31" path="res://main.gd" id="1_57iuh"]
 [ext_resource type="Script" uid="uid://bgxpm5ufv70iw" path="res://world.gd" id="2_ik3te"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7825rrkstoa7" path="res://modules/larva/larva.tscn" id="4_xy117"]
 [ext_resource type="PackedScene" uid="uid://cvbkrxg3m67r3" path="res://modules/bee/bee.tscn" id="5_txdvm"]
 [ext_resource type="PackedScene" uid="uid://bveudwxn7pqsh" path="res://modules/flower/flower.tscn" id="6_2ieat"]
+[ext_resource type="PackedScene" uid="uid://jafqjj1dt1ot" path="res://modules/prestige_panel/prestige_panel.tscn" id="6_sq7yr"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="9_1njtm"]
 [ext_resource type="PackedScene" uid="uid://bfs05j5fus6qv" path="res://modules/terrain/terrain_inherited.tscn" id="9_qw60f"]
 [ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="10_gd4vy"]
@@ -43,13 +44,16 @@ mouse_filter = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-mouse_filter = 1
 
 [node name="BeeSpeciesPanel" parent="Main/HudControl" instance=ExtResource("15_qt76e")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-mouse_filter = 1
+
+[node name="PrestigePanel" parent="Main/HudControl" instance=ExtResource("6_sq7yr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
 
 [node name="WorldNode3D" type="Node3D" parent="Main"]
 unique_name_in_owner = true
