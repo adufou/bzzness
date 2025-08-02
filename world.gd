@@ -86,9 +86,57 @@ func hatch_egg(egg_position: Vector3) -> void:
 func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> void:
 	if flowers.is_empty():
 		return
+	
+	# Get bee position
+	var bee: Bee = gatherer_component.get_parent().get_parent()
+	var bee_position = bee.global_transform.origin
+	
+	# Start with a small search radius
+	var search_radius = 10.0  # Initial search radius in game units
+	var closest_flower = null
+	var max_radius = 100.0  # Maximum search radius
+	
+	# Create shape for sphere cast
+	var sphere_shape = SphereShape3D.new()
+	var space_state = get_world_3d().direct_space_state
+	
+	# Incrementally increase radius until we find at least one flower
+	while search_radius <= max_radius and closest_flower == null:
+		# Setup query with current radius
+		var query = PhysicsShapeQueryParameters3D.new()
+		sphere_shape.radius = search_radius
+		query.shape = sphere_shape
+		query.transform = Transform3D(Basis(), bee_position)
+		query.collision_mask = 2  # Match flower's layer (2)
+		query.collide_with_bodies = true
+		query.collide_with_areas = false
 		
-	var flower: Flower = flowers.values().pick_random()
-	gatherer_component.aimed_flower = flower
+		# Execute the query
+		var results = space_state.intersect_shape(query)
+		
+		if not results.is_empty():
+			# Find the closest among results
+			var closest_distance = INF
+			
+			for result in results:
+				var flower_node = result["collider"]
+				# Verify it's a flower
+				if flower_node is RigidBody3D and "pollen_remaining" in flower_node:
+					var distance = bee_position.distance_to(flower_node.global_transform.origin)
+					if distance < closest_distance:
+						closest_distance = distance
+						closest_flower = flower_node
+			
+			# If we found a flower, we're done
+			if closest_flower != null:
+				break
+		
+		# Increase radius for next attempt
+		search_radius *= 2.0
+	
+	# Assign the closest flower, or fallback to random
+	if closest_flower != null:
+		gatherer_component.aimed_flower = closest_flower
 
 func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
 	bee.hive_cells_position = %HiveCells.global_transform.origin
