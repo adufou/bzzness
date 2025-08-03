@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://m58x1hdsfs20"]
+
+[ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://modules/hud/hud.gd" id="1_rftc2"]
+[ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="2_61f8s"]
+[ext_resource type="PackedScene" uid="uid://ctrhsqvu3hsfj" path="res://modules/upgrades_panel/upgrades_panel.tscn" id="3_g10ll"]
+[ext_resource type="PackedScene" uid="uid://b3roqf50noxhk" path="res://modules/bee_species_panel/bee_species_panel.tscn" id="4_gpiub"]
+[ext_resource type="PackedScene" uid="uid://jafqjj1dt1ot" path="res://modules/prestige_panel/prestige_panel.tscn" id="5_amv7k"]
+[ext_resource type="PackedScene" uid="uid://dmv2l74d7bqyp" path="res://modules/statistics_panel/statistics_panel.tscn" id="6_1fv7p"]
+[ext_resource type="PackedScene" uid="uid://sj5heufkgjxn" path="res://modules/options_panel/options_panel.tscn" id="7_4u2vk"]
+
+[node name="HudControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_rftc2")
+
+[node name="BaseHudControl" parent="." instance=ExtResource("2_61f8s")]
+unique_name_in_owner = true
+layout_mode = 1
+mouse_filter = 1
+
+[node name="UpgradesPanelControl" parent="." instance=ExtResource("3_g10ll")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="BeeSpeciesPanel" parent="." instance=ExtResource("4_gpiub")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="PrestigePanel" parent="." instance=ExtResource("5_amv7k")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="StatisticsPanel" parent="." instance=ExtResource("6_1fv7p")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="OptionsPanel" parent="." instance=ExtResource("7_4u2vk")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
