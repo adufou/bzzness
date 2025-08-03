@@ -101,7 +101,11 @@ text = "Species"
 layout_mode = 2
 text = "Prestige"
 
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
+[node name="OpenStatisticsPanelButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
+layout_mode = 2
+text = "Statistics"
+
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer"]
 layout_mode = 2
 disabled = true
 text = "TBD"
@@ -137,4 +141,5 @@ text = "CREATE EGG"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer/OpenUpgradesButton" to="." method="_on_open_upgrades_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer/OpenSpeciesButton" to="." method="_on_open_species_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer/OpenPrestigeButton" to="." method="_on_open_prestige_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/HBoxContainer/OpenStatisticsPanelButton" to="." method="_on_open_statistics_panel_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer4/CreateEggButton" to="." method="_on_create_egg_button_pressed"]

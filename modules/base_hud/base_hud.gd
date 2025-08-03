@@ -3,6 +3,7 @@ extends Control
 signal on_open_upgrades_panel
 signal on_open_bee_species_panel
 signal on_open_prestige_panel
+signal on_open_statistics_panel
 
 func _ready() -> void:
 	%DevCheckButton.button_pressed = GameState.is_dev_mode
@@ -27,6 +28,9 @@ func _on_open_species_button_pressed() -> void:
 
 func _on_open_prestige_button_pressed() -> void:
 	on_open_prestige_panel.emit()
+
+func _on_open_statistics_panel_button_pressed() -> void:
+	on_open_statistics_panel.emit()
 
 func _on_dev_check_button_toggled(toggled_on: bool) -> void:
 	GameState.is_dev_mode = toggled_on
