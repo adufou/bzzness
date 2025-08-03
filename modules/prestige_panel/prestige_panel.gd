@@ -18,6 +18,10 @@ func _update_current_royal_jelly_labels(royal_jelly: int) -> void:
 	var percent_increase_str: String = "%0.2f" % percent_increase
 	%CurrentRoyalJellyDescriptionLabel.text = "Your Royal Jelly provide you with a +" + percent_increase_str + "% increase in honey produced"
 
+	var individual_increase: float = AttributesConstants.BASE_MULTIPLIER_BY_ROYAL_JELLY_HONEY * 100
+	var individual_increase_str: String = "%0.2f" % individual_increase
+	%RoyalJellyDescriptionLabel.text = "Each Royal Jelly grants +" + individual_increase_str + "%"
+
 func _update_next_prestige_reward(_new_current_prestige_total_honey: float = 0.0) -> void:
 	prestige_reward = Prestige.compute_prestige_reward()
 	

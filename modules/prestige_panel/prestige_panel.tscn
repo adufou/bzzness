@@ -72,6 +72,14 @@ layout_mode = 2
 text = "0 Royal Jelly"
 horizontal_alignment = 1
 
+[node name="RoyalJellyDescriptionLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/UpgradesMarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Each Royal Jelly provide you with a +10% increase"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="CurrentRoyalJellyDescriptionLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/UpgradesMarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
