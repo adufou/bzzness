@@ -9,14 +9,19 @@ signal on_update_current_prestige_time_played(time_played: int)
 
 ##################### |------- GOODS -------| #####################
 ### ----- Goods ----- ###
+signal on_update_current_prestige_total_honey(honey: float)
 signal on_update_total_pollen(pollen: float)
 signal on_update_total_honey(honey: float)
 
 #################################### |---------------[ ENUMS ]---------------| ####################################
 enum StatisticsEnum {
+	# |------- Time -------| #
 	TOTAL_TIME_PLAYED,
 	CURRENT_SPECIES_TIME_PLAYED,
 	CURRENT_PRESTIGE_TIME_PLAYED,
+	
+	# |------- Goods -------| #
+	CURRENT_PRESTIGE_TOTAL_HONEY,
 	TOTAL_POLLEN,
 	TOTAL_HONEY,
 }
@@ -67,6 +72,14 @@ var _STATISTICS: Dictionary = {
 		value_prefix = "",
 		value_suffix = "s",
 	},
+	StatisticsEnum.CURRENT_PRESTIGE_TOTAL_HONEY: {
+		display_name = "Current Prestige Total Honey",
+		statistics_type = StatisticsType.GOODS,
+		update_signal = on_update_current_prestige_total_honey,
+		value = 0,
+		value_prefix = "",
+		value_suffix = "",
+	},
 	StatisticsEnum.TOTAL_POLLEN: {
 		display_name = "Total Pollen",
 		statistics_type = StatisticsType.GOODS,
@@ -103,6 +116,11 @@ var current_prestige_time_played: int:
 		on_update_current_prestige_time_played.emit(value)
 
 ### ----- Goods ----- ###
+var current_prestige_total_honey: float:
+	set(value):
+		current_prestige_total_honey = value
+		on_update_current_prestige_total_honey.emit(value)
+
 var total_pollen: float:
 	set(value):
 		total_pollen = value
@@ -120,13 +138,14 @@ func _ready() -> void:
 	current_prestige_time_played = 0
 	total_pollen = 0
 	total_honey = 0
+	current_prestige_total_honey = 0
 
 #################################### |---------------[ METHODS ]---------------| ####################################
 func get_statistic_display_name(statistic_enum: Statistics.StatisticsEnum) -> String:
 	return _STATISTICS[statistic_enum].display_name
 	
 func get_statistic_display_value(statistic_enum: Statistics.StatisticsEnum) -> String:
-	var value_str: String = "%0.2f" % _get_statistic_value(statistic_enum)
+	var value_str: String = "%0.2f" % get_statistic_value(statistic_enum)
 	return _STATISTICS[statistic_enum].value_prefix + value_str + _STATISTICS[statistic_enum].value_suffix
 
 func get_statistic_update_signal(statistic_enum: Statistics.StatisticsEnum) -> Signal:
@@ -135,11 +154,12 @@ func get_statistic_update_signal(statistic_enum: Statistics.StatisticsEnum) -> S
 func get_statistic_type(statistic_enum: Statistics.StatisticsEnum) -> Statistics.StatisticsType:
 	return _STATISTICS[statistic_enum].statistics_type
 
-func _get_statistic_value(statistic_enum: Statistics.StatisticsEnum) -> float:
+func get_statistic_value(statistic_enum: Statistics.StatisticsEnum) -> float:
 	match statistic_enum:
 		StatisticsEnum.TOTAL_TIME_PLAYED: return total_time_played
 		StatisticsEnum.CURRENT_SPECIES_TIME_PLAYED: return current_species_time_played
 		StatisticsEnum.CURRENT_PRESTIGE_TIME_PLAYED: return current_prestige_time_played
+		StatisticsEnum.CURRENT_PRESTIGE_TOTAL_HONEY: return current_prestige_total_honey
 		StatisticsEnum.TOTAL_POLLEN: return total_pollen
 		StatisticsEnum.TOTAL_HONEY: return total_honey
 	

@@ -50,6 +50,7 @@ func _process_honey_factory(delta: float) -> void:
 	GameState.total_honey += total_production_of_honey
 	
 	Statistics.total_honey += total_production_of_honey
+	Statistics.current_prestige_total_honey += total_production_of_honey
 
 	GameState.honey_factory_gains_per_second = total_production_of_honey / delta
 
