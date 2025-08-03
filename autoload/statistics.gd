@@ -133,13 +133,16 @@ var total_honey: float:
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:
-	initialize()
+	initialize(Reset.ResetType.RESET_TYPE_NEW_GAME)
 
 #################################### |---------------[ METHODS ]---------------| ####################################
-func initialize() -> void:
-	_initialize_current_species_statistics()
-	_initialize_current_prestige_statistics()
-	_initialize_total_statistics()
+func initialize(reset_type: Reset.ResetType) -> void:
+	if reset_type >= Reset.ResetType.RESET_TYPE_SPECIES:
+		_initialize_current_species_statistics()
+	if reset_type >= Reset.ResetType.RESET_TYPE_PRESTIGE:
+		_initialize_current_prestige_statistics()
+	if reset_type >= Reset.ResetType.RESET_TYPE_NEW_GAME:
+		_initialize_total_statistics()
 
 func _initialize_current_species_statistics() -> void:
 	current_species_time_played = 0 

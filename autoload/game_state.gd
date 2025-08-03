@@ -218,14 +218,20 @@ var royal_jelly: int:
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:
-	initialize()
+	initialize(Reset.ResetType.RESET_TYPE_NEW_GAME)
 
 #################################### |---------------[ METHODS ]---------------| ####################################
-func initialize() -> void:
+func initialize(reset_type: Reset.ResetType) -> void:
 	is_dev_mode = OS.is_debug_build()
-	_initialize_goods()
-	_initialize_species()
-	_initialize_upgrades()
+
+	if reset_type >= Reset.ResetType.RESET_TYPE_SPECIES:
+		_initialize_goods()
+		_initialize_upgrades()
+	if reset_type >= Reset.ResetType.RESET_TYPE_PRESTIGE:
+		_initialize_species()
+	if reset_type >= Reset.ResetType.RESET_TYPE_NEW_GAME:
+		_initialize_prestige()
+		
 
 func _initialize_goods() -> void:
 	total_pollen = 0
@@ -234,6 +240,9 @@ func _initialize_goods() -> void:
 
 func _initialize_species() -> void:
 	bee_species = BeeSpecies.SpeciesEnum.MELLIFERA
+
+func _initialize_prestige() -> void:
+	royal_jelly = 0
 
 func _initialize_upgrades() -> void:
 	### ----- Tier 1 ----- ###

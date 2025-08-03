@@ -5,7 +5,7 @@ extends Node
 var _world: World
 
 func _ready() -> void:
-	Prestige.on_world_restart_requested.connect(restart)
+	Reset.on_world_restart_requested.connect(restart)
 	
 	initialize()
 	
@@ -17,4 +17,4 @@ func restart() -> void:
 	_world.queue_free()
 	initialize()
 
-	Prestige.on_world_restart_completed.emit()
+	Reset.on_world_restart_completed.emit()
