@@ -218,11 +218,24 @@ var royal_jelly: int:
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:
-	##################### |------- OPTIONS -------| #####################
-	### ----- Dev Mode ----- ###
+	initialize()
+
+#################################### |---------------[ METHODS ]---------------| ####################################
+func initialize() -> void:
 	is_dev_mode = OS.is_debug_build()
-	
-	##################### |------- UPGRADES -------| #####################
+	_initialize_goods()
+	_initialize_species()
+	_initialize_upgrades()
+
+func _initialize_goods() -> void:
+	total_pollen = 0
+	total_honey = 0
+	honey_factory_total_pollen = 0
+
+func _initialize_species() -> void:
+	bee_species = BeeSpecies.SpeciesEnum.MELLIFERA
+
+func _initialize_upgrades() -> void:
 	### ----- Tier 1 ----- ###
 	tier_1_upgrade_level_bees_carry_capacity = 0
 	tier_1_upgrade_level_bees_lifetime = 0
@@ -239,11 +252,6 @@ func _ready() -> void:
 	tier_2_upgrade_level_honey_factory_honey_by_pollen_rate = 0
 	tier_2_upgrade_level_flower_spawn_rate = 0
 
-	##################### |------- SPECIES -------| #####################
-	### ----- Species ----- ###
-	bee_species = BeeSpecies.SpeciesEnum.MELLIFERA
-
-#################################### |---------------[ METHODS ]---------------| ####################################
 func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:
 	match upgrade_name:
 		# |------- Tier 1 -------|

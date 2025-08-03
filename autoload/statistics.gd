@@ -133,14 +133,25 @@ var total_honey: float:
 
 #################################### |---------------[ READY ]---------------| ####################################
 func _ready() -> void:
-	total_time_played = 0
-	current_species_time_played = 0
-	current_prestige_time_played = 0
-	total_pollen = 0
-	total_honey = 0
-	current_prestige_total_honey = 0
+	initialize()
 
 #################################### |---------------[ METHODS ]---------------| ####################################
+func initialize() -> void:
+	_initialize_current_species_statistics()
+	_initialize_current_prestige_statistics()
+	_initialize_total_statistics()
+
+func _initialize_current_species_statistics() -> void:
+	current_species_time_played = 0 
+func _initialize_current_prestige_statistics() -> void:
+	current_prestige_time_played = 0
+	current_prestige_total_honey = 0
+	
+func _initialize_total_statistics() -> void:
+	total_time_played = 0	
+	total_pollen = 0
+	total_honey = 0
+
 func get_statistic_display_name(statistic_enum: Statistics.StatisticsEnum) -> String:
 	return _STATISTICS[statistic_enum].display_name
 	
