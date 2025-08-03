@@ -1,0 +1,38 @@
+[gd_scene load_steps=11 format=3 uid="uid://beyrxou1leg42"]
+
+[ext_resource type="Script" uid="uid://bgxpm5ufv70iw" path="res://modules/world/world.gd" id="1_wse8f"]
+[ext_resource type="PackedScene" uid="uid://ui68a8noesti" path="res://modules/egg/egg.tscn" id="2_ic0uy"]
+[ext_resource type="PackedScene" uid="uid://b7825rrkstoa7" path="res://modules/larva/larva.tscn" id="3_k3n1d"]
+[ext_resource type="PackedScene" uid="uid://cvbkrxg3m67r3" path="res://modules/bee/bee.tscn" id="4_2o6r5"]
+[ext_resource type="PackedScene" uid="uid://bveudwxn7pqsh" path="res://modules/flower/flower.tscn" id="5_70uel"]
+[ext_resource type="PackedScene" uid="uid://bfs05j5fus6qv" path="res://modules/terrain/terrain_inherited.tscn" id="6_hiqwa"]
+[ext_resource type="PackedScene" uid="uid://c6k6oe74ca04h" path="res://modules/hatchery/hatchery.tscn" id="7_2u3nc"]
+[ext_resource type="PackedScene" uid="uid://druv4qmf5xu2a" path="res://modules/nest/nest.tscn" id="8_udxuc"]
+[ext_resource type="PackedScene" uid="uid://co02rijqdttnn" path="res://modules/honey_factory/honey_factory.tscn" id="9_ikiii"]
+[ext_resource type="PackedScene" uid="uid://c0ej3f5b4nt1s" path="res://modules/hive_cells/hive_cells.tscn" id="10_cbp6q"]
+
+[node name="WorldNode3D" type="Node3D"]
+script = ExtResource("1_wse8f")
+egg_scene = ExtResource("2_ic0uy")
+larva_scene = ExtResource("3_k3n1d")
+bee_scene = ExtResource("4_2o6r5")
+flower_scene = ExtResource("5_70uel")
+
+[node name="TerrainInherited" parent="." instance=ExtResource("6_hiqwa")]
+unique_name_in_owner = true
+
+[node name="Hatchery" parent="." instance=ExtResource("7_2u3nc")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+
+[node name="Nest" parent="." instance=ExtResource("8_udxuc")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+
+[node name="HoneyFactory" parent="." instance=ExtResource("9_ikiii")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+
+[node name="HiveCells" parent="." instance=ExtResource("10_cbp6q")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)

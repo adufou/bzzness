@@ -3,6 +3,9 @@ extends Node
 signal on_prestige_reset_requested
 signal on_prestige_reset_completed
 
+signal on_world_restart_requested
+signal on_world_restart_completed
+
 func get_royal_jelly_multiplier() -> float:
 	return 1 + AttributesConstants.BASE_MULTIPLIER_BY_ROYAL_JELLY_HONEY * GameState.royal_jelly
 	
@@ -24,8 +27,6 @@ func execute_prestige_reset() -> void:
 
 	on_prestige_reset_completed.emit()
 
-	
-
 func _reset_statistics() -> void:
 	Statistics.initialize()
 
@@ -33,4 +34,5 @@ func _reset_game_state() -> void:
 	GameState.initialize()
 	
 func _reset_world() -> void:
-	pass
+	on_world_restart_requested.emit()
+	await on_world_restart_completed

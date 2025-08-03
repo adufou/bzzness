@@ -42,3 +42,4 @@ func _on_close_button_pressed() -> void:
 	
 func _on_prestige_button_pressed() -> void:
 	GameState.royal_jelly += prestige_reward
+	Prestige.execute_prestige_reset()

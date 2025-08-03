@@ -1,4 +1,5 @@
 extends Node3D
+class_name World
 
 @export var egg_scene: PackedScene
 @export var larva_scene: PackedScene
@@ -153,7 +154,7 @@ func spawn_flower() -> void:
 	flower.on_queue_free.connect(_remove_flower)
 	
 	flowers[flower_id] = flower
-	add_sibling(flower)
+	add_child(flower)
 
 func _adjust_object_position_to_terrain(object: Node3D) -> void:
 	var position = object.position
