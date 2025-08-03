@@ -23,6 +23,7 @@ Camera="*res://autoload/camera/camera.tscn"
 WorldUtils="*res://autoload/world_utils.gd"
 Statistics="*res://autoload/statistics.gd"
 Prestige="*res://autoload/prestige.gd"
+SaveSystem="*res://autoload/save_system.gd"
 
 [display]
 
