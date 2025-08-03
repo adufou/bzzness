@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjsjyxhy3uu4d"]
+[gd_scene load_steps=10 format=3 uid="uid://cjsjyxhy3uu4d"]
 
 [ext_resource type="Script" uid="uid://bwgd4ldaawl31" path="res://main.gd" id="1_57iuh"]
 [ext_resource type="PackedScene" uid="uid://jafqjj1dt1ot" path="res://modules/prestige_panel/prestige_panel.tscn" id="6_sq7yr"]
 [ext_resource type="PackedScene" uid="uid://dmv2l74d7bqyp" path="res://modules/statistics_panel/statistics_panel.tscn" id="7_r3r3k"]
 [ext_resource type="PackedScene" uid="uid://beyrxou1leg42" path="res://modules/world/world.tscn" id="8_bf3um"]
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://hud.gd" id="9_1njtm"]
+[ext_resource type="PackedScene" uid="uid://sj5heufkgjxn" path="res://modules/options_panel/options_panel.tscn" id="9_huihk"]
 [ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="10_gd4vy"]
 [ext_resource type="PackedScene" uid="uid://ctrhsqvu3hsfj" path="res://modules/upgrades_panel/upgrades_panel.tscn" id="10_tw3kd"]
 [ext_resource type="PackedScene" uid="uid://b3roqf50noxhk" path="res://modules/bee_species_panel/bee_species_panel.tscn" id="15_qt76e"]
@@ -49,6 +50,11 @@ visible = false
 layout_mode = 1
 
 [node name="StatisticsPanel" parent="Main/HudControl" instance=ExtResource("7_r3r3k")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="OptionsPanel" parent="Main/HudControl" instance=ExtResource("9_huihk")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
