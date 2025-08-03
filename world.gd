@@ -44,7 +44,7 @@ func _process_honey_factory(delta: float) -> void:
 	var cost_in_pollen: float = max_cost_in_pollen * processable_ratio
 	var production_of_honey: float = max_production_of_honey * processable_ratio
 
-	var total_production_of_honey: float = production_of_honey * BeeSpecies.get_multiplier(GameState.bee_species)
+	var total_production_of_honey: float = production_of_honey * BeeSpecies.get_multiplier(GameState.bee_species) * Prestige.get_royal_jelly_multiplier()
 	
 	GameState.honey_factory_total_pollen -= cost_in_pollen
 	GameState.total_honey += total_production_of_honey

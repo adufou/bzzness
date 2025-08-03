@@ -66,7 +66,7 @@ const _UPGRADES: Dictionary = {
 	},
 	UpgradesEnum.TIER_1_BEE_SPEED: {
 		cost_base = 0.1,
-		cost_multiplier = 1.1,
+		cost_multiplier = 1.125,
 		description = "Increases the speed of bees.",
 		display_name = "Bee Speed",
 		effect_base = 1,
@@ -88,7 +88,7 @@ const _UPGRADES: Dictionary = {
 	},
 	UpgradesEnum.TIER_1_FLOWER_SPAWN_RATE: {
 		cost_base = 0.5,
-		cost_multiplier = 1.25,
+		cost_multiplier = 1.5,
 		description = "Increases the spawn rate of flowers.",
 		display_name = "Flower Spawn Rate",
 		effect_base = 1,
@@ -99,7 +99,7 @@ const _UPGRADES: Dictionary = {
 	},
 	UpgradesEnum.TIER_1_HONEY_FACTORY_PRODUCTION_RATE: {
 		cost_base = 0.1,
-		cost_multiplier = 1.05,
+		cost_multiplier = 1.25,
 		description = "Increases the production rate of honey factory.",
 		display_name = "Honey Factory Production Rate",
 		effect_base = 1,
