@@ -31,6 +31,20 @@ const SAVEABLE_PROPERTY_TYPES = [
 	TYPE_ARRAY,
 ]
 
+const GLOBAL_EXCLUSIONS = [
+	"auto_translate_mode",
+	"editor_description",
+	"physics_interpolation_mode",
+	"process_mode",
+	"process_physics_priority",
+	"process_priority",
+	"process_thread_group",
+	"process_thread_group_order",
+	"process_thread_messages",
+	"scene_file_path",
+	"unique_name_in_owner",
+]
+
 func _ready() -> void:
 	# Load the game on startup
 	load_game()
@@ -109,14 +123,18 @@ func load_game() -> void:
 
 
 # Get all saveable properties from an object
-func get_object_saveable_properties(object: Object, exclusions: Array = []) -> Dictionary:
+func get_object_saveable_properties(object: Object, object_specific_exclusions: Array = []) -> Dictionary:
 	var data = {}
 	
 	for prop in object.get_property_list():
 		var name = prop.name
 		
+		# Skip properties that are in the global exclusions list
+		if name in GLOBAL_EXCLUSIONS:
+			continue
+
 		# Skip properties in the exclusion list
-		if name in exclusions:
+		if name in object_specific_exclusions:
 			continue
 			
 		# Skip built-in properties, script properties, and constants
