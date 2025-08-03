@@ -15,6 +15,13 @@ signal on_update_tier_1_upgrade_level_flowers_spawn_rate()
 signal on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate()
 signal on_update_tier_1_upgrade_level_honey_factory_production_rate()
 
+### ----- Tier 2 ----- ###
+signal on_update_tier_2_upgrade_level_bees_carry_capacity()
+signal on_update_tier_2_upgrade_level_bees_lifetime()
+signal on_update_tier_2_upgrade_level_honey_factory_production_rate()
+signal on_update_tier_2_upgrade_level_honey_factory_honey_by_pollen_rate()
+signal on_update_tier_2_upgrade_level_flower_spawn_rate()
+
 ##################### |------- ATTRIBUTES -------| #####################
 ### ----- Bees ----- ###
 signal on_update_bees_lifetime_seconds(value: float)
@@ -99,6 +106,36 @@ var tier_1_upgrade_level_honey_factory_production_rate: int:
 		tier_1_upgrade_level_honey_factory_production_rate = value
 		on_update_tier_1_upgrade_level_honey_factory_production_rate.emit()
 		Attributes.compute_honey_factory_production_rate_per_second()
+
+var tier_2_upgrade_level_bees_carry_capacity: int:
+	set(value):
+		tier_2_upgrade_level_bees_carry_capacity = value
+		on_update_tier_2_upgrade_level_bees_carry_capacity.emit()
+		Attributes.compute_bees_pollen_capacity()
+
+var tier_2_upgrade_level_bees_lifetime: int:
+	set(value):
+		tier_2_upgrade_level_bees_lifetime = value
+		on_update_tier_2_upgrade_level_bees_lifetime.emit()
+		Attributes.compute_bees_lifetime_seconds()
+
+var tier_2_upgrade_level_honey_factory_production_rate: int:
+	set(value):
+		tier_2_upgrade_level_honey_factory_production_rate = value
+		on_update_tier_2_upgrade_level_honey_factory_production_rate.emit()
+		Attributes.compute_honey_factory_production_rate_per_second()
+
+var tier_2_upgrade_level_honey_factory_honey_by_pollen_rate: int:
+	set(value):
+		tier_2_upgrade_level_honey_factory_honey_by_pollen_rate = value
+		on_update_tier_2_upgrade_level_honey_factory_honey_by_pollen_rate.emit()
+		Attributes.compute_honey_factory_honey_by_pollen_rate()
+
+var tier_2_upgrade_level_flower_spawn_rate: int:
+	set(value):
+		tier_2_upgrade_level_flower_spawn_rate = value
+		on_update_tier_2_upgrade_level_flower_spawn_rate.emit()
+		Attributes.compute_flowers_spawn_rate_per_second()
 
 #####################	 |------- ATTRIBUTES -------| #####################
 ### ----- Bees ----- ###
@@ -195,6 +232,13 @@ func _ready() -> void:
 	tier_1_upgrade_level_honey_factory_honey_by_pollen_rate = 0
 	tier_1_upgrade_level_honey_factory_production_rate = 0
 
+	### ----- Tier 2 ----- ###
+	tier_2_upgrade_level_bees_carry_capacity = 0
+	tier_2_upgrade_level_bees_lifetime = 0
+	tier_2_upgrade_level_honey_factory_production_rate = 0
+	tier_2_upgrade_level_honey_factory_honey_by_pollen_rate = 0
+	tier_2_upgrade_level_flower_spawn_rate = 0
+
 	##################### |------- SPECIES -------| #####################
 	### ----- Species ----- ###
 	bee_species = BeeSpecies.SpeciesEnum.MELLIFERA
@@ -202,6 +246,7 @@ func _ready() -> void:
 #################################### |---------------[ METHODS ]---------------| ####################################
 func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:
 	match upgrade_name:
+		# |------- Tier 1 -------|
 		Upgrades.UpgradesEnum.TIER_1_BEE_CARRY_CAPACITY: return tier_1_upgrade_level_bees_carry_capacity
 		Upgrades.UpgradesEnum.TIER_1_BEE_LIFETIME: return tier_1_upgrade_level_bees_lifetime
 		Upgrades.UpgradesEnum.TIER_1_BEE_SPEED: return tier_1_upgrade_level_bees_speed
@@ -210,10 +255,18 @@ func get_upgrade_level(upgrade_name: Upgrades.UpgradesEnum) -> int:
 		Upgrades.UpgradesEnum.TIER_1_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: return tier_1_upgrade_level_honey_factory_honey_by_pollen_rate
 		Upgrades.UpgradesEnum.TIER_1_HONEY_FACTORY_PRODUCTION_RATE: return tier_1_upgrade_level_honey_factory_production_rate
 		
+		# |------- Tier 2 -------|
+		Upgrades.UpgradesEnum.TIER_2_BEE_CARRY_CAPACITY: return tier_2_upgrade_level_bees_carry_capacity
+		Upgrades.UpgradesEnum.TIER_2_BEE_LIFETIME: return tier_2_upgrade_level_bees_lifetime
+		Upgrades.UpgradesEnum.TIER_2_HONEY_FACTORY_PRODUCTION_RATE: return tier_2_upgrade_level_honey_factory_production_rate
+		Upgrades.UpgradesEnum.TIER_2_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: return tier_2_upgrade_level_honey_factory_honey_by_pollen_rate
+		Upgrades.UpgradesEnum.TIER_2_FLOWER_SPAWN_RATE: return tier_2_upgrade_level_flower_spawn_rate
+		
 	return -1
 
 func set_upgrade_level(upgrade_name: Upgrades.UpgradesEnum, level: int) -> void:
 	match upgrade_name:
+		# |------- Tier 1 -------|
 		Upgrades.UpgradesEnum.TIER_1_BEE_CARRY_CAPACITY: tier_1_upgrade_level_bees_carry_capacity = level
 		Upgrades.UpgradesEnum.TIER_1_BEE_LIFETIME: tier_1_upgrade_level_bees_lifetime = level
 		Upgrades.UpgradesEnum.TIER_1_BEE_SPEED: tier_1_upgrade_level_bees_speed = level
@@ -221,9 +274,17 @@ func set_upgrade_level(upgrade_name: Upgrades.UpgradesEnum, level: int) -> void:
 		Upgrades.UpgradesEnum.TIER_1_FLOWER_SPAWN_RATE: tier_1_upgrade_level_flowers_spawn_rate = level
 		Upgrades.UpgradesEnum.TIER_1_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: tier_1_upgrade_level_honey_factory_honey_by_pollen_rate = level
 		Upgrades.UpgradesEnum.TIER_1_HONEY_FACTORY_PRODUCTION_RATE: tier_1_upgrade_level_honey_factory_production_rate = level
+		
+		# |------- Tier 2 -------|
+		Upgrades.UpgradesEnum.TIER_2_BEE_CARRY_CAPACITY: tier_2_upgrade_level_bees_carry_capacity = level
+		Upgrades.UpgradesEnum.TIER_2_BEE_LIFETIME: tier_2_upgrade_level_bees_lifetime = level
+		Upgrades.UpgradesEnum.TIER_2_HONEY_FACTORY_PRODUCTION_RATE: tier_2_upgrade_level_honey_factory_production_rate = level
+		Upgrades.UpgradesEnum.TIER_2_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: tier_2_upgrade_level_honey_factory_honey_by_pollen_rate = level
+		Upgrades.UpgradesEnum.TIER_2_FLOWER_SPAWN_RATE: tier_2_upgrade_level_flower_spawn_rate = level
 
 func get_upgrade_signal(upgrade_name: Upgrades.UpgradesEnum) -> Signal:
 	match upgrade_name:
+		# |------- Tier 1 -------|
 		Upgrades.UpgradesEnum.TIER_1_BEE_CARRY_CAPACITY: return on_update_tier_1_upgrade_level_bees_carry_capacity
 		Upgrades.UpgradesEnum.TIER_1_BEE_LIFETIME: return on_update_tier_1_upgrade_level_bees_lifetime
 		Upgrades.UpgradesEnum.TIER_1_BEE_SPEED: return on_update_tier_1_upgrade_level_bees_speed
@@ -231,5 +292,12 @@ func get_upgrade_signal(upgrade_name: Upgrades.UpgradesEnum) -> Signal:
 		Upgrades.UpgradesEnum.TIER_1_FLOWER_SPAWN_RATE: return on_update_tier_1_upgrade_level_flowers_spawn_rate
 		Upgrades.UpgradesEnum.TIER_1_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: return on_update_tier_1_upgrade_level_honey_factory_honey_by_pollen_rate
 		Upgrades.UpgradesEnum.TIER_1_HONEY_FACTORY_PRODUCTION_RATE: return on_update_tier_1_upgrade_level_honey_factory_production_rate
+		
+		# |------- Tier 2 -------|
+		Upgrades.UpgradesEnum.TIER_2_BEE_CARRY_CAPACITY: return on_update_tier_2_upgrade_level_bees_carry_capacity
+		Upgrades.UpgradesEnum.TIER_2_BEE_LIFETIME: return on_update_tier_2_upgrade_level_bees_lifetime
+		Upgrades.UpgradesEnum.TIER_2_HONEY_FACTORY_PRODUCTION_RATE: return on_update_tier_2_upgrade_level_honey_factory_production_rate
+		Upgrades.UpgradesEnum.TIER_2_HONEY_FACTORY_HONEY_BY_POLLEN_RATE: return on_update_tier_2_upgrade_level_honey_factory_honey_by_pollen_rate
+		Upgrades.UpgradesEnum.TIER_2_FLOWER_SPAWN_RATE: return on_update_tier_2_upgrade_level_flower_spawn_rate
 	
 	return Signal()
