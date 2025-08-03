@@ -7,7 +7,7 @@ const SAVE_FILE_PATH = "user://bzzness_save.json"
 const SAVE_VERSION = "1.0.0" # For future compatibility
 
 # How often to autosave (in seconds)
-@export var autosave_interval: float = 60.0
+@export var autosave_interval: float = 20.0
 var time_since_last_save: float = 0.0
 @export var autosave_enabled: bool = true
 
@@ -59,9 +59,6 @@ func save_game() -> void:
 				property_exclusions.get(autoload_name, [])
 			)
 	
-	# Save special case data that needs custom handling
-	save_data = add_special_case_data(save_data)
-	
 	# Save to file
 	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	if file:
@@ -71,19 +68,6 @@ func save_game() -> void:
 		on_game_saved.emit()
 	else:
 		push_error("Failed to save game: " + str(FileAccess.get_open_error()))
-
-# Special case handling for data that can't be automatically saved
-func add_special_case_data(save_data: Dictionary) -> Dictionary:
-	# Example: Store upgrade levels in a more structured way
-	if "gamestate" in save_data:
-		var upgrade_levels = {}
-		for upgrade in Upgrades.UpgradesEnum.values():
-			var upgrade_name = Upgrades.UpgradesEnum.keys()[upgrade]
-			upgrade_levels[upgrade_name] = GameState.get_upgrade_level(upgrade)
-		
-		save_data["gamestate"]["upgrade_levels"] = upgrade_levels
-	
-	return save_data
 
 # Main load function
 func load_game() -> void:
@@ -120,21 +104,9 @@ func load_game() -> void:
 			if save_data.has(key):
 				apply_data_to_object(autoload, save_data[key])
 	
-	# Handle special case data
-	apply_special_case_data(save_data)
-	
 	print("Game loaded successfully")
 	on_game_loaded.emit()
 
-# Special case handling for data that can't be automatically loaded
-func apply_special_case_data(save_data: Dictionary) -> void:
-	# Example: Apply upgrade levels from structured data
-	if save_data.has("gamestate") and save_data["gamestate"].has("upgrade_levels"):
-		var upgrade_levels = save_data["gamestate"]["upgrade_levels"]
-		for upgrade_name in upgrade_levels:
-			if upgrade_name in Upgrades.UpgradesEnum:
-				var upgrade_enum = Upgrades.UpgradesEnum[upgrade_name]
-				GameState.set_upgrade_level(upgrade_enum, upgrade_levels[upgrade_name])
 
 # Get all saveable properties from an object
 func get_object_saveable_properties(object: Object, exclusions: Array = []) -> Dictionary:
