@@ -81,7 +81,7 @@ func hatch_egg(egg_position: Vector3) -> void:
 	
 	larva.request_spawn_bee.connect(spawn_bee)
 	
-	add_sibling(larva)
+	add_child(larva)
 
 func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> void:
 	if flowers.is_empty():
@@ -133,7 +133,7 @@ func spawn_bee(bee_position: Vector3) -> void:
 	bee.on_deposit_pollen_to_hive_cells.connect(_handle_pollen_deposit_to_hive_cells)
 	bee.on_deposit_honey_by_pollen_factory.connect(_handle_pollen_deposit_to_honey_factory)
 	
-	add_sibling(bee)
+	add_child(bee)
 
 func _remove_flower(flower: Flower) -> void:
 	flowers.erase(flower.get_instance_id())
