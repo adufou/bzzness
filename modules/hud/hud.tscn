@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://m58x1hdsfs20"]
+[gd_scene load_steps=9 format=3 uid="uid://m58x1hdsfs20"]
 
 [ext_resource type="Script" uid="uid://ds2fpvuatq3m" path="res://modules/hud/hud.gd" id="1_rftc2"]
 [ext_resource type="PackedScene" uid="uid://goesdf0fjl26" path="res://modules/base_hud/base_hud.tscn" id="2_61f8s"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jafqjj1dt1ot" path="res://modules/prestige_panel/prestige_panel.tscn" id="5_amv7k"]
 [ext_resource type="PackedScene" uid="uid://dmv2l74d7bqyp" path="res://modules/statistics_panel/statistics_panel.tscn" id="6_1fv7p"]
 [ext_resource type="PackedScene" uid="uid://sj5heufkgjxn" path="res://modules/options_panel/options_panel.tscn" id="7_4u2vk"]
+[ext_resource type="PackedScene" uid="uid://bnxdr237e8ykn" path="res://modules/jobs_panel/jobs_panel.tscn" id="8_dyoe6"]
 
 [node name="HudControl" type="Control"]
 layout_mode = 3
@@ -46,6 +47,11 @@ visible = false
 layout_mode = 1
 
 [node name="OptionsPanel" parent="." instance=ExtResource("7_4u2vk")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="JobsPanel" parent="." instance=ExtResource("8_dyoe6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

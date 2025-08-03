@@ -1,0 +1,125 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnxdr237e8ykn"]
+
+[ext_resource type="Script" uid="uid://c3io4e1odp6h6" path="res://modules/jobs_panel/jobs_panel.gd" id="1_t08h1"]
+
+[node name="JobsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t08h1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 128
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Jobs"
+
+[node name="JobsMarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 64
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Set the weight of each job
+The job of a bee will be randomly set using this distribution"
+horizontal_alignment = 1
+
+[node name="GathererVBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/GathererVBoxContainer"]
+layout_mode = 2
+text = "Gatherer"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/GathererVBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/GathererVBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="GathererHSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/GathererVBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/GathererVBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "100"
+
+[node name="WorkerVBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/WorkerVBoxContainer"]
+layout_mode = 2
+text = "Worker"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/WorkerVBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/WorkerVBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="WorkerHSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/WorkerVBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/WorkerVBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "100"
+
+[node name="CloseJobsPanelButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/GathererVBoxContainer/HBoxContainer/GathererHSlider" to="." method="_on_gatherer_h_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/JobsMarginContainer/VBoxContainer/WorkerVBoxContainer/HBoxContainer2/WorkerHSlider" to="." method="_on_worker_h_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/CloseJobsPanelButton" to="." method="_on_close_jobs_panel_button_pressed"]

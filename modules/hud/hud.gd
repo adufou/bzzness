@@ -6,18 +6,26 @@ func _ready() -> void:
 	%BaseHudControl.on_open_statistics_panel.connect(statistics_panel_display)
 	%BaseHudControl.on_open_upgrades_panel.connect(upgrades_panel_display)
 	%BaseHudControl.on_open_options_panel.connect(options_panel_display)
+	%BaseHudControl.on_open_jobs_panel.connect(jobs_panel_display)
 
 	%BeeSpeciesPanel.on_close_species_panel.connect(bee_species_panel_hide)
 	%PrestigePanel.on_close_prestige_panel.connect(prestige_panel_hide)
 	%StatisticsPanel.on_close_statistics_panel.connect(statistics_panel_hide)
 	%UpgradesPanelControl.on_close_upgrades_panel.connect(upgrades_panel_hide)
 	%OptionsPanel.on_close_options_panel.connect(options_panel_hide)
+	%JobsPanel.on_close_jobs_panel.connect(jobs_panel_hide)
 
 func bee_species_panel_display() -> void:
 	%BeeSpeciesPanel.show()
 
 func bee_species_panel_hide() -> void:
 	%BeeSpeciesPanel.hide()
+
+func jobs_panel_display() -> void:
+	%JobsPanel.show()
+
+func jobs_panel_hide() -> void:
+	%JobsPanel.hide()
 
 func options_panel_display() -> void:
 	%OptionsPanel.show()

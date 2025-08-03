@@ -47,6 +47,11 @@ signal on_update_total_honey(value: float)
 ### ----- Honey factory ----- ###
 signal on_update_honey_factory_total_pollen(value: float)
 
+##################### |------- JOBS -------| #####################
+### ----- Jobs ----- ###
+signal on_update_gatherer_weight(value: float)
+signal on_update_worker_weight(value: float)
+
 ##################### |------- SPECIES -------| #####################
 ### ----- Species ----- ###
 signal on_update_bee_species(bee_species: BeeSpecies.SpeciesEnum)
@@ -202,6 +207,18 @@ var honey_factory_gains_per_second: float:
 		honey_factory_gains_per_second = value
 		on_update_honey_factory_gains_per_second.emit(value)
 
+##################### |------- JOBS -------| #####################
+### ----- Jobs ----- ###
+var gatherer_weight: float:
+	set(value):
+		gatherer_weight = value
+		on_update_gatherer_weight.emit(value)
+
+var worker_weight: float:
+	set(value):
+		worker_weight = value
+		on_update_worker_weight.emit(value)
+
 ##################### |------- SPECIES -------| #####################
 ### ----- Species ----- ###
 var bee_species: BeeSpecies.SpeciesEnum:
@@ -227,6 +244,7 @@ func initialize(reset_type: Reset.ResetType) -> void:
 	if reset_type >= Reset.ResetType.RESET_TYPE_SPECIES:
 		_initialize_goods()
 		_initialize_upgrades()
+		_initialize_jobs()
 	if reset_type >= Reset.ResetType.RESET_TYPE_PRESTIGE:
 		_initialize_species()
 	if reset_type >= Reset.ResetType.RESET_TYPE_NEW_GAME:
@@ -243,6 +261,10 @@ func _initialize_species() -> void:
 
 func _initialize_prestige() -> void:
 	royal_jelly = 0
+
+func _initialize_jobs() -> void:
+	gatherer_weight = 100
+	worker_weight = 100
 
 func _initialize_upgrades() -> void:
 	### ----- Tier 1 ----- ###
@@ -318,3 +340,10 @@ func get_upgrade_signal(upgrade_name: Upgrades.UpgradesEnum) -> Signal:
 		Upgrades.UpgradesEnum.TIER_2_FLOWER_SPAWN_RATE: return on_update_tier_2_upgrade_level_flower_spawn_rate
 	
 	return Signal()
+
+func get_job_weight(job: BeeJobsComponent.Jobs) -> float:
+	match job:
+		BeeJobsComponent.Jobs.GATHERER: return gatherer_weight
+		BeeJobsComponent.Jobs.WORKER: return worker_weight
+		
+	return 0
