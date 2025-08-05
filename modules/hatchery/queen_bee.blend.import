@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c4j7grl6g3iog"
-path="res://.godot/imported/hatchery.blend-2b6caaa9e4ed9b80afef91dc7caf8a2a.scn"
+uid="uid://mb7u7dmyy2cs"
+path="res://.godot/imported/queen_bee.blend-0eb5dd356520789f491c0b8a07c3ef25.scn"
 
 [deps]
 
-source_file="res://modules/hatchery/hatchery.blend"
-dest_files=["res://.godot/imported/hatchery.blend-2b6caaa9e4ed9b80afef91dc7caf8a2a.scn"]
+source_file="res://modules/hatchery/queen_bee.blend"
+dest_files=["res://.godot/imported/queen_bee.blend-0eb5dd356520789f491c0b8a07c3ef25.scn"]
 
 [params]
 

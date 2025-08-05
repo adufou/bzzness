@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6k6oe74ca04h"]
 
-[ext_resource type="PackedScene" uid="uid://c4j7grl6g3iog" path="res://modules/hatchery/hatchery.blend" id="1_mqel2"]
+[ext_resource type="PackedScene" uid="uid://mb7u7dmyy2cs" path="res://modules/hatchery/queen_bee.blend" id="1_0ys3f"]
 [ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="2_4odqh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qwhpj"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wlqdx"]
 
 [node name="HatcheryStaticBody3D" type="StaticBody3D"]
 
-[node name="hatchery" parent="." instance=ExtResource("1_mqel2")]
+[node name="queen_bee" parent="." instance=ExtResource("1_0ys3f")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-shape = SubResource("BoxShape3D_qwhpj")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_wlqdx")
 
 [node name="CameraFacingLabel3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

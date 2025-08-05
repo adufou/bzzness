@@ -23,11 +23,11 @@ unique_name_in_owner = true
 
 [node name="Hatchery" parent="." instance=ExtResource("7_2u3nc")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -8)
+transform = Transform3D(-0.859174, 0, -0.511683, 0, 1, 0, 0.511683, 0, -0.859174, 8, 0, -8)
 
 [node name="Nest" parent="." instance=ExtResource("8_udxuc")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+transform = Transform3D(0.936348, 0, -0.351074, 0, 1, 0, 0.351074, 0, 0.936348, 8.74739, -0.12296, 3.76211)
 
 [node name="HoneyFactory" parent="." instance=ExtResource("9_ikiii")]
 unique_name_in_owner = true
