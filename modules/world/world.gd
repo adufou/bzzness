@@ -56,7 +56,7 @@ func _process_honey_factory(delta: float) -> void:
 	GameState.honey_factory_gains_per_second = total_production_of_honey / delta
 
 func _get_egg_position() -> Vector3:
-	var hatchery_position: Vector3 = %Hatchery.global_transform.origin
+	var hatchery_position: Vector3 = %QueenChamber.global_transform.origin
 	
 	# Return a position in a circle around the hatchery of radius 10, excluding and 3 radius circle inside
 	var angle = randf() * 2 * PI
@@ -77,7 +77,7 @@ func hatch_egg(egg_position: Vector3) -> void:
 	larva.position = egg_position
 	_adjust_object_position_to_terrain(larva)
 	
-	larva.hatchery_position = %Nest.global_transform.origin
+	larva.hatchery_position = %LarvaeFeeder.global_transform.origin
 	
 	larva.request_spawn_bee.connect(spawn_bee)
 	
@@ -111,7 +111,7 @@ func _assign_flower_to_gatherer_bee(gatherer_component: GathererComponent) -> vo
 		gatherer_component.aimed_flower = closest_flower
 
 func _assign_hive_cells_position_to_bee(bee: Bee) -> void:
-	bee.hive_cells_position = %HiveCells.global_transform.origin
+	bee.hive_cells_position = %Storage.global_transform.origin
 
 func _assign_honey_factory_position_to_worker_bee(worker_component: WorkerComponent) -> void:
 	worker_component.honey_factory_position = %HoneyFactory.global_transform.origin

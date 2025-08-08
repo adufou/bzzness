@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6k6oe74ca04h"]
+
+[ext_resource type="PackedScene" uid="uid://de06lwtb5uvf6" path="res://modules/queen_chamber/queen_chamber.blend" id="1_sf6py"]
+[ext_resource type="PackedScene" uid="uid://mb7u7dmyy2cs" path="res://modules/queen_chamber/queen_bee.blend" id="2_y5vck"]
+[ext_resource type="Script" uid="uid://c8rwsqhfnyuty" path="res://modules/camera_facing_label_3d/camera_facing_label_3d.gd" id="3_i3xj3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wlqdx"]
+
+[node name="QueenChamberStaticBody3D" type="StaticBody3D"]
+
+[node name="queen_chamber" parent="." instance=ExtResource("1_sf6py")]
+
+[node name="queen_bee" parent="." instance=ExtResource("2_y5vck")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_wlqdx")
+
+[node name="CameraFacingLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+text = "Queen Chamber"
+script = ExtResource("3_i3xj3")
+metadata/_custom_type_script = "uid://c8rwsqhfnyuty"

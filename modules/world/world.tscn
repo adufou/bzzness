@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cvbkrxg3m67r3" path="res://modules/bee/bee.tscn" id="4_2o6r5"]
 [ext_resource type="PackedScene" uid="uid://bveudwxn7pqsh" path="res://modules/flower/flower.tscn" id="5_70uel"]
 [ext_resource type="PackedScene" uid="uid://bfs05j5fus6qv" path="res://modules/terrain/terrain_inherited.tscn" id="6_hiqwa"]
-[ext_resource type="PackedScene" uid="uid://c6k6oe74ca04h" path="res://modules/hatchery/hatchery.tscn" id="7_2u3nc"]
-[ext_resource type="PackedScene" uid="uid://druv4qmf5xu2a" path="res://modules/nest/nest.tscn" id="8_udxuc"]
+[ext_resource type="PackedScene" uid="uid://c6k6oe74ca04h" path="res://modules/queen_chamber/queen_chamber.tscn" id="7_2u3nc"]
+[ext_resource type="PackedScene" uid="uid://druv4qmf5xu2a" path="res://modules/larvae_feeder/larvae_feeder.tscn" id="8_udxuc"]
 [ext_resource type="PackedScene" uid="uid://co02rijqdttnn" path="res://modules/honey_factory/honey_factory.tscn" id="9_ikiii"]
-[ext_resource type="PackedScene" uid="uid://c0ej3f5b4nt1s" path="res://modules/hive_cells/hive_cells.tscn" id="10_cbp6q"]
+[ext_resource type="PackedScene" uid="uid://c0ej3f5b4nt1s" path="res://modules/storage/storage.tscn" id="10_cbp6q"]
 
 [node name="WorldNode3D" type="Node3D"]
 script = ExtResource("1_wse8f")
@@ -21,18 +21,18 @@ flower_scene = ExtResource("5_70uel")
 [node name="TerrainInherited" parent="." instance=ExtResource("6_hiqwa")]
 unique_name_in_owner = true
 
-[node name="Hatchery" parent="." instance=ExtResource("7_2u3nc")]
+[node name="QueenChamber" parent="." instance=ExtResource("7_2u3nc")]
 unique_name_in_owner = true
 transform = Transform3D(-0.859174, 0, -0.511683, 0, 1, 0, 0.511683, 0, -0.859174, 8, 0, -8)
 
-[node name="Nest" parent="." instance=ExtResource("8_udxuc")]
+[node name="LarvaeFeeder" parent="." instance=ExtResource("8_udxuc")]
 unique_name_in_owner = true
-transform = Transform3D(0.936348, 0, -0.351074, 0, 1, 0, 0.351074, 0, 0.936348, 8.74739, -0.12296, 3.76211)
+transform = Transform3D(-0.910345, 0, -0.413851, 0, 1, 0, 0.413851, 0, -0.910345, 2.74739, 0.725244, 10.7621)
 
 [node name="HoneyFactory" parent="." instance=ExtResource("9_ikiii")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -8)
+transform = Transform3D(0.924433, 0, 0.381345, 0, 1, 0, -0.381345, 0, 0.924433, -7.32216, 0, -6.51217)
 
-[node name="HiveCells" parent="." instance=ExtResource("10_cbp6q")]
+[node name="Storage" parent="." instance=ExtResource("10_cbp6q")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -16.848, 0, 17.8308)
